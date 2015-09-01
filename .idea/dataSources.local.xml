@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails SGAM.Elfec.web: development" uuid="cb7251d8-c1eb-4657-9185-c5c8779b4b7f">
+      <secret-storage>master_key</secret-storage>
+      <user-name>drodriguezd</user-name>
+      <schema-pattern>sgam.pg_catalog sgam.public</schema-pattern>
+      <default-schemas>sgam.pg_catalog sgam.public</default-schemas>
+    </data-source>
+    <data-source name="Rails SGAM.Elfec.web: test" uuid="7d62bcf6-fc64-4e1e-8972-de4978551be4">
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails SGAM.Elfec.web: production" uuid="7896302f-e903-4944-a4f6-b8ce2b21d274">
+      <first-sync>true</first-sync>
+      <user-name>drodriguezd</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddff9dfeddfebdfe7dff5dfefdfe6dfecdfefdfe9dff5dffddfefdfe8dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>
