@@ -7,10 +7,31 @@ describe User do
 
   it { should respond_to(:username) }
   it { should respond_to(:password) }
+  # we test the user actually respond to this attribute
+  it { should respond_to(:auth_token) }
   it { should be_valid }
 
   describe "Cuando no hay username" do
     it { should validate_presence_of(:username) }
     it { should validate_uniqueness_of(:username) }
+  end
+
+  describe "Auth token es unico" do
+    # we test the auth_token is unique
+    it { should validate_uniqueness_of(:auth_token)}
+  end
+
+  describe "#generate_authentication_token!" do
+    it "generates a unique token" do
+      Devise.stub(:friendly_token).and_return("auniquetoken123")
+      @user.generate_authentication_token!
+      expect(@user.auth_token).to eql "auniquetoken123"
+    end
+
+    it "Genera otro token cuando uno ya existe" do
+      existing_user = FactoryGirl.create(:user, auth_token: "auniquetoken123")
+      @user.generate_authentication_token!
+      expect(@user.auth_token).not_to eql existing_user.auth_token
+    end
   end
 end
