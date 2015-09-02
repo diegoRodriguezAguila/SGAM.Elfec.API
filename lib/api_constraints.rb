@@ -5,6 +5,6 @@ class ApiConstraints
   end
 
   def matches?(req)
-    @default || req.headers['Accept'].include?("application/api.sgam.elfec.v#{@version}")
+    @default || req.headers['Accept'].include?("application/sgam.elfec.v#{@version}")
   end
 end

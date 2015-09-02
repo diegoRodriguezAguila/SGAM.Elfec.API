@@ -41,5 +41,10 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
 #Api gems
 gem 'active_model_serializers'
+#Gem for API authentication
+gem "devise"
+#Gem for API management and versioning
+gem 'rocket_pants', '~> 1.9.2'
