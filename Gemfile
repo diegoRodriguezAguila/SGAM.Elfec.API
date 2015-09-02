@@ -47,5 +47,6 @@ end
 gem 'active_model_serializers'
 #Gem for API authentication
 gem "devise"
+gem 'simple_token_authentication', '~> 1.0' # see semver.org
 #Gem for API management and versioning
 gem 'rocket_pants', '~> 1.9.2'

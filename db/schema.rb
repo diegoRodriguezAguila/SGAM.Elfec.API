@@ -17,19 +17,19 @@ ActiveRecord::Schema.define(version: 20150902183057) do
   enable_extension "plpgsql"
 
   create_table "users", force: true do |t|
-    t.string   "username",            default: "", null: false
+    t.string   "username",             default: "", null: false
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",       default: 0,  null: false
+    t.integer  "sign_in_count",        default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "auth_token",          default: ""
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "authentication_token", default: ""
   end
 
-  add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
