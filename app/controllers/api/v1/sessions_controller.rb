@@ -12,4 +12,11 @@ class Api::V1::SessionsController < ApplicationController
       render json: { errors: "Usuario o password incorrectos!" }, status: 422
     end
   end
+
+  def destroy
+    user = User.find_by(authentication_token: params[:id])
+    user.generate_authentication_token!
+    user.save
+    head 204
+  end
 end
