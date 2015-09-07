@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :authentication_token, uniqueness: true
 
+  has_and_belongs_to_many :roles, join_table: :role_assignations
+
   # Busca en la base el usuario en intenta logearlo es decir, que tiene que existir el usuario
   # a nivel de postgres
   # @param [String] password

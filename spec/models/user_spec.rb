@@ -7,6 +7,7 @@ describe User do
 
   it { should respond_to(:username) }
   it { should respond_to(:password) }
+  it { should respond_to(:roles) }
   # we test the user actually respond to this attribute
   it { should respond_to(:authentication_token) }
   it { should be_valid }
