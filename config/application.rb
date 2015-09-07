@@ -27,6 +27,7 @@ module SGAMElfecWeb
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     # don't generate RSpec tests for views and helpers
+    config.encoding = "utf-8"
     config.generators do |g|
       g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
