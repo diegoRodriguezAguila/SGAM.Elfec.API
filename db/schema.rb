@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907153550) do
+ActiveRecord::Schema.define(version: 20150907212532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applications", force: true do |t|
+    t.string   "name",       null: false
+    t.string   "version",    null: false
+    t.string   "package",    null: false
+    t.text     "url",        null: false
+    t.text     "icon_url"
+    t.integer  "status",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "applications", ["name"], name: "index_applications_on_name", using: :btree
+  add_index "applications", ["package"], name: "index_applications_on_package", using: :btree
 
   create_table "role_assignations", id: false, force: true do |t|
     t.integer "role_id", null: false
@@ -26,7 +40,7 @@ ActiveRecord::Schema.define(version: 20150907153550) do
 
   create_table "roles", force: true do |t|
     t.string   "role"
-    t.string   "description"
+    t.text     "description"
     t.integer  "status"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
