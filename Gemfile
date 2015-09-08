@@ -56,3 +56,6 @@ gem 'compass-rails'
 gem 'furatto'
 gem 'font-awesome-rails'
 gem 'simple_form'
+
+#Language translations
+gem 'rails-i18n', '~> 4.0.0' # for Rails 4

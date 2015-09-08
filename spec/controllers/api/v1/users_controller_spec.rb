@@ -24,4 +24,37 @@ describe Api::V1::UsersController do
     end
 
   end
+
+  describe 'POST #create' do
+
+    context 'when is successfully created' do
+      before(:each) do
+        @user_attributes = FactoryGirl.attributes_for :user
+        post :create, { user: @user_attributes }, format: :json
+      end
+
+      it 'renders the json representation for the user record just created' do
+        expect(json_response[:username]).to eql @user_attributes[:username]
+      end
+
+      it { should respond_with 201 }
+    end
+
+    context 'when is not created' do
+      before(:each) do
+        @invalid_user_attributes = {username: '' }
+        post :create, { user: @invalid_user_attributes }, format: :json
+      end
+
+      it 'renders an errors json' do
+        expect(json_response).to have_key(:errors)
+      end
+
+      it 'renders the json errors on why the user could not be created' do
+        expect(json_response[:errors][:username]).to include 'no puede estar en blanco'
+      end
+
+      it { should respond_with 422 }
+    end
+  end
 end

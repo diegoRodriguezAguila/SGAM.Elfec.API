@@ -28,7 +28,11 @@ module SGAMElfecWeb
     # config.i18n.default_locale = :de
     # don't generate RSpec tests for views and helpers
     # ActiveModel::Serializer.config.adapter = :json_api
+    I18n.available_locales = [:en, :es]
     config.encoding = "utf-8"
+    config.time_zone = 'La Paz' # set default time zone to "La Paz" (UTC -4)
+    config.i18n.default_locale = :es # set default locale to Spanish
+
     config.generators do |g|
       g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
