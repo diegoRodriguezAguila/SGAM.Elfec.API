@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
     if user.nil?
       head 404
     else
-      render json: user.as_json, status: 200
+      render json: user, status: 200
     end
   end
 end

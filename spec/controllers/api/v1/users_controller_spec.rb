@@ -6,7 +6,7 @@ describe Api::V1::UsersController do
 
     context 'when the user exists' do
       before(:each) do
-        @real_user = FactoryGirl.create(:user, :authenticated)
+        @user = FactoryGirl.create(:user, :authenticated)
         get :show, id: @user.username
       end
       it 'returns the information about a user' do
@@ -17,7 +17,7 @@ describe Api::V1::UsersController do
 
     context "when the user doesn't exists" do
       before(:each) do
-        get :show, id: FFaker::Inernet.user_name
+        get :show, id: FFaker::Internet.user_name
       end
 
       it { should respond_with 404 }

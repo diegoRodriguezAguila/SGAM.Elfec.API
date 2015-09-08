@@ -8,7 +8,7 @@ class Api::V1::SessionsController < ApplicationController
       sign_in user, store: false
       #simple_token_generator calls automatically to ensure_authentication_token
       user.save
-      render json: user.as_json, status: 200
+      render json: user, status: 200
     else
       render json: {errors: 'El Usuario o password proporcionados no son válidos, por favor revise los datos e inténtelo nuevamente'}, status: 422
     end
