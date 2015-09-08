@@ -2,22 +2,16 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Rails SGAM.Elfec.web: development" uuid="cb7251d8-c1eb-4657-9185-c5c8779b4b7f">
-      <secret-storage>master_key</secret-storage>
       <user-name>drodriguezd</user-name>
-      <schema-pattern>sgam.pg_catalog sgam.public</schema-pattern>
-      <default-schemas>sgam.pg_catalog sgam.public</default-schemas>
+      <user-password>dfcfdfc6dfccdfcfdfc9df98df9adf9bdf9f</user-password>
     </data-source>
     <data-source name="Rails SGAM.Elfec.web: test" uuid="7d62bcf6-fc64-4e1e-8972-de4978551be4">
-      <secret-storage>master_key</secret-storage>
       <user-name>drodriguezd</user-name>
-      <schema-pattern>sgam.pg_catalog sgam.public</schema-pattern>
-      <default-schemas>sgam.pg_catalog sgam.public</default-schemas>
+      <user-password>dfcfdfc6dfccdfcfdfc9df98df9adf9bdf9f</user-password>
     </data-source>
     <data-source name="Rails SGAM.Elfec.web: production" uuid="7896302f-e903-4944-a4f6-b8ce2b21d274">
       <user-name>drodriguezd</user-name>
       <user-password>dfcfdfc6dfccdfcfdfc9df98df9adf9bdf9f</user-password>
-      <schema-pattern>sgam.pg_catalog sgam.public</schema-pattern>
-      <default-schemas>sgam.pg_catalog sgam.public</default-schemas>
     </data-source>
   </component>
 </project>

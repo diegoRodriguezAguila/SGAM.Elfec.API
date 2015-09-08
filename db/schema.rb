@@ -11,14 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907212532) do
+ActiveRecord::Schema.define(version: 20150908133659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "app_versions", force: true do |t|
+    t.integer  "application_id", null: false
+    t.string   "version",        null: false
+    t.integer  "version_code",   null: false
+    t.integer  "status",         null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "app_versions", ["application_id"], name: "index_app_versions_on_application_id", using: :btree
+
   create_table "applications", force: true do |t|
     t.string   "name",       null: false
-    t.string   "version",    null: false
     t.string   "package",    null: false
     t.text     "url",        null: false
     t.text     "icon_url"
