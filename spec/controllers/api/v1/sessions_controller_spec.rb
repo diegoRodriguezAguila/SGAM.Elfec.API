@@ -20,7 +20,7 @@ describe Api::V1::SessionsController do
         expect(json_response[:authentication_token]).to eql @auth_user.authentication_token
       end
 
-      it { should respond_with 200 }
+      it { should respond_with :ok }
     end
 
     context 'when the credentials are incorrect' do
@@ -34,7 +34,7 @@ describe Api::V1::SessionsController do
         expect(json_response[:errors]).to eql 'El Usuario o password proporcionados no son válidos, por favor revise los datos e inténtelo nuevamente'
       end
 
-      it { should respond_with 422 }
+      it { should respond_with :unprocessable_entity }
     end
   end
 
@@ -46,7 +46,7 @@ describe Api::V1::SessionsController do
       delete :destroy, id: @user.authentication_token
     end
 
-    it { should respond_with 204 }
+    it { should respond_with :no_content }
 
   end
 end

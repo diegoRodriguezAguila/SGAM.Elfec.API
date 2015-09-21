@@ -8,7 +8,7 @@ class Api::V1::SessionsController < ApplicationController
       sign_in user, store: false
       #simple_token_generator calls automatically to ensure_authentication_token
       user.save
-      render json: user, status: 200
+      render json: user, status: :ok
     else
       render json: {errors: 'El Usuario o password proporcionados no son válidos, por favor revise los datos e inténtelo nuevamente'}, status: 422
     end
@@ -17,11 +17,11 @@ class Api::V1::SessionsController < ApplicationController
   def destroy
     user = User.find_by(authentication_token: params[:id])
     if user.nil?
-      head 400
+      head :bad_request
     else
       user.authentication_token = nil
       user.save
-      head 204
+      head :no_content
     end
   end
 end

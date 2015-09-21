@@ -44,18 +44,12 @@ end
 # gem 'debugger', group: [:development, :test]
 
 #Api gems
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.9.2'
 #Gem for API authentication
 gem "devise"
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
 #Gem for API management and versioning
 gem 'rocket_pants', '~> 1.9.2'
-#Gems for API Documentation
-gem 'sabisu_rails', github: "IcaliaLabs/sabisu-rails"
-gem 'compass-rails'
-gem 'furatto'
-gem 'font-awesome-rails'
-gem 'simple_form'
 
 #Language translations
 gem 'rails-i18n', '~> 4.0.0' # for Rails 4

@@ -37,7 +37,7 @@ describe Api::V1::UsersController do
         expect(json_response[:username]).to eql @user_attributes[:username]
       end
 
-      it { should respond_with 201 }
+      it { should respond_with :created }
     end
 
     context 'when is not created' do
@@ -54,7 +54,7 @@ describe Api::V1::UsersController do
         expect(json_response[:errors][:username]).to include 'no puede estar en blanco'
       end
 
-      it { should respond_with 422 }
+      it { should respond_with :unprocessable_entity }
     end
   end
 end
