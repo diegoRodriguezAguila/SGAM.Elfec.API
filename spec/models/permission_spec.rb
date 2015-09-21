@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Permission do
   let(:permission) { FactoryGirl.build :permission }
-  subject { role }
+  subject { permission }
 
   it { should respond_to(:name) }
   it { should respond_to(:description) }
