@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921200422) do
+ActiveRecord::Schema.define(version: 20150923140809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,24 @@ ActiveRecord::Schema.define(version: 20150921200422) do
 
   add_index "applications", ["name"], name: "index_applications_on_name", using: :btree
   add_index "applications", ["package"], name: "index_applications_on_package", using: :btree
+
+  create_table "devices", force: true do |t|
+    t.string   "name"
+    t.string   "imei",                                  null: false
+    t.string   "serial",                                null: false
+    t.string   "mac_address",                           null: false
+    t.string   "platform",          default: "Android", null: false
+    t.string   "os_version",                            null: false
+    t.string   "brand",                                 null: false
+    t.string   "model",                                 null: false
+    t.decimal  "screen_size"
+    t.string   "screen_resolution"
+    t.decimal  "camera"
+    t.decimal  "sd_memory_card"
+    t.integer  "status",            default: 1,         null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
 
   create_table "permissions", force: true do |t|
     t.string   "name"
