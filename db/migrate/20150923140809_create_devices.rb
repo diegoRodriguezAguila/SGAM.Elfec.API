@@ -9,6 +9,7 @@ class CreateDevices < ActiveRecord::Migration
       t.string :os_version, null: false
       t.string :brand, null: false
       t.string :model, null: false
+      t.string :phone_number
       t.decimal :screen_size
       t.string :screen_resolution
       t.decimal :camera

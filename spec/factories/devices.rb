@@ -1,17 +1,13 @@
 FactoryGirl.define do
   factory :device do
-    name "MyString"
-imei "MyString"
-serial "MyString"
-mac_address "MyString"
-platform "MyString"
-os_version "MyString"
-brand "MyString"
-model "MyString"
-screen_size "9.99"
-screen_resolution "MyString"
-camera "9.99"
-sd_memory_card "9.99"
+    name FFaker::Product.product_name
+    imei FFaker::PhoneNumber.imei
+    serial FFaker::Identification.ssn
+    mac_address FFaker::Internet.ip_v4_address
+    os_version '4.4.2'
+    brand FFaker::Product.brand
+    model FFaker::Product.model
+    phone_number FFaker::PhoneNumber.phone_number
   end
 
 end

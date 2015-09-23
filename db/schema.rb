@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150923140809) do
     t.string   "os_version",                            null: false
     t.string   "brand",                                 null: false
     t.string   "model",                                 null: false
+    t.string   "phone_number"
     t.decimal  "screen_size"
     t.string   "screen_resolution"
     t.decimal  "camera"
@@ -59,11 +60,11 @@ ActiveRecord::Schema.define(version: 20150923140809) do
   end
 
   create_table "permissions", force: true do |t|
-    t.string   "name"
+    t.string   "name",        null: false
     t.text     "description"
-    t.integer  "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "status",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "role_assignations", id: false, force: true do |t|
@@ -83,9 +84,9 @@ ActiveRecord::Schema.define(version: 20150923140809) do
   add_index "role_permissions", ["role_id", "permission_id"], name: "role_id_permission_id_index", using: :btree
 
   create_table "roles", force: true do |t|
-    t.string   "role"
+    t.string   "role",        null: false
     t.text     "description"
-    t.integer  "status"
+    t.integer  "status",      null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
