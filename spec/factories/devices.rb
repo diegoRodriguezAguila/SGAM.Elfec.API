@@ -7,7 +7,7 @@ FactoryGirl.define do
     os_version '4.4.2'
     brand FFaker::Product.brand
     model FFaker::Product.model
-    phone_number FFaker::PhoneNumber.phone_number
+    phone_number '72364556'
   end
 
 end
