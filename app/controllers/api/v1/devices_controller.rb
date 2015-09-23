@@ -7,4 +7,9 @@ class Api::V1::DevicesController < ApplicationController
       render json: device, status: :ok
     end
   end
+
+  def index
+    render json: Device.all, root: false, status: :ok
+  end
+
 end
