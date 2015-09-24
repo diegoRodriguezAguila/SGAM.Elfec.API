@@ -30,6 +30,7 @@ group :test do
   gem "factory_girl_rails"
   gem 'ffaker'
   gem "shoulda-matchers"
+  gem "luhn"
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -53,3 +54,6 @@ gem 'rocket_pants', '~> 1.9.2'
 
 #Language translations
 gem 'rails-i18n', '~> 4.0.0' # for Rails 4
+
+#Validations
+gem 'missing_validators', '~> 2.1.0'

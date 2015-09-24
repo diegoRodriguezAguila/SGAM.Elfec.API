@@ -1,0 +1,5 @@
+es:
+  errors:
+    messages:
+      imei: "con formato no válido"
+      mac_address: "no válida"

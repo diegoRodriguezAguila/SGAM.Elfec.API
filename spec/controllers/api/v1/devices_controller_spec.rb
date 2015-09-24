@@ -13,7 +13,7 @@ describe Api::V1::DevicesController do
 
     it { should respond_with 200 }
 
-    context "when the user doesn't exists" do
+    context "when the device doesn't exist" do
       before(:each) do
         get :show, id: FFaker::Internet.user_name
       end
@@ -29,7 +29,7 @@ describe Api::V1::DevicesController do
     end
 
     it 'returns 4 records from the database' do
-      expect(json_response).to have(4).items
+      expect(json_response.size).to eq (4)
     end
 
     it { should respond_with 200 }

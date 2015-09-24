@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :device do
     name {FFaker::Product.product_name}
-    imei {FFaker::PhoneNumber.imei}
+    imei {Luhn.generate(16)}
     serial {FFaker::Identification.ssn}
-    mac_address {FFaker::Internet.ip_v4_address}
+    mac_address {(1..6).map{'%0.2X'%rand(256)}.join(':')}
     os_version '4.4.2'
     brand {FFaker::Product.brand}
     model {FFaker::Product.model}
