@@ -12,7 +12,7 @@ describe Api::V1::UsersController do
       it 'returns the information about a user' do
         expect(json_response[:username]).to eql @user.username
       end
-      it { should respond_with 200 }
+      it { should respond_with :ok }
     end
 
     context "when the user doesn't exists" do
@@ -20,7 +20,7 @@ describe Api::V1::UsersController do
         get :show, id: FFaker::Internet.user_name
       end
 
-      it { should respond_with 404 }
+      it { should respond_with :not_found }
     end
 
   end

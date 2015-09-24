@@ -1,4 +1,8 @@
 es:
+  activerecord:
+    attributes:
+      device:
+        mac_address: "Dirección MAC"
   errors:
     messages:
       imei: "con formato no válido"

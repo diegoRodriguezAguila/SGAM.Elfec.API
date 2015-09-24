@@ -3,7 +3,7 @@ class Api::V1::UsersController < ApplicationController
   def show
     user = User.find_by(username: params[:id])
     if user.nil?
-      head 404
+      head :not_found
     else
       render json: user, status: :ok
     end
