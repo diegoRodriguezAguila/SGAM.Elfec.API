@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+#encoding: UTF-8
 describe Api::V1::DevicesController do
   describe 'GET #show' do
     before(:each) do
@@ -62,6 +62,42 @@ describe Api::V1::DevicesController do
 
       it 'renders the json errors on why the device could not be created' do
         expect(json_response[:errors][:imei]).to include 'no puede estar en blanco'
+      end
+
+      it { should respond_with :unprocessable_entity }
+    end
+  end
+
+  describe 'PUT/PATCH #update' do
+
+    context 'when is successfully updated' do
+      before(:each) do
+        @device = FactoryGirl.create :device
+        patch :update, { id: @device.imei,
+                         device: { name: 'ELFEC0023', phone_number: '72831222'} }, format: :json
+      end
+
+      it 'renders the json representation for the updated device' do
+        expect(json_response[:name]).to eql 'ELFEC0023'
+        expect(json_response[:phone_number]).to eql '72831222'
+      end
+
+      it { should respond_with :ok }
+    end
+
+    context 'when is not created' do
+      before(:each) do
+        @device = FactoryGirl.create :device
+        patch :update, { id: @device.imei,
+                         device: { phone_number: 'not_a_number_!2312'} }, format: :json
+      end
+
+      it 'renders an errors json' do
+        expect(json_response).to have_key(:errors)
+      end
+
+      it 'renders the json errors on why the device could not be created' do
+        expect(json_response[:errors][:phone_number]).to include 'no es un número'
       end
 
       it { should respond_with :unprocessable_entity }

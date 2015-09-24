@@ -21,6 +21,15 @@ class Api::V1::DevicesController < ApplicationController
     end
   end
 
+  def update
+    device = Device.find_by(imei: params[:id])
+    if device.update(device_params)
+      render json: device, status: :ok, location: [:api, device]
+    else
+      render json: { errors: device.errors }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def device_params
