@@ -2,8 +2,18 @@ es:
   activerecord:
     attributes:
       device:
-        mac_address: "Dirección MAC"
+        wifi_mac_address: "La dirección MAC de wifi"
+        bluetooth_mac_address: "La dirección MAC de bluetooth"
   errors:
     messages:
       imei: "con formato no válido"
       mac_address: "no válida"
+  api:
+    errors:
+      session:
+        invalid_credentials: "El Usuario o password proporcionados no son válidos, por favor revise los datos e inténtelo nuevamente"
+
+  devise:
+    failure:
+      user:
+        unauthenticated: "Error al verificar el token de autorización, no tiene permiso para acceder a la aplicación"

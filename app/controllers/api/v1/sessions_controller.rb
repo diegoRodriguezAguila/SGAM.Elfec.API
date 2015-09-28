@@ -10,7 +10,7 @@ class Api::V1::SessionsController < ApplicationController
       user.save
       render json: user, status: :ok
     else
-      render json: {errors: 'El Usuario o password proporcionados no son válidos, por favor revise los datos e inténtelo nuevamente'}, status: 422
+      render json: {errors: I18n.t(:'api.errors.session.invalid_credentials', :cascade => true)}, status: 422
     end
   end
 

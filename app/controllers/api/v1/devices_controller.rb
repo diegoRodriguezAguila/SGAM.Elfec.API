@@ -1,4 +1,6 @@
 class Api::V1::DevicesController < ApplicationController
+  acts_as_token_authentication_handler_for User
+
   def show
     device = Device.find_by(imei: params[:id])
     if device.nil?
