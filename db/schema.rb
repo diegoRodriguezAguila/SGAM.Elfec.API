@@ -42,21 +42,26 @@ ActiveRecord::Schema.define(version: 20150923140809) do
 
   create_table "devices", force: true do |t|
     t.string   "name"
-    t.string   "imei",                                  null: false
-    t.string   "serial",                                null: false
-    t.string   "mac_address",                           null: false
-    t.string   "platform",          default: "Android", null: false
-    t.string   "os_version",                            null: false
-    t.string   "brand",                                 null: false
-    t.string   "model",                                 null: false
+    t.string   "imei",                                      null: false
+    t.string   "serial",                                    null: false
+    t.string   "wifi_mac_address",                          null: false
+    t.string   "bluetooth_mac_address",                     null: false
+    t.string   "platform",              default: "Android", null: false
+    t.string   "os_version",                                null: false
+    t.string   "baseband_version",                          null: false
+    t.string   "brand",                                     null: false
+    t.string   "model",                                     null: false
     t.string   "phone_number"
+    t.string   "id_cisco_asa"
     t.decimal  "screen_size"
     t.string   "screen_resolution"
     t.decimal  "camera"
     t.decimal  "sd_memory_card"
-    t.integer  "status",            default: 1,         null: false
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.string   "gmail_account"
+    t.text     "comments"
+    t.integer  "status",                default: 2,         null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   create_table "permissions", force: true do |t|
@@ -93,6 +98,7 @@ ActiveRecord::Schema.define(version: 20150923140809) do
 
   create_table "users", force: true do |t|
     t.string   "username",             default: "", null: false
+    t.string   "authentication_token"
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",        default: 0,  null: false
     t.datetime "current_sign_in_at"
@@ -101,7 +107,6 @@ ActiveRecord::Schema.define(version: 20150923140809) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.string   "authentication_token", default: ""
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

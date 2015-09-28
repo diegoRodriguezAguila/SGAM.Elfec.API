@@ -33,9 +33,9 @@ class Api::V1::DevicesController < ApplicationController
   private
 
   def device_params
-    params.require(:device).permit(:name, :imei, :serial, :mac_address, :platform,
-                                   :os_version, :brand, :model, :phone_number, :screen_size,
-                                   :screen_resolution, :camera, :sd_memory_card, :status)
+    params.require(:device).permit(:name, :imei, :serial, :wifi_mac_address, :bluetooth_mac_address, :platform,
+                                   :os_version, :baseband_version, :brand, :model, :phone_number, :screen_size,
+                                   :screen_resolution, :camera, :sd_memory_card, :gmail_account, :comments, :status)
   end
 
 end

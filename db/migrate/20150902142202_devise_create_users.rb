@@ -3,7 +3,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table(:users) do |t|
       ## Database authenticatable
       t.string :username,              null: false, default: ""
-      t.string :authentication_token, :string, default: ""
+      t.string :authentication_token
 
 
       ## Rememberable

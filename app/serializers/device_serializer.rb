@@ -1,5 +1,6 @@
 class DeviceSerializer < ActiveModel::Serializer
-  attributes  :name, :imei, :serial, :mac_address, :platform, :os_version,
-              :brand, :model, :phone_number, :screen_size, :screen_resolution, :camera, :sd_memory_card, :status
+  attributes  :name, :imei, :serial, :wifi_mac_address, :bluetooth_mac_address, :platform, :os_version, :baseband_version,
+              :brand, :model, :phone_number, :id_cisco_asa, :screen_size, :screen_resolution, :camera, :sd_memory_card,
+              :gmail_account, :comments, :status
   self.root = false
 end
