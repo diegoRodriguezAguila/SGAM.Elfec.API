@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+permission = Permission.create(name: 'ACCESO_APP_ADMINISTRADOR',
+                               description: 'Acceso al sistema de gestión de aplicaciones móviles', status: 1)
+role = Role.create(role: 'Administrador',
+                   description: 'Rol de usuario administrador del sistema de gestión de aplicaciones', status: 1)
+role.permissions << permission
+user = User.create(name: 'drodriguezd')
+user.roles << role
