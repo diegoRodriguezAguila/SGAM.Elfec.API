@@ -8,8 +8,8 @@ class Permission < ActiveRecord::Base
 
   class << self
     Permission.names.keys.each do |key|
-      self.send(:define_method, key, -> { self.where(name: Permission.names[key]).take})
+      self.send(:define_method, key, -> { self.where(name: Permission.names[key], status: Permission.statuses[:enabled]).take})
     end
-  end #class << self
+  end
 
 end
