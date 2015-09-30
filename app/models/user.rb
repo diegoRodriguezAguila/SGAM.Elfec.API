@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   acts_as_token_authenticatable
   # Include default devise modules. Others available are:
   devise :database_authenticatable, :registerable,
-          :rememberable, :trackable
+         :rememberable, :trackable
 
   attr_accessor :password
 
@@ -20,11 +20,11 @@ class User < ActiveRecord::Base
   def valid_password?(password)
     config = Rails.configuration.database_configuration[Rails.env]
     begin
-    conn = PG::Connection.new(:dbname=>config['database'],
-                              :port=>config['port'],
-                              :host=>config['host'],
-                              :user=>self.username,
-                              :password=>password)
+      conn = PG::Connection.new(:dbname => config['database'],
+                                :port => config['port'],
+                                :host => config['host'],
+                                :user => self.username,
+                                :password => password)
     rescue PG::ConnectionBad
       false
     else
@@ -32,5 +32,19 @@ class User < ActiveRecord::Base
       self.password = password
       true
     end
+  end
+
+
+  # Verifica si es que el usuario tiene cierto permiso en alguno de sus roles
+  # @param [Permission] permission
+  # @return [Boolean]
+  def has_permission?(permission)
+    self.roles.each do |role|
+      res = Permission.joins(:roles).where(roles:{ id: role.id}, permissions: {name: permission.name})
+      if res.size > 0
+        return true
+      end
+    end
+    false
   end
 end

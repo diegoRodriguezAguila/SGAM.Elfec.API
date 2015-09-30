@@ -1,4 +1,5 @@
 class AppVersion < ActiveRecord::Base
+  enum status: [:disabled, :enabled]
   belongs_to :application
 
   validates :application, :version, :status,  presence: true

@@ -16,10 +16,17 @@ class Api::V1::DevicesController < ApplicationController
 
   def create
     device = Device.new(device_params)
+    if (!device.model.nil?)
+      device.model.upcase!
+    end
+    if (!device.brand.nil?)
+      device.brand.capitalize!
+    end
+
     if device.save
       render json: device, status: :created, location: [:api, device]
     else
-      render json: { errors: device.errors }, status: :unprocessable_entity
+      render json: {errors: device.errors}, status: :unprocessable_entity
     end
   end
 
@@ -28,7 +35,7 @@ class Api::V1::DevicesController < ApplicationController
     if device.update(device_params)
       render json: device, status: :ok, location: [:api, device]
     else
-      render json: { errors: device.errors }, status: :unprocessable_entity
+      render json: {errors: device.errors}, status: :unprocessable_entity
     end
   end
 

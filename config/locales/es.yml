@@ -11,7 +11,8 @@ es:
   api:
     errors:
       session:
-        invalid_credentials: "El Usuario o password proporcionados no son válidos, por favor revise los datos e inténtelo nuevamente"
+        invalid_credentials: "El usuario o password proporcionados no son válidos, por favor revise los datos e inténtelo nuevamente"
+        insufficient_privileges: "El usuario no tiene los privilegios suficientes para realizar la acción solicitada"
 
   devise:
     failure:
