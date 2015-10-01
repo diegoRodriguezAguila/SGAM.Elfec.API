@@ -15,9 +15,23 @@ class Device < ActiveRecord::Base
     return user.has_permission? Permission.register_device
   end
 
+  # Verifica si este dispositivo específico esn visible por cierto usuario
+  # @param [User] user
+  # @return [Boolean]
+  def viewable_by? (user)
+    return user.has_permission? Permission.view_single_device
+  end
+
+  # Verifica si el recurso de los dispositivos son visible por cierto usuario
+  # @param [User] user
+  # @return [Boolean]
+  def self.are_viewable_by? (user)
+    return user.has_permission? Permission.view_devices
+  end
+
   class << self
     Permission.names.keys.each do |key|
-      self.send(:define_method, key, -> { self.where(name: Permission.names[key], status: Permission.statuses[:enabled]).take})
+      self.send(:define_method, key, -> { self.where(name: Permission.names[key], status: Permission.statuses[:enabled]).take })
     end
   end
 

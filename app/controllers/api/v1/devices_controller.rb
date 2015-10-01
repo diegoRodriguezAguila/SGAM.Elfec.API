@@ -3,15 +3,21 @@ class Api::V1::DevicesController < ApplicationController
 
   def show
     device = Device.find_by(imei: params[:id])
+    # secondary search with name if first search fails
+    device = device.nil??Device.find_by(name: params[:id]):device
     if device.nil?
       head :not_found
     else
+      raise Exceptions::SecurityTransgression unless device.viewable_by? current_user
       render json: device, status: :ok
     end
   end
 
   def index
-    render json: Device.all, root: false, status: :ok
+    raise Exceptions::SecurityTransgression unless Device.are_viewable_by? current_user
+    filter_params = device_filter_params
+    devices = filter_params.nil?? Device.all : Device.where(filter_params)
+    render json: devices, root: false, status: :ok
   end
 
   def create
@@ -46,6 +52,10 @@ class Api::V1::DevicesController < ApplicationController
     params.require(:device).permit(:name, :imei, :serial, :wifi_mac_address, :bluetooth_mac_address, :platform,
                                    :os_version, :baseband_version, :brand, :model, :phone_number, :screen_size,
                                    :screen_resolution, :camera, :sd_memory_card, :gmail_account, :comments, :status)
+  end
+
+  def device_filter_params
+    params.permit(:platform, :os_version, :brand, :model, :gmail_account, :status)
   end
 
 end

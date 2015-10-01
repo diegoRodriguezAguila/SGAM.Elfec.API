@@ -6,13 +6,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-permission = Permission.create(name: 'admin_app_access',
+p = Permission.create(name: 'admin_app_access',
                                description: 'Acceso al sistema de gestión de aplicaciones móviles', status: 1)
-permission2 = Permission.create(name: 'register_device',
+p2 = Permission.create(name: 'register_device',
                                description: 'Registro de un nuevo dispositivo', status: 1)
+p3 = Permission.create(name: 'view_devices',
+                                description: 'Ver de todos los dispositivos', status: 1)
+p4 = Permission.create(name: 'view_single_device',
+                       description: 'Ver un dispositivo específico', status: 1)
 role = Role.create(role: 'Administrador',
                    description: 'Rol de usuario administrador del sistema de gestión de aplicaciones', status: 1)
-role.permissions << permission
-role.permissions << permission2
+role.permissions << [p, p2, p3, p4]
 user = User.create(username: 'drodriguezd')
 user.roles << role
