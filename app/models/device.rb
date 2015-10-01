@@ -29,6 +29,14 @@ class Device < ActiveRecord::Base
     return user.has_permission? Permission.view_devices
   end
 
+  # Dev sugar for query imei and name
+  # @param [String] imei
+  # @param [String] name
+  # @return [Device]
+  def self.find_by_imei_or_name (imei, name)
+    where('imei= ? OR name= ?', imei, name).first
+  end
+
   class << self
     Permission.names.keys.each do |key|
       self.send(:define_method, key, -> { self.where(name: Permission.names[key], status: Permission.statuses[:enabled]).take })

@@ -2,9 +2,8 @@ class Api::V1::DevicesController < ApplicationController
   acts_as_token_authentication_handler_for User
 
   def show
-    device = Device.find_by(imei: params[:id])
-    # secondary search with name if first search fails
-    device = device.nil??Device.find_by(name: params[:id]):device
+    # searches by imei or name
+    device = Device.find_by_imei_or_name( params[:id], params[:id])
     if device.nil?
       head :not_found
     else
