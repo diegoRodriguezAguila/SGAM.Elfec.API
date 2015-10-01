@@ -7,4 +7,18 @@ class Device < ActiveRecord::Base
   validates_inclusion_of :platform, in: ['Android']
   validates :wifi_mac_address, :bluetooth_mac_address, mac_address: true, allow_nil: true
   validates :imei, imei: true, allow_nil: true
+
+  # Verifica si el dispositivo es creable por cierto usuario
+  # @param [User] user
+  # @return [Boolean]
+  def creatable_by? (user)
+    return user.has_permission? Permission.register_device
+  end
+
+  class << self
+    Permission.names.keys.each do |key|
+      self.send(:define_method, key, -> { self.where(name: Permission.names[key], status: Permission.statuses[:enabled]).take})
+    end
+  end
+
 end

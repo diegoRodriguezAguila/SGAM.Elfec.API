@@ -16,6 +16,7 @@ class Api::V1::DevicesController < ApplicationController
 
   def create
     device = Device.new(device_params)
+    raise Exceptions::SecurityTransgression unless device.creatable_by? current_user
     if (!device.model.nil?)
       device.model.upcase!
     end

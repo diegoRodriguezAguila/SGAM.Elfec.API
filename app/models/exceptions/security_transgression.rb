@@ -1,2 +1,2 @@
-class SecurityTransgression  < StandardError
+class Exceptions::SecurityTransgression  < StandardError
 end

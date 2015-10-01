@@ -1,3 +1,3 @@
-class PermissionSerializer < ActiveModel::Serializer
+class PermissionSerializer < ModelWithStatusSerializer
   attributes :name, :description, :status
 end
