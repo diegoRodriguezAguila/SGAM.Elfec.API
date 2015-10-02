@@ -19,3 +19,8 @@ role = Role.create(role: 'Administrador',
 role.permissions << [p, p2, p3, p4]
 user = User.create(username: 'drodriguezd')
 user.roles << role
+
+Device.create(name: 'GT-S7710L', imei: '356850050784998', serial: '430ad2d097e2c098', wifi_mac_address: 'B0:DF:3A:74:61:C5',
+                   bluetooth_mac_address: 'B0:DF:3A:74:61:C4', os_version: '4.1.2', baseband_version: 'S7710LUBAND2',
+                   brand: 'Samsung', model: 'GT-S7710L', screen_size: '3.9', screen_resolution: '480x800', camera: '5.0',
+                   gmail_account: 'ssc.elfec@gmail.com', status: 2)

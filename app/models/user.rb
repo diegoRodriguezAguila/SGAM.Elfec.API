@@ -3,7 +3,7 @@ require 'pg'
 class User < ActiveRecord::Base
   acts_as_token_authenticatable
   # Include default devise modules. Others available are:
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable,
          :rememberable, :trackable
 
   attr_accessor :password
