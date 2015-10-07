@@ -13,6 +13,8 @@ es:
       session:
         invalid_credentials: "El usuario o password proporcionados no son válidos, por favor revise los datos e inténtelo nuevamente"
         insufficient_privileges: "El usuario no tiene los privilegios suficientes para realizar la acción solicitada"
+      user:
+        invalid_device_assignations: "Uno o más parámetros de la solicitud no corresponden a un usuario o dispositivos válidos, no se realizó ninguna acción"
 
   devise:
     failure:

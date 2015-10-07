@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930181001) do
+ActiveRecord::Schema.define(version: 20151007121312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,16 +77,20 @@ ActiveRecord::Schema.define(version: 20150930181001) do
   add_index "permissions", ["name"], name: "index_permissions_on_name", unique: true, using: :btree
 
   create_table "role_assignations", id: false, force: true do |t|
-    t.integer "role_id", null: false
-    t.integer "user_id", null: false
+    t.integer  "role_id",    null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "role_assignations", ["role_id", "user_id"], name: "index_role_assignations_on_role_id_and_user_id", using: :btree
   add_index "role_assignations", ["user_id", "role_id"], name: "index_role_assignations_on_user_id_and_role_id", using: :btree
 
   create_table "role_permissions", id: false, force: true do |t|
-    t.integer "permission_id", null: false
-    t.integer "role_id",       null: false
+    t.integer  "permission_id", null: false
+    t.integer  "role_id",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "role_permissions", ["permission_id", "role_id"], name: "permission_id_role_id_index", using: :btree
@@ -99,6 +103,16 @@ ActiveRecord::Schema.define(version: 20150930181001) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "user_devices", id: false, force: true do |t|
+    t.integer  "device_id",  null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_devices", ["device_id", "user_id"], name: "index_user_devices_on_device_id_and_user_id", using: :btree
+  add_index "user_devices", ["user_id", "device_id"], name: "index_user_devices_on_user_id_and_device_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",             default: "", null: false

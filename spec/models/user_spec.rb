@@ -9,6 +9,7 @@ describe User do
   it { should respond_to(:password) }
   it { should respond_to(:roles) }
   it { should have_and_belong_to_many :roles}
+  it { should have_and_belong_to_many :devices}
   # we test the user actually respond to this attribute
   it { should respond_to(:authentication_token) }
   it { should be_valid }
@@ -24,7 +25,7 @@ describe User do
   end
 
   describe '#generate_authentication_token!' do
-    it "generates a unique token" do
+    it 'generates a unique token' do
       Devise.stub(:friendly_token).and_return('auniquetoken123')
       @user.ensure_authentication_token
       expect(@user.authentication_token).to eql 'auniquetoken123'

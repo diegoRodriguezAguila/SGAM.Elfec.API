@@ -23,6 +23,7 @@ describe Device do
   it { should respond_to(:gmail_account) }
   it { should respond_to(:comments) }
   it { should respond_to(:status) }
+  it { should have_and_belong_to_many :users}
 
   describe 'Validar presencia de atributos obligatorios' do
     it { should validate_presence_of(:imei) }

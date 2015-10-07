@@ -2,14 +2,17 @@
   <dictionary name="drodriguez">
     <words>
       <w>authenticatable</w>
+      <w>authorizable</w>
       <w>baseband</w>
       <w>cisco</w>
       <w>dbname</w>
       <w>elfec</w>
       <w>gmail</w>
       <w>imei</w>
+      <w>imeis</w>
       <w>rememberable</w>
       <w>sgam</w>
+      <w>updatable</w>
     </words>
   </dictionary>
 </component>

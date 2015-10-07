@@ -8,11 +8,20 @@ class Device < ActiveRecord::Base
   validates :wifi_mac_address, :bluetooth_mac_address, mac_address: true, allow_nil: true
   validates :imei, imei: true, allow_nil: true
 
+  has_and_belongs_to_many :users, join_table: 'user_devices'
+
   # Verifica si el dispositivo es creable por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def creatable_by? (user)
     return user.has_permission? Permission.register_device
+  end
+
+  # Verifica si el dispositivo es updateable por cierto usuario
+  # @param [User] user
+  # @return [Boolean]
+  def updatable_by? (user)
+    return user.has_permission? Permission.update_device
   end
 
   # Verifica si este dispositivo específico esn visible por cierto usuario
