@@ -1,13 +1,21 @@
 es:
   activerecord:
+    errors:
+      models:
+        device:
+          attributes:
+            screen_resolution:
+              invalid: "no es válida, debe tener el formato: [ancho]x[alto]"
     attributes:
       device:
         wifi_mac_address: "La dirección MAC de wifi"
         bluetooth_mac_address: "La dirección MAC de bluetooth"
+        gmail_account: "La cuenta de Gmail"
   errors:
     messages:
       imei: "con formato no válido"
       mac_address: "no válida"
+      email: "tiene que ser una dirección de email válida"
   api:
     errors:
       session:

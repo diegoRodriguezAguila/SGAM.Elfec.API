@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8c55ca71-823a-4342-9dac-17a4d2191cca" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/device.rb" afterPath="$PROJECT_DIR$/app/models/device.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/devices_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/devices_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/es.yml" afterPath="$PROJECT_DIR$/config/locales/es.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SGAM.Elfec.web.iws" />
@@ -23,7 +21,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SGAM.Elfec.web@Development__SGAM_Elfec_web.coverage" NAME="Development: SGAM.Elfec.web Coverage Results" MODIFIED="1443711559279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="SGAM.Elfec.web" />
+    <SUITE FILE_PATH="coverage/SGAM.Elfec.web@Development__SGAM_Elfec_web.coverage" NAME="Development: SGAM.Elfec.web Coverage Results" MODIFIED="1444251607809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="SGAM.Elfec.web" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -69,8 +67,8 @@
       <file leaf-file-name="device.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/device.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6309696">
-              <caret line="46" column="57" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.4674385">
+              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -166,11 +164,11 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/db/migrate/20150921200422_create_join_table_permission_role.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20150907153550_create_join_table_role_user.rb" />
-        <option value="$PROJECT_DIR$/config/locales/es.yml" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/v1/devices_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/device.rb" />
+        <option value="$PROJECT_DIR$/config/locales/es.yml" />
       </list>
     </option>
   </component>
@@ -774,7 +772,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444232454373</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Corregido error que no se controlaba formato de modelo y marca al hacer update de un dispositivo, se implementó métodoo de validacion de formato de dispositivos">
+      <created>1444246664211</created>
+      <option name="number" value="00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1444246664211</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -787,7 +791,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17287917" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27377892" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27377892" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23087622" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -815,7 +819,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Agregado punto de acceso de api para obtener usuario" />
     <MESSAGE value="Cambios en la forma de renderizado de JSON. Ahora se usa la API de ModelSerializers" />
     <MESSAGE value="Agregado soporte de español en errores de ActiveRecord" />
     <MESSAGE value="Agreagados permisos para roles y sus specs" />
@@ -840,7 +843,8 @@
     <MESSAGE value="Agregada tabla de relación usuario-dipositivo, se cambió root de json de error de autenticación de error a errors para que cuadre con todos los demas mensajes de error" />
     <MESSAGE value="Agregado control de foreign keys para las tablas de relacion muchos a muchos" />
     <MESSAGE value="Ahora se tiene la opción de asignar uno o mas dispositivos a un usuario, asi como quitar dichas asignaciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ahora se tiene la opción de asignar uno o mas dispositivos a un usuario, asi como quitar dichas asignaciones" />
+    <MESSAGE value="Corregido error que no se controlaba formato de modelo y marca al hacer update de un dispositivo, se implementó métodoo de validacion de formato de dispositivos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corregido error que no se controlaba formato de modelo y marca al hacer update de un dispositivo, se implementó métodoo de validacion de formato de dispositivos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1199,16 +1203,8 @@
         <state vertical-scroll-proportion="0.1968162">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="e#450#521#0" expanded="true" />
+            <element signature="e#450#521#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/es.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="62" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1247,10 +1243,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/es.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17221418">
+          <caret line="7" column="60" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/device.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6309696">
-          <caret line="46" column="57" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.4674385">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding />
         </state>
       </provider>

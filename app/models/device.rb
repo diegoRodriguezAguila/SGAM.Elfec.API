@@ -7,6 +7,8 @@ class Device < ActiveRecord::Base
   validates_inclusion_of :platform, in: ['Android']
   validates :wifi_mac_address, :bluetooth_mac_address, mac_address: true, allow_nil: true
   validates :imei, imei: true, allow_nil: true
+  validates :gmail_account, email:true, allow_nil: true
+  validates_format_of :screen_resolution, with: /\A\d+[x]\d+\z/i, allow_nil: true
 
   has_and_belongs_to_many :users, join_table: 'user_devices'
 
@@ -42,6 +44,7 @@ class Device < ActiveRecord::Base
   def format_for_save!
     model.upcase! unless model.nil?
     brand.capitalize! unless brand.nil?
+    screen_resolution.downcase! unless screen_resolution.nil?
     self.screen_size = screen_size.round(2) unless screen_size.nil?
     self.camera = camera.round(2) unless camera.nil?
     self.sd_memory_card = sd_memory_card.round(2) unless sd_memory_card.nil?
