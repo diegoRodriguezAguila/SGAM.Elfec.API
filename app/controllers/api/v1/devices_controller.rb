@@ -21,12 +21,7 @@ class Api::V1::DevicesController < ApplicationController
   def create
     device = Device.new(device_params)
     raise Exceptions::SecurityTransgression unless device.creatable_by? current_user
-    if (!device.model.nil?)
-      device.model.upcase!
-    end
-    if (!device.brand.nil?)
-      device.brand.capitalize!
-    end
+    device.format_for_save!
     if device.save
       render json: device, status: :created, location: [:api, device]
     else
@@ -40,7 +35,9 @@ class Api::V1::DevicesController < ApplicationController
       head :not_found
     else
       raise Exceptions::SecurityTransgression unless device.updatable_by? current_user
-      if device.update(device_params)
+      device.attributes = device_params
+      device.format_for_save!
+      if device.save
         render json: device, status: :ok, location: [:api, device]
       else
         render json: {errors: device.errors}, status: :unprocessable_entity

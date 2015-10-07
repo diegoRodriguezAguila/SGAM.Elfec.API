@@ -18,6 +18,16 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  #region devices
+  def show_devices
+    user = User.find_by(username: params[:user_id])
+    if user.nil?
+      head :not_found
+    else
+      render json: user.devices, root: false, status: :ok
+    end
+  end
+
   def assign_devices
     user = User.find_by(username: params[:user_id])
     if user.nil?
@@ -47,6 +57,8 @@ class Api::V1::UsersController < ApplicationController
       end
     end
   end
+
+  #endregion
 
   private
 
