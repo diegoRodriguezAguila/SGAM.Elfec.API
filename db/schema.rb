@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20151007121312) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "app_versions", force: true do |t|
+  create_table "app_versions", force: :cascade do |t|
     t.integer  "application_id", null: false
     t.string   "version",        null: false
     t.integer  "version_code",   null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20151007121312) do
 
   add_index "app_versions", ["application_id"], name: "index_app_versions_on_application_id", using: :btree
 
-  create_table "applications", force: true do |t|
+  create_table "applications", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "package",    null: false
     t.text     "url",        null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20151007121312) do
   add_index "applications", ["name"], name: "index_applications_on_name", using: :btree
   add_index "applications", ["package"], name: "index_applications_on_package", using: :btree
 
-  create_table "devices", force: true do |t|
+  create_table "devices", force: :cascade do |t|
     t.string   "name"
     t.string   "imei",                                      null: false
     t.string   "serial",                                    null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20151007121312) do
 
   add_index "devices", ["imei"], name: "index_devices_on_imei", unique: true, using: :btree
 
-  create_table "permissions", force: true do |t|
+  create_table "permissions", force: :cascade do |t|
     t.string   "name",        null: false
     t.text     "description"
     t.integer  "status",      null: false
@@ -76,27 +76,27 @@ ActiveRecord::Schema.define(version: 20151007121312) do
 
   add_index "permissions", ["name"], name: "index_permissions_on_name", unique: true, using: :btree
 
-  create_table "role_assignations", id: false, force: true do |t|
+  create_table "role_assignations", id: false, force: :cascade do |t|
     t.integer  "role_id",    null: false
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "role_assignations", ["role_id", "user_id"], name: "index_role_assignations_on_role_id_and_user_id", using: :btree
-  add_index "role_assignations", ["user_id", "role_id"], name: "index_role_assignations_on_user_id_and_role_id", using: :btree
+  add_index "role_assignations", ["role_id", "user_id"], name: "index_role_assignations_on_role_id_and_user_id", unique: true, using: :btree
+  add_index "role_assignations", ["user_id", "role_id"], name: "index_role_assignations_on_user_id_and_role_id", unique: true, using: :btree
 
-  create_table "role_permissions", id: false, force: true do |t|
+  create_table "role_permissions", id: false, force: :cascade do |t|
     t.integer  "permission_id", null: false
     t.integer  "role_id",       null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
-  add_index "role_permissions", ["permission_id", "role_id"], name: "permission_id_role_id_index", using: :btree
-  add_index "role_permissions", ["role_id", "permission_id"], name: "role_id_permission_id_index", using: :btree
+  add_index "role_permissions", ["permission_id", "role_id"], name: "permission_id_role_id_index", unique: true, using: :btree
+  add_index "role_permissions", ["role_id", "permission_id"], name: "role_id_permission_id_index", unique: true, using: :btree
 
-  create_table "roles", force: true do |t|
+  create_table "roles", force: :cascade do |t|
     t.string   "role",        null: false
     t.text     "description"
     t.integer  "status",      null: false
@@ -104,17 +104,17 @@ ActiveRecord::Schema.define(version: 20151007121312) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "user_devices", id: false, force: true do |t|
+  create_table "user_devices", id: false, force: :cascade do |t|
     t.integer  "device_id",  null: false
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "user_devices", ["device_id", "user_id"], name: "index_user_devices_on_device_id_and_user_id", using: :btree
-  add_index "user_devices", ["user_id", "device_id"], name: "index_user_devices_on_user_id_and_device_id", using: :btree
+  add_index "user_devices", ["device_id", "user_id"], name: "index_user_devices_on_device_id_and_user_id", unique: true, using: :btree
+  add_index "user_devices", ["user_id", "device_id"], name: "index_user_devices_on_user_id_and_device_id", unique: true, using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "username",             default: "", null: false
     t.string   "authentication_token"
     t.datetime "remember_created_at"
@@ -130,4 +130,10 @@ ActiveRecord::Schema.define(version: 20151007121312) do
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "role_assignations", "roles"
+  add_foreign_key "role_assignations", "users"
+  add_foreign_key "role_permissions", "permissions"
+  add_foreign_key "role_permissions", "roles"
+  add_foreign_key "user_devices", "devices"
+  add_foreign_key "user_devices", "users"
 end

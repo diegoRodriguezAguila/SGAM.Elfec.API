@@ -19,7 +19,7 @@ p5 = Permission.create(name: 'update_device',
 role = Role.create(role: 'Administrador',
                    description: 'Rol de usuario administrador del sistema de gestión de aplicaciones', status: 1)
 role.permissions << [p, p2, p3, p4, p5]
-user = User.create(username: 'drodriguezd')
+user = User.create(username: 'drodriguezd', authentication_token: 'iYxx6xuQY_DDxornWgbA')
 user.roles << role
 
 Device.create(name: 'GT-S7710L', imei: '356850050784998', serial: '430ad2d097e2c098', wifi_mac_address: 'B0:DF:3A:74:61:C5',
