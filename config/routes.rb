@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       end
       resources :sessions, :only => [:create, :destroy]
       resources :devices, :only => [:show, :index, :create, :update]
+      resources :applications, :only => [:show], constraints: { :id => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ }
     end
   end
 end

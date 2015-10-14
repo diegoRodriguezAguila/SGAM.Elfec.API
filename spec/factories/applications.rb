@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :application do
-    name 'Sample App'
-    package {'com.sample.app'}
+    name {FFaker::CompanyIT.name}
+    package {FFaker::Internet.domain_name.reverse!}
     url {FFaker::Internet.http_url}
     icon_url {FFaker::Internet.http_url}
     status 1
