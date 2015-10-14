@@ -1,4 +1,5 @@
 class Api::V1::ApplicationsController < ApplicationController
+  acts_as_token_authentication_handler_for User
   def show
     # searches by package
     application = Application.find_by(package: params[:id])

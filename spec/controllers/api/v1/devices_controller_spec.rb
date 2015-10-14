@@ -1,6 +1,11 @@
 require 'spec_helper'
 #encoding: UTF-8
 describe Api::V1::DevicesController do
+  before(:each) do
+    @auth_user = FactoryGirl.create(:user, :authenticated)
+    request.headers['X-Api-Username'] = @auth_user.username
+    request.headers['X-Api-Token'] = @auth_user.authentication_token
+  end
   describe 'GET #show' do
     before(:each) do
       @device = FactoryGirl.create :device
@@ -11,14 +16,14 @@ describe Api::V1::DevicesController do
       expect(json_response[:imei]).to eql @device.imei
     end
 
-    it { should respond_with :ok }
+    it { expect(response).to have_http_status(:ok) }
 
     context "when the device doesn't exist" do
       before(:each) do
         get :show, id: FFaker::Internet.user_name
       end
 
-      it { should respond_with :not_found }
+      it { expect(response).to have_http_status(:not_found) }
     end
   end
 
@@ -32,7 +37,7 @@ describe Api::V1::DevicesController do
       expect(json_response.size).to eq (4)
     end
 
-    it { should respond_with :ok }
+    it { expect(response).to have_http_status(:ok) }
   end
 
   describe 'POST #create' do
@@ -47,7 +52,7 @@ describe Api::V1::DevicesController do
         expect(json_response[:imei]).to eql @device_attributes[:imei]
       end
 
-      it { should respond_with :created }
+      it { expect(response).to have_http_status(:created) }
     end
 
     context 'when is not created' do
@@ -64,7 +69,7 @@ describe Api::V1::DevicesController do
         expect(json_response[:errors][:imei]).to include 'no puede estar en blanco'
       end
 
-      it { should respond_with :unprocessable_entity }
+      it { expect(response).to have_http_status(:unprocessable_entity) }
     end
   end
 
@@ -82,7 +87,7 @@ describe Api::V1::DevicesController do
         expect(json_response[:phone_number]).to eql '72831222'
       end
 
-      it { should respond_with :ok }
+      it { expect(response).to have_http_status(:ok) }
     end
 
     context 'when is not created' do
@@ -100,7 +105,7 @@ describe Api::V1::DevicesController do
         expect(json_response[:errors][:phone_number]).to include 'no es un número'
       end
 
-      it { should respond_with :unprocessable_entity }
+      it { expect(response).to have_http_status(:unprocessable_entity) }
     end
   end
 end
