@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Api::V1::ApplicationsController do
 
   before(:each) do
-    @auth_user = FactoryGirl.create(:user, :authenticated)
+    @auth_user = FactoryGirl.create(:user, :authenticated, :admin)
     request.headers['X-Api-Username'] = @auth_user.username
     request.headers['X-Api-Token'] = @auth_user.authentication_token
   end

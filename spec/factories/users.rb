@@ -10,4 +10,13 @@ FactoryGirl.define do
     password {config['password']}
   end
 
+  trait   :admin do
+    after(:build) do |user|
+      user.roles << Role.find_by(role: 'Administrador')
+    end
+  end
+
+
+
+
 end
