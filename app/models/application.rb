@@ -1,8 +1,23 @@
 class Application < ActiveRecord::Base
   enum status: [:disabled, :enabled]
-  validates_presence_of :name, :package, :latest_version, :url, :status
+  validates_presence_of :name, :package, :status
   validates_uniqueness_of :name, :package
   has_many :app_versions, -> { order(version: :desc) }, dependent: :destroy
+
+  def latest_version
+    update_latest_version_values
+    @latest.nil?? 'undefined' :@latest.version
+  end
+
+  def url
+    update_latest_version_values
+    @latest.nil?? 'undefined' :@latest.url
+  end
+
+  def icon_url
+    update_latest_version_values
+    @latest.nil?? nil :@latest.icon_url
+  end
 
   # Verifica si esta aplicación específica es visible por cierto usuario
   # @param [User] user
@@ -20,12 +35,8 @@ class Application < ActiveRecord::Base
 
   # Asigna los valores de la última version actual
   def update_latest_version_values
-    latest = find_latest_version
-    if (!latest.nil?)
-      self.url = latest.url
-      self.icon_url = latest.icon_url
-      self.latest_version =latest.version
-      save
+    if (@latest.nil?)
+      @latest = find_latest_version
     end
   end
 

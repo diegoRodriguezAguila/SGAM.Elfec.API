@@ -3,9 +3,6 @@ class CreateApplications < ActiveRecord::Migration
     create_table :applications do |t|
       t.string :name, null: false
       t.string :package, null: false
-      t.string :latest_version, null:false, default: 'no asignada'
-      t.text :url, null: false, default: 'no asignada'
-      t.text :icon_url
       t.integer :status, null: false
 
       t.timestamps null: false
