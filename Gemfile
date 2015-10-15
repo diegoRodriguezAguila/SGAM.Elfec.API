@@ -27,12 +27,12 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 group :test do
-  gem "rspec-rails", "~> 3.3.0"
-  gem "rspec", "~> 3.3.0"
-  gem "factory_girl_rails"
+  gem 'rspec-rails', '~> 3.3.0'
+  gem 'rspec', '~> 3.3.0'
+  gem 'factory_girl_rails'
   gem 'ffaker'
-  gem "shoulda-matchers"
-  gem "luhn"
+  gem 'shoulda-matchers', '~> 2.8.0'
+  gem 'luhn'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,3 +1,3 @@
 class AppVersionSerializer < ModelWithStatusSerializer
-  attributes :version, :status
+  attributes :version, :url, :icon_url, :status
 end

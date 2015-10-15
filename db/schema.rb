@@ -19,7 +19,9 @@ ActiveRecord::Schema.define(version: 20151007121312) do
   create_table "app_versions", force: :cascade do |t|
     t.integer  "application_id", null: false
     t.string   "version",        null: false
-    t.integer  "version_code",   null: false
+    t.text     "url",            null: false
+    t.text     "icon_url"
+    t.integer  "version_code"
     t.integer  "status",         null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
@@ -28,13 +30,14 @@ ActiveRecord::Schema.define(version: 20151007121312) do
   add_index "app_versions", ["application_id"], name: "index_app_versions_on_application_id", using: :btree
 
   create_table "applications", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "package",    null: false
-    t.text     "url",        null: false
+    t.string   "name",                                   null: false
+    t.string   "package",                                null: false
+    t.string   "latest_version", default: "no asignada", null: false
+    t.text     "url",            default: "no asignada", null: false
     t.text     "icon_url"
-    t.integer  "status",     null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "status",                                 null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   add_index "applications", ["name"], name: "index_applications_on_name", using: :btree

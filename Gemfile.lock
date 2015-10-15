@@ -175,8 +175,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    shoulda-matchers (3.0.0)
-      activesupport (>= 4.0.0)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
     simple_token_authentication (1.10.0)
       actionmailer (>= 3.2.6, < 5)
       actionpack (>= 3.2.6, < 5)
@@ -227,7 +227,7 @@ DEPENDENCIES
   rspec-rails (~> 3.3.0)
   sass-rails (~> 4.0.3)
   sdoc
-  shoulda-matchers
+  shoulda-matchers (~> 2.8.0)
   simple_token_authentication (~> 1.0)
   turbolinks
   tzinfo-data
