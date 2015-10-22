@@ -9,7 +9,7 @@ es:
         app_version:
           attributes:
             version:
-              invalid: "ya existe una versión igual de la aplicación que está intentando subir"
+              invalid: "ya existe una versión igual (v. %{value}) de la aplicación que está intentando subir"
     attributes:
       device:
         wifi_mac_address: "La dirección MAC de wifi"
