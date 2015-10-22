@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1940867639">
+  <component name="DataSourceManagerImpl" format="xml" hash="3475973724">
     <data-source source="LOCAL" name="Rails SGAM.Elfec.web: development" uuid="cb7251d8-c1eb-4657-9185-c5c8779b4b7f">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>

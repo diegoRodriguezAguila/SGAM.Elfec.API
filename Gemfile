@@ -59,3 +59,6 @@ gem 'rails-i18n', '~> 4.0.0' # for Rails 4
 
 #Validations
 gem 'missing_validators', '~> 2.1.0'
+
+#Parse APK
+gem 'ruby_apk'

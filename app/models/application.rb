@@ -6,12 +6,12 @@ class Application < ActiveRecord::Base
 
   def latest_version
     update_latest_version_values
-    @latest.nil?? 'undefined' :@latest.version
+    @latest.nil?? I18n.t(:'api.errors.application.undefined_version', :cascade => true) :@latest.version
   end
 
   def url
     update_latest_version_values
-    @latest.nil?? 'undefined' :@latest.url
+    @latest.nil?? I18n.t(:'api.errors.application.undefined_url', :cascade => true) :@latest.url
   end
 
   def icon_url
@@ -41,6 +41,9 @@ class Application < ActiveRecord::Base
   end
 
   private
+
+
+
 
   def find_latest_version
     active_versions = app_versions.where(status: 1)

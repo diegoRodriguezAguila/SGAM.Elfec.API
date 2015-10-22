@@ -6,6 +6,10 @@ es:
           attributes:
             screen_resolution:
               invalid: "no es válida, debe tener el formato: [ancho]x[alto]"
+        app_version:
+          attributes:
+            version:
+              invalid: "ya existe una versión igual de la aplicación que está intentando subir"
     attributes:
       device:
         wifi_mac_address: "La dirección MAC de wifi"
@@ -24,6 +28,9 @@ es:
       user:
         device_assignations: "Uno o varios de los dispositivos son inválidos o las asignaciones solicitadas ya existen, no se realizó ninguna acción"
         delete_device_assignations: "Una o más asignaciones de dispositivos no son válidas, no se realizó ninguna acción"
+      application:
+        undefined_version: "no definida"
+        undefined_url: "no definida"
 
   devise:
     failure:
