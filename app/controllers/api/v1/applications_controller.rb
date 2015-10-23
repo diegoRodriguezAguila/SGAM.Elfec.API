@@ -3,6 +3,7 @@ class Api::V1::ApplicationsController < ApplicationController
   include Sortable
   include FileHelper
   include ApkIconsHelper
+  include ApkLabelHelper
 
   def show
     # searches by package
@@ -26,12 +27,11 @@ class Api::V1::ApplicationsController < ApplicationController
     apk = Android::Apk.new(params[:apk_file].path)
     manifest = apk.manifest
     app_name = manifest.label
+    app_name = apk_app_name(params[:apk_file].path) if app_name.nil?
     package_name = manifest.package_name
     version_name = manifest.version_name
     new_app = Application.find_by(package: package_name) # existe ya
-    if new_app.nil?
-      new_app = Application.new(package: package_name, status: Application.statuses[:enabled])
-    end
+    new_app = Application.new(package: package_name, status: Application.statuses[:enabled]) if new_app.nil?
     new_app.name = app_name # igual actualizamos el nombre de la app
     app_version = AppVersion.new(version: version_name, url: I18n.t(:'api.errors.application.undefined_url', :cascade => true),
                                  version_code: manifest.version_code, status: AppVersion.statuses[:enabled])
@@ -49,7 +49,6 @@ class Api::V1::ApplicationsController < ApplicationController
         render json: {errors: app_version.errors}, status: :unprocessable_entity
       end
     else
-      new_app.errors[:base] << app_version.errors
       render json: {errors: new_app.errors}, status: :unprocessable_entity
     end
   end
