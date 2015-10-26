@@ -8,7 +8,7 @@ class DeviceSerializer < ModelWithStatusSerializer
   def attributes
     data = super
     model_png = "#{model}.png"
-    model_png = 'default_device.png' if Rails.application.assets.find_asset("devices/#{model}.png").nil?
+    model_png = 'default_device.png' if Rails.application.assets.find_asset("devices/#{model_png}").nil?
     data[:icon_url] = "assets/devices/#{model_png}"
     data
   end
