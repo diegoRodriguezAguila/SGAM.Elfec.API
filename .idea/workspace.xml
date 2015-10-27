@@ -2,15 +2,13 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/app/models/device.rb" line="7" />
-    <bookmark url="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" line="34" />
+    <bookmark url="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" line="35" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c55ca71-823a-4342-9dac-17a4d2191cca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/api/applications/com.elfec.ssc/1.0.0/app.apk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/devices/default_device.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/api/applications/com.elfec.ssc/1.0.0/icons/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/images/devices/GT-S7710L.png" afterPath="$PROJECT_DIR$/app/assets/images/devices/GT-S7710L.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/serializers/device_serializer.rb" afterPath="$PROJECT_DIR$/app/serializers/device_serializer.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/images/devices/default_device.png" afterPath="$PROJECT_DIR$/app/assets/images/devices/default_device.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/es.yml" afterPath="$PROJECT_DIR$/config/locales/es.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SGAM.Elfec.web.iws" />
@@ -48,24 +46,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="applications_controller.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="applications_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="39" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.5466667">
+              <caret line="49" column="62" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="62" />
               <folding>
-                <element signature="e#1312#1377#0" expanded="true" />
+                <element signature="e#1330#1395#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="device_serializer.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/serializers/device_serializer.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4857143">
-              <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -146,12 +134,12 @@
         <option value="$PROJECT_DIR$/app/helpers/file_helper.rb" />
         <option value="$PROJECT_DIR$/app/models/application.rb" />
         <option value="$PROJECT_DIR$/app/models/app_version.rb" />
-        <option value="$PROJECT_DIR$/config/locales/es.yml" />
         <option value="C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/ruby_apk-0.7.1/lib/android/resource.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/helpers/apk_label_helper.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" />
         <option value="$PROJECT_DIR$/app/serializers/device_serializer.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" />
+        <option value="$PROJECT_DIR$/config/locales/es.yml" />
       </list>
     </option>
   </component>
@@ -230,6 +218,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SGAM.Elfec.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SGAM.Elfec.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="locales" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -454,12 +460,6 @@
       <created>1441119307959</created>
       <option name="number" value="Default" />
       <updated>1441119307959</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Se quito devise erroneamente inicializado">
-      <created>1441203615583</created>
-      <option name="number" value="00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1441203615583</updated>
     </task>
     <task id="LOCAL-00003" summary="Agregado modelo de usuario y sus tipos de validaciones">
       <created>1441207119328</created>
@@ -749,7 +749,13 @@
       <option name="project" value="LOCAL" />
       <updated>1445885488983</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Agregado default device">
+      <created>1445888252414</created>
+      <option name="number" value="00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1445888252414</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TodoView">
@@ -799,7 +805,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modificado datos de dispositivo, se borraron migraciones de eliminación y aumentado de columnas, para creación antes de producción no es necesario realizar las migraciones, mejor tener ordenado el modelo" />
     <MESSAGE value="Se hicieron pasar los specs debidamente" />
     <MESSAGE value="Se utiliza autenticación de token en el enpoint de devices" />
     <MESSAGE value="Agregado seed para tener los datos de pruebas de usuario rol y permisos" />
@@ -824,7 +829,8 @@
     <MESSAGE value="Se cambió el mensaje de versión de aplicación duplicada" />
     <MESSAGE value="Se agregó opción de obtener el apk label por medio de aapt.exe, corrigiendo asi el bug que con ciertos apks ruby_apk no lograba obtener correctamente el label" />
     <MESSAGE value="Serializador de dispositivos modificado para que provea de una imagen default si es que no existe una imagen para el modelo del dispositivo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Serializador de dispositivos modificado para que provea de una imagen default si es que no existe una imagen para el modelo del dispositivo" />
+    <MESSAGE value="Agregado default device" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregado default device" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1051,14 +1057,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/es.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27062228">
-          <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/app_version.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49204051">
@@ -1186,6 +1184,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/serializers/device_serializer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/serializers/model_with_status_serializer.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1194,21 +1200,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb">
+    <entry file="file://$PROJECT_DIR$/config/locales/es.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="39" selection-end-column="27" />
-          <folding>
-            <element signature="e#1312#1377#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.35619047">
+          <caret line="11" column="91" selection-start-line="11" selection-start-column="91" selection-end-line="11" selection-end-column="91" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/serializers/device_serializer.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4857143">
-          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-          <folding />
+        <state vertical-scroll-proportion="0.5466667">
+          <caret line="49" column="62" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="62" />
+          <folding>
+            <element signature="e#1330#1395#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

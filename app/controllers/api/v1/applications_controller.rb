@@ -24,10 +24,11 @@ class Api::V1::ApplicationsController < ApplicationController
 
 
   def create
-    apk = Android::Apk.new(params[:apk_file].path)
+    params.require(:file)
+    apk = Android::Apk.new(params[:file].path)
     manifest = apk.manifest
     app_name = manifest.label
-    app_name = apk_app_name(params[:apk_file].path) if app_name.nil?
+    app_name = apk_app_name(params[:file].path) if app_name.nil?
     package_name = manifest.package_name
     version_name = manifest.version_name
     new_app = Application.find_by(package: package_name) # existe ya
@@ -41,15 +42,15 @@ class Api::V1::ApplicationsController < ApplicationController
         app_dir = application_version_dir(package_name, version_name)
         app_dir_url = application_version_url(package_name, version_name)
         app_version.icon_url = save_icon(app_dir, app_dir_url, apk)
-        app_version.url = save_apk(app_dir, app_dir_url, params[:apk_file])
+        app_version.url = save_apk(app_dir, app_dir_url, params[:file])
         app_version.save
         new_app.app_versions << app_version
         render json: new_app, status: :created, location: [:api, new_app]
       else
-        render json: {errors: app_version.errors}, status: :unprocessable_entity
+        render json: {errors: app_version.errors.full_messages[0]}, status: :unprocessable_entity
       end
     else
-      render json: {errors: new_app.errors}, status: :unprocessable_entity
+      render json: {errors: new_app.errors.full_messages[0]}, status: :unprocessable_entity
     end
   end
 
@@ -69,7 +70,6 @@ class Api::V1::ApplicationsController < ApplicationController
     File.open(path, 'wb') { |f| f.write icon[:data] }
     "#{app_dir_url}/#{icon[:name]}"
   end
-
 
   # app filter params ?status=1
   def app_filter_params

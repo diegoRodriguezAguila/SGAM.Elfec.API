@@ -9,12 +9,16 @@ es:
         app_version:
           attributes:
             version:
-              invalid: "ya existe una versión igual (v. %{value}) de la aplicación que está intentando subir"
+              invalid: " (v. %{value}) de la aplicación que está intentando subir ya existe"
     attributes:
       device:
         wifi_mac_address: "La dirección MAC de wifi"
         bluetooth_mac_address: "La dirección MAC de bluetooth"
         gmail_account: "La cuenta de Gmail"
+      application:
+        name: "El nombre de la aplicación"
+      app_version:
+        version: "La versión"
   errors:
     messages:
       imei: "con formato no válido"
