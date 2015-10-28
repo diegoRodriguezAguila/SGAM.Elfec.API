@@ -28,11 +28,8 @@ Device.create(name: 'GT-S7710L', imei: '356850050784998', serial: '430ad2d097e2c
 app1 = Application.create!(name: 'Elfec Lecturas',
                           package: 'com.elfec.lecturas',
                           status: 1)
-app1.app_versions.create(version: '1.0.1', url: 'http://192.168.50.56:3000/applications/com.elfec.lecturas?d',
-                         icon_url: 'http://192.168.50.56:3000/assets/applications/com.elfec.lecturas.png', version_code: 1, status: 1)
+app1.app_versions.create(version: '1.0.1', version_code: 1, status: 1)
 
 app2 = Application.create!(name: 'Lecturas Gran Demanda',
                           package: 'com.elfec.lecturas.gd', status: 1)
-app2.app_versions.create!(version: '1.0.0', url: 'http://192.168.50.56:3000/applications/com.elfec.lecturas.gd?d',
-                           icon_url: 'http://192.168.50.56:3000/assets/applications/com.elfec.lecturas.gd.png',
-                           version_code: 1, status: 1)
+app2.app_versions.create!(version: '1.0.0', version_code: 1, status: 1)

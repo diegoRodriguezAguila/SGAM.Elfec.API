@@ -43,8 +43,6 @@ class Application < ActiveRecord::Base
   private
 
 
-
-
   def find_latest_version
     active_versions = app_versions.where(status: 1)
     if (active_versions.size>0)
