@@ -14,8 +14,8 @@ Rails.application.routes.draw do
       resources :sessions, :only => [:create, :destroy]
       resources :devices, :only => [:show, :index, :create, :update]
       resources :applications, :only => [:show, :index, :create], constraints: { :id => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ } do
-        get '/:version?d', to: 'applications#download_version_apk', constraints: { :version => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/}
-        get '/:version/resources/:file_name', to: 'applications#show_version_file', constraints: { :version => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/,
+        get '/:version', to: 'applications#download_version_apk', constraints: { :version => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/}
+        get '/:version/resources/:file_name', to: 'applications#show_version_res_file', constraints: { :version => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/,
                                                                                 :file_name => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/}
         get '/resources/:file_name', to: 'applications#show_res_file', constraints: { :file_name => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ }
       end

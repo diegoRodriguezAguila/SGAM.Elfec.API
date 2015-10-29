@@ -1,5 +1,5 @@
 class Api::V1::ApplicationsController < ApplicationController
-  acts_as_token_authentication_handler_for User, except: [:show_version_file, :show_file]
+  acts_as_token_authentication_handler_for User, except: [:show_version_res_file, :show_res_file]
   include Sortable, FileUrlHelper, ApkIconsHelper, ApkLabelHelper, ApplicationHelper
 
   def show
@@ -54,33 +54,38 @@ class Api::V1::ApplicationsController < ApplicationController
     end
   end
 
-  def show_version_file
-    if is_file_apk(params[:file_name])
+  def show_version_res_file
+    path = File.join(application_version_res_dir(params[:application_id], params[:version]),params[:file_name])
+    if(!File.exists? path)
       head :not_found
     else
-      send_file "#{application_version_dir(params[:application_id], params[:version])}/#{params[:file_name]}", :disposition => 'inline'
+      send_file path, :disposition => 'inline'
     end
   end
 
   def download_version_apk
-    package = params[:application_id]
-    version = params[:version]
-    application = Application.find_by(package: package)
-    if application.nil? || application.app_versions.where(version: version).size==0
-      head :not_found
+    if params.has_key?(:d)
+      package = params[:application_id]
+      version = params[:version]
+      application = Application.find_by(package: package)
+      if application.nil? || application.app_versions.where(version: version).size==0
+        head :not_found
+      else
+        send_file "#{application_version_dir(package, version)}/app.apk",
+                  filename: apk_public_file_name(package, version)
+      end
     else
-      send_file "#{application_version_dir(package, version)}/app.apk",
-                filename: apk_public_file_name(package, version)
+      head :not_acceptable
     end
   end
 
-  def show_file
+  def show_res_file
     application = Application.find_by(package: params[:application_id])
     if application.nil?
       head :not_found
     else
       params[:version] = application.latest_version
-      show_version_file
+      show_version_res_file
     end
   end
 
