@@ -21,7 +21,7 @@ module ApkIconsHelper
     icons = icons_of_apk(apk)
     icons.each do |name, data|
       if /xhdpi/ =~ name
-        return {name: 'icons/ic_launcher.png', data: data}
+        return {name: 'icon.png', data: data}
       end
     end
     # Si no tiene xhdpi se envía el

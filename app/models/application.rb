@@ -6,17 +6,7 @@ class Application < ActiveRecord::Base
 
   def latest_version
     update_latest_version_values
-    @latest.nil?? I18n.t(:'api.errors.application.undefined_version', :cascade => true) :@latest.version
-  end
-
-  def url
-    update_latest_version_values
-    @latest.nil?? I18n.t(:'api.errors.application.undefined_url', :cascade => true) :@latest.url
-  end
-
-  def icon_url
-    update_latest_version_values
-    @latest.nil?? nil :@latest.icon_url
+    read_attribute(:latest_version)
   end
 
   # Verifica si esta aplicación específica es visible por cierto usuario
@@ -37,6 +27,8 @@ class Application < ActiveRecord::Base
   def update_latest_version_values
     if (@latest.nil?)
       @latest = find_latest_version
+      write_attribute(:latest_version, @latest.nil?? I18n.t(:'api.errors.application.undefined_version', :cascade => true) : @latest.version)
+      save
     end
   end
 

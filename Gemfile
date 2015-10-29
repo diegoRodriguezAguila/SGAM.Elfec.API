@@ -47,7 +47,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 #Api gems
-gem 'active_model_serializers', '~> 0.9.2'
+gem 'active_model_serializers', '~> 0.8.2'
 #Gem for API authentication
 gem 'devise'
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
