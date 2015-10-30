@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     scope module: :v1,
         constraints: ApiConstraints.new(version: 1, default: true) do
       # We are going to list our files here
-      resources :users, :only => [:show, :create] do
+      resources :users, :only => [:show, :index, :create] do
         get '/devices', to: 'users#show_devices'
         post '/devices/:imeis', to: 'users#assign_devices'
         delete '/devices/:imeis', to: 'users#remove_device_assignations'

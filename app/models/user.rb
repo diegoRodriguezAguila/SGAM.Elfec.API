@@ -35,6 +35,27 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Verifica si un usuario es creable por cierto usuario
+  # @param [User] user
+  # @return [Boolean]
+  def creatable_by? (user)
+    user.has_permission?(Permission.register_user)
+  end
+
+  # Verifica si este usuario específico es visible por cierto usuario
+  # @param [User] user
+  # @return [Boolean]
+  def viewable_by? (user)
+    user==self || user.has_permission?(Permission.view_single_user)
+  end
+
+  # Verifica si el recurso de los usuario son visibles por cierto usuario
+  # @param [User] user
+  # @return [Boolean]
+  def self.are_viewable_by? (user)
+    user.has_permission? Permission.view_users
+  end
+
 
   # Verifica si es que el usuario tiene cierto permiso en alguno de sus roles
   # @param [Permission] permission

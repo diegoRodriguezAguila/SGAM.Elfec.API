@@ -1,16 +1,27 @@
 #encoding: UTF-8
 class Api::V1::UsersController < ApplicationController
+  acts_as_token_authentication_handler_for User
+  include Sortable
+
   def show
     user = User.find_by(username: params[:id])
     if user.nil?
       head :not_found
     else
-      render json: user, status: :ok
+      raise Exceptions::SecurityTransgression unless user.viewable_by? current_user
+      render json: user, hide_token: true, status: :ok
     end
+  end
+
+  def index
+    raise Exceptions::SecurityTransgression unless User.are_viewable_by? current_user
+    users = User.all.order(sort_params)
+    render json: users, root: false, hide_token: true, status: :ok
   end
 
   def create
     user = User.new(user_params)
+    raise Exceptions::SecurityTransgression unless user.creatable_by? current_user
     if user.save
       render json: user, status: :created, location: [:api, user]
     else

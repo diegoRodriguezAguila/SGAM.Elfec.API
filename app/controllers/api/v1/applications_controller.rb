@@ -56,7 +56,7 @@ class Api::V1::ApplicationsController < ApplicationController
 
   def show_version_res_file
     path = File.join(application_version_res_dir(params[:application_id], params[:version]),params[:file_name])
-    if(!File.exists? path)
+    if !File.exists? path
       head :not_found
     else
       send_file path, :disposition => 'inline'

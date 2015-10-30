@@ -1,5 +1,8 @@
 class Permission < ActiveRecord::Base
   enum name: {admin_app_access:       'admin_app_access',
+              register_user:        'register_user',
+              view_users:           'view_users',
+              view_single_user:     'view_single_user',
               register_device:        'register_device',
               view_devices:           'view_devices',
               view_single_device:     'view_single_device',
