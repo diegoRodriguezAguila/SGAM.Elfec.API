@@ -38,6 +38,7 @@ class Api::V1::ApplicationsController < ApplicationController
     new_app = Application.new(package: package_name, status: Application.statuses[:enabled]) if new_app.nil?
     new_app.name = app_name # igual actualizamos el nombre de la app
     app_version = AppVersion.new(version: version_name, version_code: manifest.version_code, status: AppVersion.statuses[:enabled])
+    raise Exceptions::SecurityTransgression unless new_app.creatable_by? current_user
     if new_app.save
       app_version.application = new_app
       if app_version.valid?
@@ -71,6 +72,7 @@ class Api::V1::ApplicationsController < ApplicationController
       if application.nil? || application.app_versions.where(version: version).size==0
         head :not_found
       else
+        raise Exceptions::SecurityTransgression unless application.downloadable_by? current_user
         send_file "#{application_version_dir(package, version)}/app.apk",
                   filename: apk_public_file_name(package, version)
       end

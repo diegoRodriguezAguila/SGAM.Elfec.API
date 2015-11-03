@@ -9,11 +9,25 @@ class Application < ActiveRecord::Base
     read_attribute(:latest_version)
   end
 
+  # Verifica si la aplicación es creable por cierto usuario
+  # @param [User] user
+  # @return [Boolean]
+  def creatable_by? (user)
+    return user.has_permission? Permission.register_application
+  end
+
   # Verifica si esta aplicación específica es visible por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def viewable_by? (user)
     return user.has_permission? Permission.view_single_application
+  end
+
+  # Verifica si esta aplicación es descargable por cierto usuario
+  # @param [User] user
+  # @return [Boolean]
+  def downloadable_by? (user)
+    return user.has_permission? Permission.download_application
   end
 
   # Verifica si el recurso de las aplicaciones son visible por cierto usuario

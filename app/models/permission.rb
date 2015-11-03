@@ -1,14 +1,16 @@
 class Permission < ActiveRecord::Base
   enum name: {admin_app_access:       'admin_app_access',
-              register_user:        'register_user',
-              view_users:           'view_users',
-              view_single_user:     'view_single_user',
+              register_user:          'register_user',
+              view_users:             'view_users',
+              view_single_user:       'view_single_user',
               register_device:        'register_device',
               view_devices:           'view_devices',
               view_single_device:     'view_single_device',
               update_device:          'update_device',
+              register_application:   'register_application',
               view_applications:      'view_applications',
-              view_single_application:'view_single_application'}
+              view_single_application:'view_single_application',
+              download_application:   'download_application'}
   enum status: [:disabled, :enabled]
   has_and_belongs_to_many :roles, join_table: :role_permissions
   validates :name, presence: true, uniqueness: true
