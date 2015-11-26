@@ -3,6 +3,7 @@ require 'pg'
 class User < ActiveRecord::Base
   acts_as_token_authenticatable
   # Include default devise modules. Others available are:
+  include ActiveDirectoryUserHelper
   devise :database_authenticatable,
          :rememberable, :trackable
 
@@ -19,20 +20,8 @@ class User < ActiveRecord::Base
   # @param [String] password
   # @return [Boolean]
   def valid_password?(password)
-    config = Rails.configuration.database_configuration[Rails.env]
-    begin
-      conn = PG::Connection.new(:dbname => config['database'],
-                                :port => config['port'],
-                                :host => config['host'],
-                                :user => self.username,
-                                :password => password)
-    rescue PG::ConnectionBad
-      false
-    else
-      conn.close unless conn.nil?
-      self.password = password
-      true
-    end
+    puts "BEFORE AUTHENTICATION"
+    authenticate(username, password)
   end
 
   # Verifica si un usuario es creable por cierto usuario
