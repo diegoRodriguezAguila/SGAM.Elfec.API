@@ -14,13 +14,12 @@ module ActiveDirectoryUserHelper
   # @return [String] password
   def authenticate(username, password)
     return false if username.empty? or password.empty?
-    puts "AUTENTICANDO: #{username}@#{DOMAIN} y password #{password}"
     conn = Net::LDAP.new :host => SERVER,
                          :port => PORT,
                          :base => BASE,
-                         :auth => { :username => "#{username}@#{DOMAIN}",
-                                    :password => password,
-                                    :method => :simple }
+                         :auth => {username: "#{username}@#{DOMAIN}",
+                                   password: password,
+                                   method: :simple}
     if conn.bind
       return true
     else
@@ -31,4 +30,17 @@ module ActiveDirectoryUserHelper
   rescue Net::LDAP::LdapError => e
     return false
   end
+
+  def all_users
+    username = 'drodriguez'
+    password = 'Rasta$"#!'
+    conn = Net::LDAP.new :host => SERVER,
+                         :port => PORT,
+                         :base => BASE,
+                         :auth => {username: "#{username}@#{DOMAIN}",
+                                   password: password,
+                                   method: :simple}
+    conn.search(:filter => "sAMAccountName=#{username}")
+  end
+
 end

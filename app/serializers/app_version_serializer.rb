@@ -1,6 +1,6 @@
 class AppVersionSerializer < ModelWithStatusSerializer
   include FileUrlHelper
-  attributes :version, :status
+  attributes :version, :version_code, :status
   def attributes
     data = super
     data[:url] = "#{application_version_url(options[:host], options[:package], data[:version])}?d"

@@ -1,6 +1,6 @@
 class ApplicationSerializer < ModelWithStatusSerializer
   include FileUrlHelper
-  attributes  :name, :package, :latest_version, :app_versions,:status
+  attributes  :name, :package, :latest_version, :latest_version_code, :app_versions,:status
   has_many :app_versions
   self.root = false
   def attributes

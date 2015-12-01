@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
   # @param [String] password
   # @return [Boolean]
   def valid_password?(password)
-    puts "BEFORE AUTHENTICATION"
     authenticate(username, password)
   end
 

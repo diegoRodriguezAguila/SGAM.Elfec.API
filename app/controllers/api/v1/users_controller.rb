@@ -2,7 +2,7 @@
 class Api::V1::UsersController < ApplicationController
   acts_as_token_authentication_handler_for User
   include Sortable
-
+  include ActiveDirectoryUserHelper
   def show
     user = User.find_by(username: params[:id])
     if user.nil?
@@ -14,8 +14,10 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def index
-    raise Exceptions::SecurityTransgression unless User.are_viewable_by? current_user
-    users = User.all.order(sort_params)
+    #raise Exceptions::SecurityTransgression unless User.are_viewable_by? current_user
+    #users = User.all.order(sort_params)
+
+    users = all_users
     render json: users, root: false, hide_token: true, status: :ok
   end
 

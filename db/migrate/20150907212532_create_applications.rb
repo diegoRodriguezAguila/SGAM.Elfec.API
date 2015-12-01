@@ -3,8 +3,9 @@ class CreateApplications < ActiveRecord::Migration
     create_table :applications do |t|
       t.string :name, null: false
       t.string :package, null: false
-      t.integer :status, null: false
       t.string :latest_version
+      t.string :latest_version_code
+      t.integer :status, null: false
 
       t.timestamps null: false
     end
