@@ -34,10 +34,16 @@ class Api::V1::ApplicationsController < ApplicationController
     app_name = apk_app_name(params[:file].path) if app_name.nil?
     package_name = manifest.package_name
     version_name = manifest.version_name
+    version_code = manifest.version_code
     new_app = Application.find_by(package: package_name) # existe ya
-    new_app = Application.new(package: package_name, status: Application.statuses[:enabled]) if new_app.nil?
-    new_app.name = app_name # igual actualizamos el nombre de la app
-    app_version = AppVersion.new(version: version_name, version_code: manifest.version_code, status: AppVersion.statuses[:enabled])
+    if new_app.nil?
+      new_app = Application.new(name: app_name, package: package_name, status: Application.statuses[:enabled]) # no existe
+    elsif version_code > new_app.latest_version_code
+      # si la version de la app nueva es mayor a la ultima
+      # actualizamos el nombre
+      new_app.name = app_name
+    end
+    app_version = AppVersion.new(version: version_name, version_code: version_code, status: AppVersion.statuses[:enabled])
     raise Exceptions::SecurityTransgression unless new_app.creatable_by? current_user
     if new_app.save
       app_version.application = new_app
@@ -56,7 +62,7 @@ class Api::V1::ApplicationsController < ApplicationController
   end
 
   def show_version_res_file
-    path = File.join(application_version_res_dir(params[:application_id], params[:version]),params[:file_name])
+    path = File.join(application_version_res_dir(params[:application_id], params[:version]), params[:file_name])
     if !File.exists? path
       head :not_found
     else

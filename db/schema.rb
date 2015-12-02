@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20151007121312) do
     t.string   "name",                null: false
     t.string   "package",             null: false
     t.string   "latest_version"
-    t.string   "latest_version_code"
+    t.integer  "latest_version_code"
     t.integer  "status",              null: false
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false

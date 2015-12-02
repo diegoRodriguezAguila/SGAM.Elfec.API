@@ -4,7 +4,7 @@ class CreateApplications < ActiveRecord::Migration
       t.string :name, null: false
       t.string :package, null: false
       t.string :latest_version
-      t.string :latest_version_code
+      t.integer :latest_version_code
       t.integer :status, null: false
 
       t.timestamps null: false

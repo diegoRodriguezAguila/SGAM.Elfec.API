@@ -4,11 +4,15 @@ class Application < ActiveRecord::Base
   validates_uniqueness_of :name, :package
   has_many :app_versions, -> { order(version: :desc, version_code: :desc) }, dependent: :destroy
 
+  # Obtiene la ultima version de la aplicacion
+  # @return [String]
   def latest_version
     update_latest_version_values
     read_attribute(:latest_version)
   end
 
+  # Obtiene el version code de la ultima version de la aplicacion
+  # @return [Integer]
   def latest_version_code
     update_latest_version_values
     read_attribute(:latest_version_code)
