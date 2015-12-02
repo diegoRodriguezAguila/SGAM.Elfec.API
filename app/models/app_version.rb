@@ -11,6 +11,6 @@ class AppVersion < ActiveRecord::Base
   private
 
   def update_application_version
-    self.application.update_latest_version_values
+    self.application.update_latest_version_values(true)
   end
 end

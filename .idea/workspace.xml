@@ -7,10 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c55ca71-823a-4342-9dac-17a4d2191cca" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20150907212532_create_applications.rb" afterPath="$PROJECT_DIR$/db/migrate/20150907212532_create_applications.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/app_version.rb" afterPath="$PROJECT_DIR$/app/models/app_version.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/application.rb" afterPath="$PROJECT_DIR$/app/models/application.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SGAM.Elfec.web.iws" />
@@ -58,21 +56,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app_version.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/app_version.rb">
+      <file leaf-file-name="applications_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="56" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
+              <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app_version_serializer.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/serializers/app_version_serializer.rb">
+      <file leaf-file-name="application.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/application.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.04920405">
-              <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.6888567">
+              <caret line="49" column="54" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="54" />
+              <folding>
+                <element signature="e#1694#1763#0" expanded="true" />
+                <element signature="e#1841#1910#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_version.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/app_version.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -143,13 +154,13 @@
         <option value="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/helpers/active_directory_user_helper.rb" />
         <option value="$PROJECT_DIR$/app/serializers/application_serializer.rb" />
-        <option value="$PROJECT_DIR$/app/models/app_version.rb" />
         <option value="$PROJECT_DIR$/config/locales/es.yml" />
         <option value="$PROJECT_DIR$/app/serializers/app_version_serializer.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/application.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20150907212532_create_applications.rb" />
+        <option value="$PROJECT_DIR$/app/models/application.rb" />
+        <option value="$PROJECT_DIR$/app/models/app_version.rb" />
       </list>
     </option>
   </component>
@@ -347,6 +358,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SGAM.Elfec.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SGAM.Elfec.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -538,12 +575,6 @@
       <created>1441119307959</created>
       <option name="number" value="Default" />
       <updated>1441119307959</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Se agregaron tests de validaciones para Role y User">
-      <created>1441641778196</created>
-      <option name="number" value="00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1441641778196</updated>
     </task>
     <task id="LOCAL-00012" summary="Agregado modelo de Aplicaciones">
       <created>1441663576497</created>
@@ -833,7 +864,13 @@
       <option name="project" value="LOCAL" />
       <updated>1448997408394</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Agregados condicionales para que se actualice el nombre de la app solo si el version_code es mayor a la máxima versión registrada">
+      <created>1449060317494</created>
+      <option name="number" value="00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1449060317494</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TodoView">
@@ -855,7 +892,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17287917" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26413882" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26413882" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23087622" sideWeight="0.4974293" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -883,7 +920,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Agregado soporte para ordenamiento de vista de dispositivos" />
     <MESSAGE value="Agregada tabla de relación usuario-dipositivo, se cambió root de json de error de autenticación de error a errors para que cuadre con todos los demas mensajes de error" />
     <MESSAGE value="Agregado control de foreign keys para las tablas de relacion muchos a muchos" />
     <MESSAGE value="Ahora se tiene la opción de asignar uno o mas dispositivos a un usuario, asi como quitar dichas asignaciones" />
@@ -908,7 +944,8 @@
     <MESSAGE value="Ahora se requiere permisos para realizar acciones sobre aplicaciones" />
     <MESSAGE value="Se modificó modo de autenticación, ahora se utiliza active directory" />
     <MESSAGE value="Se aumentó soporte para múltiple Code Version y Version de apks, permitiendo ahora subir por ejemplo  1.0.1-&gt;2 con 1.0.1-&gt;1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se aumentó soporte para múltiple Code Version y Version de apks, permitiendo ahora subir por ejemplo  1.0.1-&gt;2 con 1.0.1-&gt;1" />
+    <MESSAGE value="Agregados condicionales para que se actualice el nombre de la app solo si el version_code es mayor a la máxima versión registrada" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregados condicionales para que se actualice el nombre de la app solo si el version_code es mayor a la máxima versión registrada" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1199,17 +1236,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7380608">
-          <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
-          <folding>
-            <element signature="e#1546#1610#0" expanded="false" />
-            <element signature="e#2130#2201#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6888567">
@@ -1230,22 +1256,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35800603">
           <caret line="193" column="26" selection-start-line="193" selection-start-column="16" selection-end-line="193" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/app_version.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="56" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/serializers/application_serializer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="69" selection-start-line="2" selection-start-column="69" selection-end-line="2" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -1282,29 +1292,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/application.rb">
+    <entry file="file://$PROJECT_DIR$/app/serializers/app_version_serializer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5658466">
-          <caret line="53" column="95" selection-start-line="53" selection-start-column="95" selection-end-line="53" selection-end-column="95" />
-          <folding>
-            <element signature="e#1679#1748#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.17221418">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54124457">
+          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/serializers/application_serializer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="69" selection-start-line="2" selection-start-column="69" selection-end-line="2" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3936324">
-          <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/serializers/app_version_serializer.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/app_version.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04920405">
-          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/application.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6888567">
+          <caret line="49" column="54" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="54" />
+          <folding>
+            <element signature="e#1694#1763#0" expanded="true" />
+            <element signature="e#1841#1910#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -22,21 +22,21 @@ class Application < ActiveRecord::Base
   # @param [User] user
   # @return [Boolean]
   def creatable_by? (user)
-    return user.has_permission? Permission.register_application
+    user.has_permission? Permission.register_application
   end
 
   # Verifica si esta aplicación específica es visible por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def viewable_by? (user)
-    return user.has_permission? Permission.view_single_application
+    user.has_permission? Permission.view_single_application
   end
 
   # Verifica si esta aplicación es descargable por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def downloadable_by? (user)
-    return user.has_permission? Permission.download_application
+    user.has_permission? Permission.download_application
   end
 
   # Verifica si el recurso de las aplicaciones son visible por cierto usuario
@@ -47,8 +47,8 @@ class Application < ActiveRecord::Base
   end
 
   # Asigna los valores de la última version actual
-  def update_latest_version_values
-    if @latest.nil?
+  def update_latest_version_values(force_update=false)
+    if @latest.nil? || force_update
       @latest = find_latest_version
       write_attribute(:latest_version, @latest.nil?? I18n.t(:'api.errors.application.undefined_version', :cascade => true) : @latest.version)
       write_attribute(:latest_version_code, @latest.nil?? I18n.t(:'api.errors.application.undefined_version', :cascade => true) : @latest.version_code)
