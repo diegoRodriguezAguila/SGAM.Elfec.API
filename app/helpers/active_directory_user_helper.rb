@@ -35,11 +35,13 @@ module ActiveDirectoryUserHelper
     return false
   end
 
-  # Obtiene un usuario por username
+  # Obtiene los atributos de un usuario por username
   # @param [String] username nombre de usuario
-  # @return [Net::LDAP::Entry|Nil] el usuario o nil si es que no existe
-  def find_by_username(username)
-    OP_CONN.search(:filter => "sAMAccountName=#{username}").first
+  # @return [Hash|Nil] atributos de ad el usuario o nil si es que no existe
+  def get_active_directory_user(username)
+    found_entry = OP_CONN.search(filter: "sAMAccountName=#{username}").first
+    return get_user_attributes(found_entry) unless found_entry.nil?
+    return nil
   rescue Net::LDAP::LdapError => e
     return nil
   end
@@ -52,6 +54,25 @@ module ActiveDirectoryUserHelper
     OP_CONN.search(filter: filter)
   rescue Net::LDAP::LdapError => e
     return []
+  end
+
+  private
+
+  # Obtiene los atributos de usuario a partir de un entry de ad
+  # @param [Net::LDAP::Entry] entry
+  # @return [Hash] user attributes
+  def get_user_attributes(entry)
+    email = (entry.attribute_names.include? :mail) ? entry.mail[0].to_s.force_encoding('utf-8'):nil
+    position = (entry.attribute_names.include? :description) ? entry.description[0].to_s.force_encoding('utf-8'):nil
+    company_area = (entry.attribute_names.include? :physicaldeliveryofficename) ?
+        entry.physicaldeliveryofficename[0].to_s.force_encoding('utf-8'):nil
+    account_control = entry.userAccountControl[0]
+    status = (account_control.to_s.to_i & 0x0002).zero?.to_i
+    { username: entry.samaccountname[0].to_s.force_encoding('utf-8'),
+               first_name: entry.givenname[0].to_s.force_encoding('utf-8'),
+               last_name: entry.sn[0].to_s.force_encoding('utf-8'),
+               email: email, position: position, company_area: company_area,
+               last_ad_sync_at: Time.now, status: status}
   end
 
 end

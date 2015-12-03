@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   acts_as_token_authenticatable
   # Include default devise modules. Others available are:
   include ActiveDirectoryUserHelper
+  enum status: [:disabled, :enabled]
   devise :database_authenticatable, :trackable
 
   attr_accessor :password
@@ -43,6 +44,12 @@ class User < ActiveRecord::Base
     user.has_permission? Permission.view_users
   end
 
+  # Retorna true si aun es valida la
+  # ultima sincronizacion con active directory
+  # @return [Boolean]
+  def is_ad_sync_valid?
+    last_ad_sync_at >= Time.now-24*60*60
+  end
 
   # Verifica si es que el usuario tiene cierto permiso en alguno de sus roles
   # @param [Permission] permission

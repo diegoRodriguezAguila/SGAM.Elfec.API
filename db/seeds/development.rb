@@ -27,7 +27,8 @@ p12 = Permission.create(name: 'download_application',
 role = Role.create(role: 'Administrador',
                    description: 'Rol de usuario administrador del sistema de gestión de aplicaciones', status: 1)
 role.permissions << [p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12]
-user = User.create(username: 'drodriguezd', authentication_token: 'iYxx6xuQY_DDxornWgbA')
+user = User.create(username: 'drodriguez', authentication_token: '_rD46PrUrWDaxfyQGyDK',
+                   last_ad_sync_at: Time.now,status: 1)
 user.roles << role
 
 Device.create(name: 'GT-S7710L', imei: '356850050784998', serial: '430ad2d097e2c098', wifi_mac_address: 'B0:DF:3A:74:61:C5',

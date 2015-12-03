@@ -117,12 +117,18 @@ ActiveRecord::Schema.define(version: 20151007121312) do
   create_table "users", force: :cascade do |t|
     t.string   "username",             default: "", null: false
     t.string   "authentication_token"
-    t.datetime "remember_created_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "position"
+    t.string   "company_area"
     t.integer  "sign_in_count",        default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.datetime "last_ad_sync_at",                   null: false
+    t.integer  "status",                            null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
   end
