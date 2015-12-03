@@ -79,7 +79,7 @@ class Api::V1::ApplicationsController < ApplicationController
         head :not_found
       else
         raise Exceptions::SecurityTransgression unless application.downloadable_by? current_user
-        send_file "#{application_version_dir(package, version)}/app.apk",
+        send_file "#{application_version_dir(package, version)}/#{APK_FILENAME}",
                   filename: apk_public_file_name(package, version)
       end
     else

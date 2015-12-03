@@ -1,5 +1,5 @@
 class ApplicationSerializer < ModelWithStatusSerializer
-  include FileUrlHelper
+  include FileUrlHelper, ApkIconsHelper
   attributes  :name, :package, :latest_version, :latest_version_code, :app_versions,:status
   has_many :app_versions
   self.root = false
@@ -7,7 +7,7 @@ class ApplicationSerializer < ModelWithStatusSerializer
     data = super
     options[:package] = data[:package]
     data[:url] = "#{application_url(options[:host], data[:package])}?d"
-    data[:icon_url] = "#{application_res_url(options[:host], data[:package])}/icon.png"
+    data[:icon_url] = "#{application_res_url(options[:host], data[:package])}/#{APP_ICON_FILENAME}"
     data
   end
 end

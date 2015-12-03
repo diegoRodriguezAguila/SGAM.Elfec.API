@@ -1,4 +1,4 @@
-#encode utf-8
+#encoding: UTF-8
 require 'net/ldap'
 
 module ActiveDirectoryUserHelper
@@ -9,19 +9,23 @@ module ActiveDirectoryUserHelper
   DOMAIN = 'elfec.com'        # For simplified user@domain format login
   ### END CONFIGURATION ###
 
+  # Conexión para operaciones de LDAP a nombre de la aplicacion
+  OP_CONN = Net::LDAP.new(:host => SERVER, :port => PORT, :base => BASE,
+                          :auth => {username: "drodriguez@#{DOMAIN}",
+                                    password: 'Rasta$#"!',
+                                    method: :simple})
+
+
   # Valida un usuario con active directory
   # @param [String] username
-  # @return [String] password
+  # @param [String] password
+  # @return [Boolean]
   def authenticate(username, password)
+    conn = Net::LDAP.new(:host => SERVER, :port => PORT, :base => BASE,
+                  :auth => {username: "#{username}@#{DOMAIN}", password: password, method: :simple})
     return false if username.empty? or password.empty?
-    conn = Net::LDAP.new :host => SERVER,
-                         :port => PORT,
-                         :base => BASE,
-                         :auth => {username: "#{username}@#{DOMAIN}",
-                                   password: password,
-                                   method: :simple}
     if conn.bind
-      return true
+      return conn.bind
     else
       return false
     end
@@ -31,16 +35,23 @@ module ActiveDirectoryUserHelper
     return false
   end
 
+  # Obtiene un usuario por username
+  # @param [String] username nombre de usuario
+  # @return [Net::LDAP::Entry|Nil] el usuario o nil si es que no existe
+  def find_by_username(username)
+    OP_CONN.search(:filter => "sAMAccountName=#{username}").first
+  rescue Net::LDAP::LdapError => e
+    return nil
+  end
+
+  # Obtiene todos los usuarios de AD
+  # @return [Array] lista de usuarios
   def all_users
-    username = 'drodriguez'
-    password = 'Rasta$"#!'
-    conn = Net::LDAP.new :host => SERVER,
-                         :port => PORT,
-                         :base => BASE,
-                         :auth => {username: "#{username}@#{DOMAIN}",
-                                   password: password,
-                                   method: :simple}
-    conn.search(:filter => "sAMAccountName=#{username}")
+    filter = Net::LDAP::Filter.construct(
+        '(&(objectCategory=organizationalPerson)(objectClass=User)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))')
+    OP_CONN.search(filter: filter)
+  rescue Net::LDAP::LdapError => e
+    return []
   end
 
 end

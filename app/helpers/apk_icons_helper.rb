@@ -1,6 +1,6 @@
 #encode utf-8
 module ApkIconsHelper
-
+  APP_ICON_FILENAME = 'icon.png'
   # Obtiene los iconos de la aplicación
   # si no se puede encontrar se obtiene el xhpdi por defecto
   # @param [Android::Apk] apk
@@ -21,7 +21,7 @@ module ApkIconsHelper
     icons = icons_of_apk(apk)
     icons.each do |name, data|
       if /xhdpi/ =~ name
-        return {name: 'icon.png', data: data}
+        return {name: APP_ICON_FILENAME, data: data}
       end
     end
     # Si no tiene xhdpi se envía el

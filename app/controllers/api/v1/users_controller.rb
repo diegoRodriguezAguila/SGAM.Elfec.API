@@ -3,6 +3,7 @@ class Api::V1::UsersController < ApplicationController
   acts_as_token_authentication_handler_for User
   include Sortable
   include ActiveDirectoryUserHelper
+
   def show
     user = User.find_by(username: params[:id])
     if user.nil?
@@ -16,9 +17,14 @@ class Api::V1::UsersController < ApplicationController
   def index
     #raise Exceptions::SecurityTransgression unless User.are_viewable_by? current_user
     #users = User.all.order(sort_params)
-
-    users = all_users
-    render json: users, root: false, hide_token: true, status: :ok
+    users = find_by_username "jrodriguez"
+    #p users.inspect
+    status = users.userAccountControl[0]
+    resp = status.to_s.to_i & 0x0002
+    #render json: users.attribute_names, root: false, status: :ok
+    #description->position, physicaldeliveryofficename->company_area
+    File.open("C:/Photo.png", 'wb') { |f| f.write users.thumbnailphoto[0] }
+    render json: {name: users.displayName[0].to_s.force_encoding('utf-8'), status: resp.zero?.to_i}, status: :ok
   end
 
   def create

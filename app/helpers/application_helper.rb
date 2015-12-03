@@ -1,6 +1,8 @@
 module ApplicationHelper
+  APK_FILENAME = 'app.apk'
+
   def save_apk(app_dir, apk_file)
-    path = File.join(app_dir, 'app.apk')
+    path = File.join(app_dir, APK_FILENAME)
     FileUtils::mkdir_p File.dirname(path)
     File.open(path, 'wb') { |f| f.write apk_file.read }
   end

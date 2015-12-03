@@ -4,8 +4,7 @@ class User < ActiveRecord::Base
   acts_as_token_authenticatable
   # Include default devise modules. Others available are:
   include ActiveDirectoryUserHelper
-  devise :database_authenticatable,
-         :rememberable, :trackable
+  devise :database_authenticatable, :trackable
 
   attr_accessor :password
 
