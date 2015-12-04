@@ -2,6 +2,7 @@
 require 'net/ldap'
 
 module ActiveDirectoryUserHelper
+  include ActiveDirectoryImagesHelper
   ### BEGIN CONFIGURATION ###
   SERVER = 'elffls01.elfec.com'   # Active Directory server name or IP
   PORT = 389                    # Active Directory server port (default 389)
@@ -40,8 +41,9 @@ module ActiveDirectoryUserHelper
   # @return [Hash|Nil] atributos de ad el usuario o nil si es que no existe
   def get_active_directory_user(username)
     found_entry = OP_CONN.search(filter: "sAMAccountName=#{username}").first
-    return get_user_attributes(found_entry) unless found_entry.nil?
-    return nil
+    return nil if found_entry.nil?
+    save_user_image(username, get_user_entry_image(found_entry))
+    get_user_attributes(found_entry) unless found_entry.nil?
   rescue Net::LDAP::LdapError => e
     return nil
   end

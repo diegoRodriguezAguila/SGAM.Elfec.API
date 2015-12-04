@@ -35,20 +35,20 @@ module FileUrlHelper
     "#{application_version_url(host, package_name, version)}/resources"
   end
 
-  def users_dir
+  def api_users_dir
     Rails.root+'files/users/'
   end
 
-  def user_dir(username)
-    File.join(users_dir,"#{username}/")
+  def api_user_dir(username)
+    File.join(api_users_dir,"#{username}/")
   end
 
-  def users_url(host)
+  def api_users_url(host)
     url_for :controller => '/api/v1/users', :action => 'index', host: host
   end
 
-  def user_url(host, username)
-    "#{users_url(host)}/#{username}"
+  def api_user_url(host, username)
+    "#{api_users_url(host)}/#{username}"
   end
 
 

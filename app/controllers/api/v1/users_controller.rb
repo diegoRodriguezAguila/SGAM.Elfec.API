@@ -12,15 +12,17 @@ class Api::V1::UsersController < ApplicationController
       raise Exceptions::SecurityTransgression unless user.viewable_by? current_user
       # si tiene que sincronizar con AD lo hace
       user.update(get_active_directory_user (params[:id])) unless user.is_ad_sync_valid?
-      render json: user, hide_token: true, status: :ok
+      render json: user, status: :ok
     end
   end
 
   def index
     raise Exceptions::SecurityTransgression unless User.are_viewable_by? current_user
     users = User.all.order(sort_params_for(User))
-
-    render json: users, root: false, hide_token: true, status: :ok
+    users.each do |user|
+      user.update(get_active_directory_user (user.username)) unless user.is_ad_sync_valid?
+    end
+    render json: users, root: false, status: :ok
   end
 
   def create
