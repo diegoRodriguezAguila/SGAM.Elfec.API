@@ -3,14 +3,15 @@ module Sortable
 
   # Order params should be ?sort=name,-status
   # minus (-) in param is descending order
-  def sort_params
-    if params[:sort].nil?
-      return nil
-    end
+  def sort_params_for(model_class)
+    return nil if params[:sort].nil?
+    model_methods = model_class.attribute_names
     sort_params_a = params[:sort].gsub(/\s+/, '').split(',')
     sort_params = {}
     sort_params_a.each do |h|
-      sort_params[h.tr('-','').to_sym] = (h[0]=='-' )? :desc : :asc
+      param_name= h.tr('-','')
+      raise Exceptions::InvalidSortException unless model_methods.include? param_name
+      sort_params[param_name.to_sym] = (h[0]=='-' )? :desc : :asc
     end
     sort_params
   end

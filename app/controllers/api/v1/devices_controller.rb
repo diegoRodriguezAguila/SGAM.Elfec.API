@@ -15,7 +15,7 @@ class Api::V1::DevicesController < ApplicationController
 
   def index
     raise Exceptions::SecurityTransgression unless Device.are_viewable_by? current_user
-    devices = Device.where(device_filter_params).order(sort_params)
+    devices = Device.where(device_filter_params).order(sort_params_for(Device))
     render json: devices, root: false, status: :ok
   end
 

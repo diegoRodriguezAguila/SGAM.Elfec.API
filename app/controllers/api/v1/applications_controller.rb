@@ -21,7 +21,7 @@ class Api::V1::ApplicationsController < ApplicationController
 
   def index
     raise Exceptions::SecurityTransgression unless Application.are_viewable_by? current_user
-    apps = Application.where(app_filter_params).order(sort_params)
+    apps = Application.where(app_filter_params).order(sort_params_for(Application))
     render json: apps, root: false, host: request.host_with_port, status: :ok
   end
 

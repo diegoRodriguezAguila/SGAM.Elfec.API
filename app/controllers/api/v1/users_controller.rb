@@ -18,7 +18,7 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     raise Exceptions::SecurityTransgression unless User.are_viewable_by? current_user
-    users = User.all.order(sort_params)
+    users = User.all.order(sort_params_for(User))
 
     render json: users, root: false, hide_token: true, status: :ok
   end
