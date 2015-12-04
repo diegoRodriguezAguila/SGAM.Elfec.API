@@ -10,5 +10,8 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/config/initializers/active_model_serializers.rb" />
+  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="ruby-2.1.5-p273" project-jdk-type="RUBY_SDK" />
 </project>

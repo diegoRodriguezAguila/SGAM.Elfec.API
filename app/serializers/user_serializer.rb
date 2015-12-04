@@ -10,6 +10,6 @@ class UserSerializer < ModelWithStatusSerializer
     scope.username==object.username && options[:show_token]
   end
   def include_roles?
-    options[:include_roles]
+    !options[:include].nil? && options[:include].include?('roles')
   end
 end

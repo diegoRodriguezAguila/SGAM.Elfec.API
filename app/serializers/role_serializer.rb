@@ -4,6 +4,6 @@ class RoleSerializer < ModelWithStatusSerializer
   #has_many :users, embed: :username, include: false
   self.root = false
   def include_permissions?
-    options[:include_permissions]
+    !options[:include].nil? && options[:include].include?('permissions')
   end
 end

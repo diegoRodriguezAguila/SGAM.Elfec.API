@@ -1,7 +1,7 @@
 #encoding: UTF-8
 class Api::V1::UsersController < ApplicationController
   acts_as_token_authentication_handler_for User
-  include Sortable
+  include Sortable, Includible
   include ActiveDirectoryUserHelper
 
   def show
@@ -22,7 +22,7 @@ class Api::V1::UsersController < ApplicationController
     users.each do |user|
       user.update(get_active_directory_user (user.username)) unless user.is_ad_sync_valid?
     end
-    render json: users, root: false, status: :ok, include_roles: true
+    render json: users, root: false, include: request_includes, status: :ok
   end
 
   def create
