@@ -9,5 +9,7 @@ class UserSerializer < ModelWithStatusSerializer
   def include_authentication_token?
     scope.username==object.username && options[:show_token]
   end
-
+  def include_roles?
+    options[:include_roles]
+  end
 end

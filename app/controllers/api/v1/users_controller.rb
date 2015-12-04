@@ -22,7 +22,7 @@ class Api::V1::UsersController < ApplicationController
     users.each do |user|
       user.update(get_active_directory_user (user.username)) unless user.is_ad_sync_valid?
     end
-    render json: users, root: false, status: :ok
+    render json: users, root: false, status: :ok, include_roles: true
   end
 
   def create
