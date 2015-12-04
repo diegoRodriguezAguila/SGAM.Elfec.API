@@ -10,20 +10,17 @@ class Api::V1::UsersController < ApplicationController
       head :not_found
     else
       raise Exceptions::SecurityTransgression unless user.viewable_by? current_user
-      # tiene que sincronizar con AD ?
+      # si tiene que sincronizar con AD lo hace
       user.update(get_active_directory_user (params[:id])) unless user.is_ad_sync_valid?
       render json: user, hide_token: true, status: :ok
     end
   end
 
   def index
-    #raise Exceptions::SecurityTransgression unless User.are_viewable_by? current_user
-    #users = User.all.order(sort_params)
-    user = get_active_directory_user "drodriguez"
+    raise Exceptions::SecurityTransgression unless User.are_viewable_by? current_user
+    users = User.all.order(sort_params)
 
-    #render json: users.attribute_names, root: false, status: :ok
-   # File.open("C:/Photo.png", 'wb') { |f| f.write users.thumbnailphoto[0] }
-    render json: user, status: :ok
+    render json: users, root: false, hide_token: true, status: :ok
   end
 
   def create
