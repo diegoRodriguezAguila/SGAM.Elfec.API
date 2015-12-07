@@ -48,7 +48,7 @@ module FileUrlHelper
   end
 
   def api_user_url(host, username)
-    "#{api_users_url(host)}/#{username}"
+    "#{api_users_url(host)}/#{username}/resources"
   end
 
 

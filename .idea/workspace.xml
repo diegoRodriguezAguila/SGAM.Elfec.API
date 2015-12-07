@@ -7,9 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c55ca71-823a-4342-9dac-17a4d2191cca" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/active_directory_user_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/active_directory_user_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/serializers/user_serializer.rb" afterPath="$PROJECT_DIR$/app/serializers/user_serializer.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/file_url_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/file_url_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -48,34 +47,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="users_controller.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="users_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="94" selection-start-line="23" selection-start-column="94" selection-end-line="23" selection-end-column="94" />
+            <state vertical-scroll-proportion="0.49204051">
+              <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
               <folding>
-                <element signature="e#1870#1934#0" expanded="true" />
-                <element signature="e#2454#2525#0" expanded="true" />
+                <element signature="e#1875#1939#0" expanded="true" />
+                <element signature="e#2459#2530#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="active_directory_user_helper.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/helpers/active_directory_user_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0492041">
-              <caret line="80" column="49" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="file_url_helper.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/file_url_helper.rb">
+      <file leaf-file-name="user_serializer.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/serializers/user_serializer.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+              <caret line="11" column="78" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -85,27 +74,27 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="69" column="7" selection-start-line="65" selection-start-column="4" selection-end-line="69" selection-end-column="7" />
+              <caret line="69" column="7" selection-start-line="64" selection-start-column="4" selection-end-line="69" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application_serializer.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/serializers/application_serializer.rb">
+      <file leaf-file-name="file_url_helper.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/helpers/file_url_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
+              <caret line="50" column="50" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="role_serializer.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/serializers/role_serializer.rb">
+      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="70" selection-start-line="6" selection-start-column="70" selection-end-line="6" selection-end-column="70" />
+              <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -150,7 +139,6 @@
         <option value="$PROJECT_DIR$/app/helpers/file_helper.rb" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/serializers/basic_user_serializer.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/models/permission.rb" />
         <option value="$PROJECT_DIR$/db/seeds/test.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20150907212532_create_applications.rb" />
@@ -166,7 +154,6 @@
         <option value="$PROJECT_DIR$/app/helpers/apk_icons_helper.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20150902142202_devise_create_users.rb" />
         <option value="$PROJECT_DIR$/db/seeds/development.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/concerns/sortable.rb" />
         <option value="$PROJECT_DIR$/config/locales/es.yml" />
         <option value="$PROJECT_DIR$/app/controllers/api/v1/devices_controller.rb" />
@@ -180,9 +167,11 @@
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/helpers/active_directory_user_helper.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" />
-        <option value="$PROJECT_DIR$/app/helpers/file_url_helper.rb" />
         <option value="$PROJECT_DIR$/app/serializers/user_serializer.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/helpers/file_url_helper.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" />
       </list>
     </option>
   </component>
@@ -274,24 +263,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SGAM.Elfec.web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SGAM.Elfec.web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locales" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -661,12 +632,6 @@
       <option name="number" value="Default" />
       <updated>1441119307959</updated>
     </task>
-    <task id="LOCAL-00020" summary="Specs para dispositivos">
-      <created>1443032754140</created>
-      <option name="number" value="00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1443032754140</updated>
-    </task>
     <task id="LOCAL-00021" summary="Agregados specs y controlador para obtener dispositivo especifico con su imei">
       <created>1443039540643</created>
       <option name="number" value="00021" />
@@ -955,7 +920,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449258402778</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Agregada la opcion de obtener los usuarios de AD con la opcion status=2 en los filtros de usuarios. También se hizo que se muestre el campo o un campo por defecto para las fotos de los usuarios. Falta redireccionar links de recursos a la foto del usuario">
+      <created>1449502191117</created>
+      <option name="number" value="00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1449502191117</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1005,7 +976,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Se aumentó seguridad de permisos para ver una o todas las aplicaciones. Tests pasando. Se cambió la forma de realizar el seed de la base de datos para poder tener los permisos y roles pre definidos en los ambientes de testing" />
     <MESSAGE value="Se cambió estructura de aplicaciones y sus versiones, cada version tiene su url, e icono, también las aplicaciones llenan campos de versiones con la ultima version registrada" />
     <MESSAGE value="Se modificó para que los atributos de aplicacion no se guarden en base de datos sino que se obtenga según sus versiones cada vez que se renderiza" />
     <MESSAGE value="Se realizó la creación de aplicaciones que incluye endpoint exclusivo para subir apks y se controlan las versiones y archivos" />
@@ -1030,7 +1000,8 @@
     <MESSAGE value="Modificados nombres de metodos para URL y DIR de usuarios. Se mejoró la serialización de usuarios para mostrar o no los tokens segun los permisos" />
     <MESSAGE value="Aumentado concern de includible, para poder utilizar opcion de include para obtener relaciones en los endpoints de la api" />
     <MESSAGE value="Cambios de includible para show de usuario simple e inicio de sesion, siempre debe retornar roles y permisos del usuario" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios de includible para show de usuario simple e inicio de sesion, siempre debe retornar roles y permisos del usuario" />
+    <MESSAGE value="Agregada la opcion de obtener los usuarios de AD con la opcion status=2 en los filtros de usuarios. También se hizo que se muestre el campo o un campo por defecto para las fotos de los usuarios. Falta redireccionar links de recursos a la foto del usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregada la opcion de obtener los usuarios de AD con la opcion status=2 en los filtros de usuarios. También se hizo que se muestre el campo o un campo por defecto para las fotos de los usuarios. Falta redireccionar links de recursos a la foto del usuario" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1039,14 +1010,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/initializers/wrap_parameters.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/simple_token_authentication.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6642547">
@@ -1395,41 +1358,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="94" selection-start-line="23" selection-start-column="94" selection-end-line="23" selection-end-column="94" />
-          <folding>
-            <element signature="e#1870#1934#0" expanded="true" />
-            <element signature="e#2454#2525#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="7" selection-start-line="65" selection-start-column="4" selection-end-line="69" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/file_url_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/serializers/user_serializer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31982633">
-          <caret line="13" column="82" selection-start-line="13" selection-start-column="82" selection-end-line="13" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14761215">
@@ -1440,9 +1368,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/active_directory_user_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0492041">
-          <caret line="80" column="49" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.08972504">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/file_url_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="50" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="7" selection-start-line="64" selection-start-column="4" selection-end-line="69" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/serializers/user_serializer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="78" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49204051">
+          <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+          <folding>
+            <element signature="e#1875#1939#0" expanded="true" />
+            <element signature="e#2459#2530#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

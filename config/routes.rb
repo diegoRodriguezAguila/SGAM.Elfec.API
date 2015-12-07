@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         get '/devices', to: 'users#show_devices'
         post '/devices/:imeis', to: 'users#assign_devices'
         delete '/devices/:imeis', to: 'users#remove_device_assignations'
+        get '/resources/:file_name', to: 'users#show_res_file', constraints: { :file_name => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ }
       end
       resources :sessions, :only => [:create, :destroy]
       resources :devices, :only => [:show, :index, :create, :update]
