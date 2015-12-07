@@ -1,6 +1,6 @@
 #encoding: UTF-8
 class Api::V1::UsersController < ApplicationController
-  acts_as_token_authentication_handler_for User
+  acts_as_token_authentication_handler_for User, except: :show_res_file
   include Sortable, Includible
   include ActiveDirectoryUserHelper
 
