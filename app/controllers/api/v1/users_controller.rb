@@ -11,18 +11,17 @@ class Api::V1::UsersController < ApplicationController
     else
       raise Exceptions::SecurityTransgression unless user.viewable_by? current_user
       # si tiene que sincronizar con AD lo hace
-      user.update(get_active_directory_user (params[:id])) unless user.is_ad_sync_valid?
-      render json: user, include: request_includes, status: :ok
+      user.update_ad_attributes!
+      render json: user, include: request_includes, host: request.host_with_port, status: :ok
     end
   end
 
   def index
     raise Exceptions::SecurityTransgression unless User.are_viewable_by? current_user
-    users = User.all.order(sort_params_for(User))
-    users.each do |user|
-      user.update(get_active_directory_user (user.username)) unless user.is_ad_sync_valid?
-    end
-    render json: users, root: false, include: request_includes, status: :ok
+    users = is_ad_filter?? all_active_directory_users.sort_by {|x| [x.first_name,x.last_name]} :
+        User.where(user_filter_params).order(sort_params_for(User))
+    users.each {|user| user.update_ad_attributes!}
+    render json: users, root: false, include: request_includes,  host: request.host_with_port, status: :ok
   end
 
   def create
@@ -81,6 +80,14 @@ class Api::V1::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username)
+  end
+
+  def user_filter_params
+    params.permit(:status)
+  end
+
+  def is_ad_filter?
+    (params.has_key? :status) && params[:status].to_i == User.statuses[:non_registered]
   end
 
 # Order params should be ?order=name,status:desc
