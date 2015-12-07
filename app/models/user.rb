@@ -2,6 +2,7 @@ require 'pg'
 
 class User < ActiveRecord::Base
   acts_as_token_authenticatable
+  extend MultiSortable
   # Include default devise modules. Others available are:
   include ActiveDirectoryUserHelper
   enum status: [:disabled, :enabled, :non_registered]

@@ -18,7 +18,7 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     raise Exceptions::SecurityTransgression unless User.are_viewable_by? current_user
-    users = is_ad_filter? ? all_active_directory_users.sort_by { |x| [x.first_name, x.last_name] } :
+    users = is_ad_filter? ? User.multi_sort(all_active_directory_users, sort_params_for(User)) :
         User.where(user_filter_params).order(sort_params_for(User))
     users.each { |user| user.update_ad_attributes! }
     render json: users, root: false, include: request_includes, host: request.host_with_port, status: :ok
