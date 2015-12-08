@@ -55,7 +55,13 @@ class User < ActiveRecord::Base
   # actualiza los atributos de activedirectory solo
   # si es necesario
   def update_ad_attributes!
-    update(get_ad_user_attributes (params[:id])) unless is_ad_sync_valid?
+    update(get_ad_user_attributes(username, true)) unless is_ad_sync_valid? || non_registered?
+  end
+
+  # Verifica si el usuario esta registrado en la aplicacion sin importar su estado (enabled, disabled)
+  # @return [Boolean]
+  def is_app_user?
+    !(User.where('username=? AND status <> ?', username, User.statuses[:non_registered]).empty?)
   end
 
   # Verifica si es que el usuario tiene cierto permiso en alguno de sus roles

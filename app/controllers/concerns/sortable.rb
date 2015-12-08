@@ -4,7 +4,7 @@ module Sortable
   # Order params should be ?sort=name,-status
   # minus (-) in param is descending order
   def sort_params_for(model_class)
-    return nil if params[:sort].nil?
+    return {} if params[:sort].nil?
     model_methods = model_class.attribute_names
     sort_params_a = params[:sort].gsub(/\s+/, '').split(',')
     sort_params = {}

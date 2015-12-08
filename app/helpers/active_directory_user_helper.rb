@@ -38,19 +38,23 @@ module ActiveDirectoryUserHelper
 
   # Obtiene el usuario de AD por nombre
   # @param [String] username nombre de usuario
+  # @param [Boolean] is_registered indica si el usuario esta registrado o no en la app
   # @return [Hash|Nil] atributos de ad el usuario o nil si es que no existe
-  def get_active_directory_user(username)
-    User.new(get_ad_user_attributes(username))
+  def get_active_directory_user(username, is_registered=false)
+    user_attributes = get_ad_user_attributes(username, is_registered)
+    return nil if user_attributes.nil?
+    User.new(user_attributes)
   end
 
   # Obtiene los atributos de un usuario por username
   # @param [String] username nombre de usuario
+  # @param [Boolean] is_registered indica si el usuario esta registrado o no en la app
   # @return [Hash|Nil] atributos de ad el usuario o nil si es que no existe
-  def get_ad_user_attributes(username)
+  def get_ad_user_attributes(username, is_registered=false)
     found_entry = OP_CONN.search(filter: "sAMAccountName=#{username}").first
     return nil if found_entry.nil?
     save_user_image(username, get_user_entry_image(found_entry))
-    convert_user_attributes(found_entry) unless found_entry.nil?
+    convert_user_attributes(found_entry, is_registered ) unless found_entry.nil?
   rescue Net::LDAP::LdapError => e
     return nil
   end
@@ -68,19 +72,27 @@ module ActiveDirectoryUserHelper
     return []
   end
 
+  # Obtiene todos los usuarios de AD que no se hayan registrado en la aplicacion
+  # @return [Array] lista de usuarios
+  def non_registered_ad_users
+    all_active_directory_users.select{|user| !user.is_app_user?}
+  end
+
   private
 
   # Obtiene los atributos de usuario a partir de un entry de ad
   # @param [Net::LDAP::Entry] entry
+  # @param [User.statuses] enabled_status
   # @return [Hash] user attributes
-  def convert_user_attributes(entry)
+  def convert_user_attributes(entry, is_registered=false)
     email = (entry.attribute_names.include? :mail) ? entry.mail[0].to_s.force_encoding('utf-8'):nil
     position = (entry.attribute_names.include? :description) ? entry.description[0].to_s.force_encoding('utf-8'):nil
     company_area = (entry.attribute_names.include? :physicaldeliveryofficename) ?
         entry.physicaldeliveryofficename[0].to_s.force_encoding('utf-8'):nil
     account_control = entry.userAccountControl[0]
     is_disabled = !(account_control.to_s.to_i & 0x0002).zero?
-    status = User.statuses[is_disabled ? :disabled : :non_registered]
+    positive_status = (is_registered ? :enabled : :non_registered)
+    status = User.statuses[is_disabled ? :disabled : positive_status]
     { username: entry.samaccountname[0].to_s.force_encoding('utf-8'),
                first_name: entry.givenname[0].to_s.force_encoding('utf-8'),
                last_name: entry.sn[0].to_s.force_encoding('utf-8'),
