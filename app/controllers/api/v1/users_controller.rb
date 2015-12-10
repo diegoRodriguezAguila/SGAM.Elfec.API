@@ -26,16 +26,20 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    raise Exceptions::SecurityTransgression unless user.creatable_by? current_user
-    if user.save
-      render json: user, status: :created, location: [:api, user]
+    user = get_active_directory_user(user_params, true)
+    if user.nil?
+      render json: {errors: I18n.t(:'api.errors.user.invalid_user', cascade: true)}, status: :not_found
     else
-      render json: {errors: user.errors}, status: :unprocessable_entity
+      raise Exceptions::SecurityTransgression unless user.creatable_by? current_user
+      if user.save
+        render json: user, status: :created, host: request.host_with_port,  location: [:api, user]
+      else
+        render json: {errors: user.errors.full_messages[0]}, status: :unprocessable_entity
+      end
     end
   end
 
-  #region devices
+#region devices
   def show_devices
     user = User.find_by(username: params[:user_id])
     if user.nil?
@@ -84,12 +88,12 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  #endregion
+#endregion
 
   private
 
   def user_params
-    params.require(:user).permit(:username)
+    params.require(:username)
   end
 
   def user_filter_params
@@ -100,7 +104,7 @@ class Api::V1::UsersController < ApplicationController
     (params.has_key? :status) && params[:status].to_i == User.statuses[:non_registered]
   end
 
-  # Order params should be ?order=name,status:desc
+# Order params should be ?order=name,status:desc
   def user_device_imeis_params
     params[:imeis].gsub(/\s+/, '').split(',')
   end

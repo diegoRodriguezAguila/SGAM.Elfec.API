@@ -2,6 +2,10 @@ es:
   activerecord:
     errors:
       models:
+        user:
+          attributes:
+            username:
+              taken: "%{value} ya se encuentra registrado"
         device:
           attributes:
             screen_resolution:
@@ -11,6 +15,8 @@ es:
             version:
               taken: "%{value} de la aplicación que está intentando subir ya existe"
     attributes:
+      user:
+        username: "El nombre de usuario"
       device:
         wifi_mac_address: "La dirección MAC de wifi"
         bluetooth_mac_address: "La dirección MAC de bluetooth"
@@ -30,6 +36,7 @@ es:
         invalid_credentials: "El usuario o password proporcionados no son válidos, por favor revise los datos e inténtelo nuevamente"
         insufficient_privileges: "El usuario no tiene los privilegios suficientes para realizar la acción solicitada"
       user:
+        invalid_user: "El usuario que intenta crear no corresponde a un usuario válido de Active Directory"
         device_assignations: "Uno o varios de los dispositivos son inválidos o las asignaciones solicitadas ya existen, no se realizó ninguna acción"
         delete_device_assignations: "Una o más asignaciones de dispositivos no son válidas, no se realizó ninguna acción"
       application:

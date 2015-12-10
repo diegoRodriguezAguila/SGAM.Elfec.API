@@ -66,7 +66,11 @@ module ActiveDirectoryUserHelper
         '(&(objectCategory=organizationalPerson)(givenName=*)(sn=*)(objectClass=User)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))')
     entries = OP_CONN.search(filter: filter)
     users = []
-    entries.each { |entry| users << User.new(convert_user_attributes(entry)) }
+    entries.each do |entry|
+      user = User.new(convert_user_attributes(entry))
+      user.status = :enabled if (!user.disabled? && user.is_app_user?)
+      users << user
+    end
     users
   rescue Net::LDAP::LdapError => e
     return []
@@ -75,7 +79,7 @@ module ActiveDirectoryUserHelper
   # Obtiene todos los usuarios de AD que no se hayan registrado en la aplicacion
   # @return [Array] lista de usuarios
   def non_registered_ad_users
-    all_active_directory_users.select{|user| !user.is_app_user?}
+    all_active_directory_users.select{|user| user.non_registered?}
   end
 
   private

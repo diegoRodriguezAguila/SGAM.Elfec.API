@@ -11,7 +11,7 @@ class UserSerializer < ModelWithStatusSerializer
     data = super
     photo_path = File.join(api_user_dir(data[:username]), USER_PHOTO_FILENAME)
     username = (File.exists? photo_path)? data[:username]: 'default'
-    photo_url = "#{api_user_url(options[:host], username)}/#{USER_PHOTO_FILENAME}"
+    photo_url = "#{user_url(options[:host], username)}/#{USER_PHOTO_FILENAME}"
     data.to_a.insert(6, [:photo_url, photo_url]).to_h
   end
 

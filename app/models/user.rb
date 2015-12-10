@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   # Verifica si el usuario esta registrado en la aplicacion sin importar su estado (enabled, disabled)
   # @return [Boolean]
   def is_app_user?
-    !(User.where('username=? AND status <> ?', username, User.statuses[:non_registered]).empty?)
+    !(User.where('username=?', username).empty?)
   end
 
   # Verifica si es que el usuario tiene cierto permiso en alguno de sus roles

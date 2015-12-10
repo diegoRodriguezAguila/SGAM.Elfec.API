@@ -43,12 +43,12 @@ module FileUrlHelper
     File.join(api_users_dir,"#{username}/")
   end
 
-  def api_users_url(host)
+  def users_url(host)
     url_for :controller => '/api/v1/users', :action => 'index', host: host
   end
 
-  def api_user_url(host, username)
-    "#{api_users_url(host)}/#{username}/resources"
+  def user_url(host, username)
+    "#{users_url(host)}/#{username}/resources"
   end
 
 
