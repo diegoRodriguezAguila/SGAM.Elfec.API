@@ -36,7 +36,7 @@ es:
         invalid_credentials: "El usuario o password proporcionados no son válidos, por favor revise los datos e inténtelo nuevamente"
         insufficient_privileges: "El usuario no tiene los privilegios suficientes para realizar la acción solicitada"
       user:
-        invalid_user: "El usuario que intenta crear no corresponde a un usuario válido de Active Directory"
+        invalid_user: "El usuario que intenta crear no corresponde a un usuario de Active Directory válido o se encuentra inactivo"
         device_assignations: "Uno o varios de los dispositivos son inválidos o las asignaciones solicitadas ya existen, no se realizó ninguna acción"
         delete_device_assignations: "Una o más asignaciones de dispositivos no son válidas, no se realizó ninguna acción"
       application:

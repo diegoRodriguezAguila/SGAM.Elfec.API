@@ -7,12 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c55ca71-823a-4342-9dac-17a4d2191cca" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/active_directory_user_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/active_directory_user_helper.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/es.yml" afterPath="$PROJECT_DIR$/config/locales/es.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/file_url_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/file_url_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/serializers/user_serializer.rb" afterPath="$PROJECT_DIR$/app/serializers/user_serializer.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -51,16 +46,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="users_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="users_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64199394">
-              <caret line="34" column="98" selection-start-line="34" selection-start-column="98" selection-end-line="34" selection-end-column="98" />
+            <state vertical-scroll-proportion="-9.965517">
+              <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
               <folding>
-                <element signature="e#1202#1256#0" expanded="true" />
-                <element signature="e#2181#2245#0" expanded="true" />
-                <element signature="e#2765#2836#0" expanded="true" />
+                <element signature="e#1220#1274#0" expanded="true" />
+                <element signature="e#2199#2263#0" expanded="true" />
+                <element signature="e#2783#2854#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="es.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/locales/es.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="122" selection-start-line="38" selection-start-column="122" selection-end-line="38" selection-end-column="122" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,30 +80,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="file_url_helper.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/file_url_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="6" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_serializer.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/serializers/user_serializer.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="27" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="applications_controller.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="applications_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.7134588">
               <caret line="56" column="65" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="65" />
               <folding />
             </state>
@@ -186,7 +171,6 @@
         <option value="$PROJECT_DIR$/app/serializers/role_serializer.rb" />
         <option value="$PROJECT_DIR$/app/controllers/concerns/includible.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/v1/sessions_controller.rb" />
-        <option value="$PROJECT_DIR$/app/serializers/user_serializer.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/concerns/multi_sortable.rb" />
@@ -194,9 +178,10 @@
         <option value="$PROJECT_DIR$/app/helpers/active_directory_user_helper.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-        <option value="$PROJECT_DIR$/config/locales/es.yml" />
         <option value="$PROJECT_DIR$/app/helpers/file_url_helper.rb" />
+        <option value="$PROJECT_DIR$/app/serializers/user_serializer.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" />
+        <option value="$PROJECT_DIR$/config/locales/es.yml" />
       </list>
     </option>
   </component>
@@ -657,12 +642,6 @@
       <option name="number" value="Default" />
       <updated>1441119307959</updated>
     </task>
-    <task id="LOCAL-00025" summary="Agregada opción de actualizar dispositivo">
-      <created>1443110694544</created>
-      <option name="number" value="00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1443110694544</updated>
-    </task>
     <task id="LOCAL-00026" summary="Modificado datos de dispositivo, se borraron migraciones de eliminación y aumentado de columnas, para creación antes de producción no es necesario realizar las migraciones, mejor tener ordenado el modelo">
       <created>1443446226763</created>
       <option name="number" value="00026" />
@@ -951,7 +930,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449610867761</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Se implementó la funcion de registrar usuario utilizando active directory para sacar los datos y validar la existencia y validez del usuario">
+      <created>1449778082108</created>
+      <option name="number" value="00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1449778082109</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TodoView">
@@ -967,6 +952,7 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18497914" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.4974293" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -983,7 +969,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18497914" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1001,7 +986,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Se agregó opción de obtener el apk label por medio de aapt.exe, corrigiendo asi el bug que con ciertos apks ruby_apk no lograba obtener correctamente el label" />
     <MESSAGE value="Serializador de dispositivos modificado para que provea de una imagen default si es que no existe una imagen para el modelo del dispositivo" />
     <MESSAGE value="Agregado default device" />
     <MESSAGE value="Temporalmente se devuelve un solo mensaje de error para aplicaciones" />
@@ -1026,7 +1010,8 @@
     <MESSAGE value="Agregado soporte de sort para status=2 en query de usuarios" />
     <MESSAGE value="Había que incluir excepción para que no requiera token en la request de imagenes" />
     <MESSAGE value="Se implementó  el filtro para obtener usuarios con estado 2 (de active directory) . Y obtener un usuario especifico de active directory aun cuando este no esta registrado para su uso en la app" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se implementó  el filtro para obtener usuarios con estado 2 (de active directory) . Y obtener un usuario especifico de active directory aun cuando este no esta registrado para su uso en la app" />
+    <MESSAGE value="Se implementó la funcion de registrar usuario utilizando active directory para sacar los datos y validar la existencia y validez del usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se implementó la funcion de registrar usuario utilizando active directory para sacar los datos y validar la existencia y validez del usuario" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1359,14 +1344,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="65" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1375,26 +1352,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/es.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17221418">
-          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/serializers/user_serializer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="27" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.31982633">
+          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/file_url_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.7293777">
           <caret line="49" column="6" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.965517">
+          <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+          <folding>
+            <element signature="e#1220#1274#0" expanded="true" />
+            <element signature="e#2199#2263#0" expanded="true" />
+            <element signature="e#2783#2854#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/es.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="122" selection-start-line="38" selection-start-column="122" selection-end-line="38" selection-end-column="122" />
           <folding />
         </state>
       </provider>
@@ -1407,15 +1396,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64199394">
-          <caret line="34" column="98" selection-start-line="34" selection-start-column="98" selection-end-line="34" selection-end-column="98" />
-          <folding>
-            <element signature="e#1202#1256#0" expanded="true" />
-            <element signature="e#2181#2245#0" expanded="true" />
-            <element signature="e#2765#2836#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.7134588">
+          <caret line="56" column="65" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>

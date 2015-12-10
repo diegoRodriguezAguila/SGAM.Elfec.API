@@ -27,7 +27,7 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     user = get_active_directory_user(user_params, true)
-    if user.nil?
+    if user.nil? || user.disabled?
       render json: {errors: I18n.t(:'api.errors.user.invalid_user', cascade: true)}, status: :not_found
     else
       raise Exceptions::SecurityTransgression unless user.creatable_by? current_user
