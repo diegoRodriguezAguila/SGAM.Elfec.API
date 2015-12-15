@@ -11,14 +11,14 @@ class Api::V1::UserGroupsController < ApplicationController
     if user_group.nil?
       head :not_found
     else
-      #raise Exceptions::SecurityTransgression unless device.viewable_by? current_user
+      raise Exceptions::SecurityTransgression unless user_group.viewable_by? current_user
       render json: user_group, status: :ok
     end
   end
 
   #GET user_groups
   def index
-    #raise Exceptions::SecurityTransgression unless Device.are_viewable_by? current_user
+    raise Exceptions::SecurityTransgression unless UserGroup.are_viewable_by? current_user
     user_groups = UserGroup.where(user_group_filter_params).order(sort_params_for(UserGroup))
     render json: user_groups, root: false, status: :ok
   end
@@ -26,7 +26,7 @@ class Api::V1::UserGroupsController < ApplicationController
   #POST user_groups
   def create
     user_group = UserGroup.new(user_group_params)
-    #raise Exceptions::SecurityTransgression unless device.creatable_by? current_user
+    raise Exceptions::SecurityTransgression unless user_group.creatable_by? current_user
     if user_group.save
       render json: user_group, status: :created, location: [:api, user_group]
     else

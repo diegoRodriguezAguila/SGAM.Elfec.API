@@ -10,7 +10,10 @@ class Permission < ActiveRecord::Base
               register_application:   'register_application',
               view_applications:      'view_applications',
               view_single_application:'view_single_application',
-              download_application:   'download_application'}
+              download_application:   'download_application',
+              register_user_group:    'register_user_group',
+              view_user_groups:       'view_user_groups',
+              view_single_user_group: 'view_single_user_group'}
   enum status: [:disabled, :enabled]
   has_and_belongs_to_many :roles, join_table: :role_permissions
   validates :name, presence: true, uniqueness: true

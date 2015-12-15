@@ -24,9 +24,15 @@ p11 = Permission.create(name: 'view_single_user',
                        description: 'Ver un usuario específico', status: 1)
 p12 = Permission.create(name: 'download_application',
                        description: 'Descargar aplicaciones', status: 1)
+p13 = Permission.create(name: 'register_user_group',
+                       description: 'Registrar un nuevo grupo de usuarios', status: 1)
+p14 = Permission.create(name: 'view_user_groups',
+                        description: 'Ver todos los grupos de usuarios', status: 1)
+p15 = Permission.create(name: 'view_single_user_group',
+                        description: 'Ver un grupo de usuarios específico', status: 1)
 role = Role.create(role: 'Administrador',
                    description: 'Rol de usuario administrador del sistema de gestión de aplicaciones', status: 1)
-role.permissions << [p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12]
+role.permissions << [p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15]
 user = User.create(username: 'drodriguez', authentication_token: '_rD46PrUrWDaxfyQGyDK',
                    last_ad_sync_at: Time.now,status: 1)
 user.roles << role
