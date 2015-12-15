@@ -117,9 +117,9 @@ ActiveRecord::Schema.define(version: 20151214210759) do
   create_table "user_groups", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "status",      null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "status",      default: 1, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "user_groups", ["name"], name: "index_user_groups_on_name", unique: true, using: :btree
