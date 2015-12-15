@@ -75,4 +75,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # config salt
+  config.hashids.salt = 'Elfec2015%#"#fvVASPoq1231/Asz!"234&//\\979¿'
+
 end

@@ -65,3 +65,6 @@ gem 'ruby_apk'
 
 #Active directory auth
 gem 'net-ldap'
+
+#Hash Ids
+gem 'hashids'

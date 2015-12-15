@@ -70,6 +70,7 @@ GEM
     ffaker (2.1.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hashids (1.0.2)
     hashie (2.1.2)
     hike (1.2.3)
     httparty (0.13.7)
@@ -218,6 +219,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   ffaker
+  hashids
   jbuilder (~> 2.0)
   jquery-rails
   luhn

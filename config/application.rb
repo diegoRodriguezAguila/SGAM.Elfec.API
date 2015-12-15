@@ -43,6 +43,8 @@ module SGAMElfecWeb
       g.helper = false
     end
 
+    config.hashids = ActiveSupport::OrderedOptions.new
+
     config.autoload_paths += %W(\#{config.root}/lib)
   end
 end
