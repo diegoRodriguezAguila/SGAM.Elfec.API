@@ -20,7 +20,11 @@ Rails.application.routes.draw do
                                                                                 :file_name => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/}
         get '/resources/:file_name', to: 'applications#show_res_file', constraints: { :file_name => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ }
       end
-      resources :user_groups, :only => [:show, :index, :create, :update]
+      resources :user_groups, :only => [:show, :index, :create, :update] do
+        get '/members', to: 'user_groups#show_members'
+        post '/members/:usernames', to: 'user_groups#add_members'
+        delete '/members/:usernames', to: 'user_groups#remove_members'
+      end
 
     end
   end

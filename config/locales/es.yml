@@ -42,6 +42,9 @@ es:
       application:
         undefined_version: "no definida"
         undefined_url: "no definida"
+      user_group:
+        user_memberships: "Uno o varios de los usuarios no son válidos o ya pertenecen al grupo solicitado, no se realizó ninguna acción"
+        delete_user_memberships: "Uno o varios de los usuarios no son válidos, no se realizó ninguna acción"
       sort:
         invalid_params: "Uno o varios de los parámetros de ordenamiento solicitados no son válidos"
 

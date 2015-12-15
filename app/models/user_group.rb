@@ -3,6 +3,9 @@ class UserGroup < ActiveRecord::Base
   validates_presence_of :name, :description, :status
   validates_uniqueness_of :name
 
+
+  has_and_belongs_to_many :members, class_name: 'User', join_table: 'user_group_members'
+
   # Verifica si este grupo de usuarios es creable por cierto usuario
   # @param [User] user
   # @return [Boolean]

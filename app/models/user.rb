@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :roles, join_table: 'role_assignations'
   has_and_belongs_to_many :devices, join_table: 'user_devices'
+  has_and_belongs_to_many :groups, class_name: 'UserGroup', join_table: 'user_group_members'
 
   # Busca en la base el usuario en intenta logearlo es decir, que tiene que existir el usuario
   # a nivel de postgres

@@ -69,7 +69,7 @@ class Api::V1::UsersController < ApplicationController
     if user.nil?
       head :not_found
     else
-      devices_to_del = Device.where(imei: user_device_imeis_params, status: Device.statuses[:authorized])
+      devices_to_del = Device.where(imei: user_device_imeis_params)
       if devices_to_del.empty? || !(devices_to_del - user.devices).empty? || devices_to_del.size<user_device_imeis_params.size
         render json: {errors: I18n.t(:'api.errors.user.delete_device_assignations', :cascade => true)}, status: :bad_request
       else
@@ -104,7 +104,6 @@ class Api::V1::UsersController < ApplicationController
     (params.has_key? :status) && params[:status].to_i == User.statuses[:non_registered]
   end
 
-# Order params should be ?order=name,status:desc
   def user_device_imeis_params
     params[:imeis].gsub(/\s+/, '').split(',')
   end

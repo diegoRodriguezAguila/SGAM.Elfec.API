@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214210759) do
+ActiveRecord::Schema.define(version: 20151215211059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,16 @@ ActiveRecord::Schema.define(version: 20151214210759) do
   add_index "user_devices", ["device_id", "user_id"], name: "index_user_devices_on_device_id_and_user_id", unique: true, using: :btree
   add_index "user_devices", ["user_id", "device_id"], name: "index_user_devices_on_user_id_and_device_id", unique: true, using: :btree
 
+  create_table "user_group_members", id: false, force: :cascade do |t|
+    t.integer  "user_id",       null: false
+    t.integer  "user_group_id", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "user_group_members", ["user_group_id", "user_id"], name: "user_group_id_user_id_index", unique: true, using: :btree
+  add_index "user_group_members", ["user_id", "user_group_id"], name: "user_id_user_group_id_index", unique: true, using: :btree
+
   create_table "user_groups", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -152,4 +162,6 @@ ActiveRecord::Schema.define(version: 20151214210759) do
   add_foreign_key "role_permissions", "roles"
   add_foreign_key "user_devices", "devices"
   add_foreign_key "user_devices", "users"
+  add_foreign_key "user_group_members", "user_groups"
+  add_foreign_key "user_group_members", "users"
 end
