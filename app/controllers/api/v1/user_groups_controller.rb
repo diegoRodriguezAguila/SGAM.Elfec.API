@@ -6,7 +6,7 @@ class Api::V1::UserGroupsController < ApplicationController
   #GET user_groups/:id
   def show
     # searches by hashed id
-    hashids = Hashids.new(Rails.configuration.hashids.salt, 5)
+    hashids = Hashids.new(Rails.configuration.hashids.salt, 6)
     user_group = UserGroup.find_by(id: hashids.decode(params[:id]))
     if user_group.nil?
       head :not_found
@@ -31,6 +31,23 @@ class Api::V1::UserGroupsController < ApplicationController
       render json: user_group, status: :created, location: [:api, user_group]
     else
       render json: {errors: user_group.errors}, status: :unprocessable_entity
+    end
+  end
+
+  #PATCH user_groups/:id
+  def update
+    # searches by hashed id
+    hashids = Hashids.new(Rails.configuration.hashids.salt, 6)
+    user_group = UserGroup.find_by(id: hashids.decode(params[:id]))
+    if user_group.nil?
+      head :not_found
+    else
+      raise Exceptions::SecurityTransgression unless user_group.updatable_by? current_user
+      if user_group.update(user_group_params)
+        render json: user_group, status: :ok, location: [:api, user_group]
+      else
+        render json: {errors: user_group.errors}, status: :unprocessable_entity
+      end
     end
   end
 

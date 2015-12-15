@@ -9,8 +9,10 @@
     <list default="true" id="8c55ca71-823a-4342-9dac-17a4d2191cca" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds/development.rb" afterPath="$PROJECT_DIR$/db/seeds/development.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/permission.rb" afterPath="$PROJECT_DIR$/app/models/permission.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds/test.rb" afterPath="$PROJECT_DIR$/db/seeds/test.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user_group.rb" afterPath="$PROJECT_DIR$/app/models/user_group.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/serializers/user_group_serializer.rb" afterPath="$PROJECT_DIR$/app/serializers/user_group_serializer.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -59,41 +61,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="development.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/db/seeds/development.rb">
+      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44283646">
-              <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.49204051">
+              <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_group.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/user_group.rb">
+      <file leaf-file-name="device.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/device.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="permission.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/permission.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="36" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_group_serializer.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/serializers/user_group_serializer.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="61" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
+              <caret line="26" column="5" selection-start-line="21" selection-start-column="1" selection-end-line="26" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -164,13 +146,13 @@
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20151214210759_create_user_groups.rb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/serializers/user_group_serializer.rb" />
-        <option value="$PROJECT_DIR$/app/models/permission.rb" />
-        <option value="$PROJECT_DIR$/db/seeds/test.rb" />
         <option value="$PROJECT_DIR$/app/models/user_group.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/permission.rb" />
         <option value="$PROJECT_DIR$/db/seeds/development.rb" />
+        <option value="$PROJECT_DIR$/db/seeds/test.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb" />
+        <option value="$PROJECT_DIR$/app/serializers/user_group_serializer.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
       </list>
     </option>
   </component>
@@ -637,12 +619,6 @@
       <option name="number" value="Default" />
       <updated>1441119307959</updated>
     </task>
-    <task id="LOCAL-00029" summary="Agregado seed para tener los datos de pruebas de usuario rol y permisos">
-      <created>1443527765321</created>
-      <option name="number" value="00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1443527765321</updated>
-    </task>
     <task id="LOCAL-00030" summary="Se utilizó enums para los estados de los models y se mapeo los permisos a su respectivo name, los permisos y sus enums se buscan para instanciarlos">
       <created>1443628694479</created>
       <option name="number" value="00030" />
@@ -931,7 +907,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450205486763</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Agregado control de permisos para operaciones sobre grupos de usuarios">
+      <created>1450209179624</created>
+      <option name="number" value="00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1450209179624</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TodoView">
@@ -981,7 +963,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Se modificó modelos de aplicaciones y versiones. Los atributos de url e icon_url serán generados dinámicamente en vez de ser guardados en la base de datos, para mayor flexibilidad" />
     <MESSAGE value="Se generan dinamicamente recursos de apk y de icono" />
     <MESSAGE value="Se generan dinamicamente recursos de apk y de icono, con nueva url que incluye resources, también en el anterior commit se cambió el directorio donde se guardan las aplicaciones" />
     <MESSAGE value="Agregado soporte de ver todos los usuarios y se aumentaron permisos requeridos para ver, registrar y ver todos los usuarios" />
@@ -1006,7 +987,8 @@
     <MESSAGE value="Agregada validacion al registrar usuarios, no se puede registrar un usuario que se encuentra dado de baja" />
     <MESSAGE value="Agregado grupos de usuarios junto con sus respectivas settings para uso de hashids para publicar sus ids" />
     <MESSAGE value="Implementados endpoints para obtener grupo de usuario especifico, todos los grupos de usuario y crear grupo de usuario, falta control de permisos para poder realizar operaciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementados endpoints para obtener grupo de usuario especifico, todos los grupos de usuario y crear grupo de usuario, falta control de permisos para poder realizar operaciones" />
+    <MESSAGE value="Agregado control de permisos para operaciones sobre grupos de usuarios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregado control de permisos para operaciones sobre grupos de usuarios" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1250,22 +1232,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/sessions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6888567">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6975398">
-          <caret line="69" column="7" selection-start-line="69" selection-start-column="7" selection-end-line="69" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/serializers/permission_serializer.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1314,14 +1280,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/devices_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.024602026">
-          <caret line="1" column="47" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.3777134">
@@ -1346,25 +1304,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/sessions_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6888567">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="-0.7380608">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4674385">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state vertical-scroll-proportion="1.6975398">
+          <caret line="69" column="7" selection-start-line="69" selection-start-column="7" selection-end-line="69" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user_group.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3690304">
+          <caret line="15" column="53" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/devices_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31982633">
+          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/serializers/user_group_serializer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.12301013">
           <caret line="5" column="61" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
           <folding />
         </state>
@@ -1372,32 +1354,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds/test.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="85" selection-start-line="34" selection-start-column="85" selection-end-line="34" selection-end-column="85" />
+        <state vertical-scroll-proportion="0.8856729">
+          <caret line="36" column="90" selection-start-line="36" selection-start-column="90" selection-end-line="36" selection-end-column="90" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/device.rb">
+    <entry file="file://$PROJECT_DIR$/db/seeds/development.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24602026">
-          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.41823444">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="36" selection-end-column="90" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/permission.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="36" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.3936324">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user_group.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/device.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+          <caret line="26" column="5" selection-start-line="21" selection-start-column="1" selection-end-line="26" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1410,10 +1392,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds/development.rb">
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44283646">
-          <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.49204051">
+          <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
           <folding />
         </state>
       </provider>

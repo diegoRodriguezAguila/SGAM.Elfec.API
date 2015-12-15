@@ -30,6 +30,8 @@ p14 = Permission.create(name: 'view_user_groups',
                         description: 'Ver todos los grupos de usuarios', status: 1)
 p15 = Permission.create(name: 'view_single_user_group',
                         description: 'Ver un grupo de usuarios específico', status: 1)
+p16 = Permission.create(name: 'update_user_group',
+                        description: 'Actualizar los datos de un grupo de usuarios', status: 1)
 role = Role.create(role: 'Administrador',
                    description: 'Rol de usuario administrador del sistema de gestión de aplicaciones', status: 1)
-role.permissions << [p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15]
+role.permissions << [p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16]
