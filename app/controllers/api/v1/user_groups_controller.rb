@@ -92,14 +92,6 @@ class Api::V1::UserGroupsController < ApplicationController
     end
   end
 
-  def show_res_file
-    path = File.join(api_user_dir(params[:user_id]), params[:file_name])
-    if !File.exists? path
-      head :not_found
-    else
-      send_file path, :disposition => 'inline'
-    end
-  end
 
   #endregion
 
