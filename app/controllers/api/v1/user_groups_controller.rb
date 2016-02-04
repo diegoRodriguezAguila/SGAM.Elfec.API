@@ -1,7 +1,7 @@
 #encoding: UTF-8
 class Api::V1::UserGroupsController < ApplicationController
   acts_as_token_authentication_handler_for User
-  include Sortable
+  include Sortable, Includible
 
   #GET user_groups/:id
   def show
@@ -11,7 +11,7 @@ class Api::V1::UserGroupsController < ApplicationController
       head :not_found
     else
       raise Exceptions::SecurityTransgression unless user_group.viewable_by? current_user
-      render json: user_group, status: :ok
+      render json: user_group, include: request_includes, host: request.host_with_port, status: :ok
     end
   end
 
@@ -19,7 +19,7 @@ class Api::V1::UserGroupsController < ApplicationController
   def index
     raise Exceptions::SecurityTransgression unless UserGroup.are_viewable_by? current_user
     user_groups = UserGroup.where(user_group_filter_params).order(sort_params_for(UserGroup))
-    render json: user_groups, root: false, status: :ok
+    render json: user_groups,include: request_includes, host: request.host_with_port, root: false, status: :ok
   end
 
   #POST user_groups
@@ -29,7 +29,7 @@ class Api::V1::UserGroupsController < ApplicationController
     if user_group.save
       render json: user_group, status: :created, location: [:api, user_group]
     else
-      render json: {errors: user_group.errors}, status: :unprocessable_entity
+      render json: {errors: user_group.errors.full_messages[0]}, status: :unprocessable_entity
     end
   end
 
@@ -44,7 +44,7 @@ class Api::V1::UserGroupsController < ApplicationController
       if user_group.update(user_group_params)
         render json: user_group, status: :ok, location: [:api, user_group]
       else
-        render json: {errors: user_group.errors}, status: :unprocessable_entity
+        render json: {errors: user_group.errors.full_messages[0]}, status: :unprocessable_entity
       end
     end
   end

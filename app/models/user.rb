@@ -1,5 +1,3 @@
-require 'pg'
-
 class User < ActiveRecord::Base
   acts_as_token_authenticatable
   extend MultiSortable
@@ -32,7 +30,7 @@ class User < ActiveRecord::Base
     user.has_permission?(Permission.register_user)
   end
 
-  # Verifica si este usuario específico es visible por cierto usuario
+  # Verifica si este usuario especÃ­fico es visible por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def viewable_by? (user)
