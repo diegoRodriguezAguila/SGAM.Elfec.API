@@ -8,9 +8,9 @@ class Api::V1::SessionsController < ApplicationController
       sign_in user, store: false
       #simple_token_generator calls automatically to ensure_authentication_token
       user.save
-      render json: user, show_token: true, include: %w(roles permissions), status: :ok
+      render json: user, show_token: true, include: %w(roles permissions), host: request.host_with_port, status: :ok
     else
-      render json: {errors: I18n.t(:'api.errors.session.invalid_credentials', :cascade => true)},
+      render json: {errors: I18n.t(:'api.errors.session.invalid_credentials', cascade: true)},
              status: :unprocessable_entity
     end
   end
