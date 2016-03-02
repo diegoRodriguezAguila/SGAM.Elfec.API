@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223150740) do
+ActiveRecord::Schema.define(version: 20160302215450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,6 +164,16 @@ ActiveRecord::Schema.define(version: 20151223150740) do
   end
 
   add_index "whitelist_apps", ["package"], name: "index_whitelist_apps_on_package", using: :btree
+
+  create_table "whitelists", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "status",      default: 1, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "whitelists", ["title"], name: "index_whitelists_on_title", unique: true, using: :btree
 
   add_foreign_key "role_assignations", "roles"
   add_foreign_key "role_assignations", "users"

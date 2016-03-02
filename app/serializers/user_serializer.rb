@@ -1,8 +1,7 @@
 class UserSerializer < ModelWithStatusSerializer
   attributes :username, :authentication_token, :first_name,
-             :last_name, :email, :position, :company_area,
-             :roles, :status
-  has_many :roles
+             :last_name, :email, :position, :company_area, :status
+  has_many :roles, :groups, :devices
   include FileUrlHelper, ActiveDirectoryImagesHelper
   self.root = false
   #cache key: 'roles', expires_in: 3.hours
@@ -20,5 +19,11 @@ class UserSerializer < ModelWithStatusSerializer
   end
   def include_roles?
     !options[:include].nil? && options[:include].include?('roles')
+  end
+  def include_groups?
+    !options[:include].nil? && options[:include].include?('groups')
+  end
+  def include_devices?
+    !options[:include].nil? && options[:include].include?('devices')
   end
 end
