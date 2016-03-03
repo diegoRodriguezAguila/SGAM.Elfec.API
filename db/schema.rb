@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302215450) do
+ActiveRecord::Schema.define(version: 20160303121321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,13 +157,15 @@ ActiveRecord::Schema.define(version: 20160302215450) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "whitelist_apps", force: :cascade do |t|
-    t.string   "package",    null: false
-    t.integer  "status",     null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "whitelist_id", null: false
+    t.string   "package",      null: false
+    t.integer  "status",       null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "whitelist_apps", ["package"], name: "index_whitelist_apps_on_package", using: :btree
+  add_index "whitelist_apps", ["whitelist_id"], name: "index_whitelist_apps_on_whitelist_id", using: :btree
 
   create_table "whitelists", force: :cascade do |t|
     t.string   "title"
@@ -183,4 +185,5 @@ ActiveRecord::Schema.define(version: 20160302215450) do
   add_foreign_key "user_devices", "users"
   add_foreign_key "user_group_members", "user_groups"
   add_foreign_key "user_group_members", "users"
+  add_foreign_key "whitelist_apps", "whitelists"
 end
