@@ -26,6 +26,8 @@ Rails.application.routes.draw do
         delete '/members/:usernames', to: 'user_groups#remove_members'
       end
 
+      resources :whitelists, :only => [:show, :index, :create, :update]
+
     end
   end
 end

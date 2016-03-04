@@ -3,7 +3,7 @@ module Includible
 
   # Obtiene los includes del request
   def request_includes
-    return nil if params[:include].nil?
+    return [] if params[:include].nil?
     include_params = params[:include].gsub(/\s+/, '').split(',')
     include_params.each do |incl|
       include_parts = incl.split('.')
