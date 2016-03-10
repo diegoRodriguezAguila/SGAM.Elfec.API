@@ -26,7 +26,13 @@ Rails.application.routes.draw do
         delete '/members/:usernames', to: 'user_groups#remove_members'
       end
 
-      resources :whitelists, :only => [:show, :index, :create, :update]
+      resources :whitelists, :only => [:show, :index, :create, :update] do
+        get '/permitted_apps', to: 'whitelists#show_permitted_apps'
+        post '/permitted_apps/:app_packages', to: 'whitelists#add_permitted_apps',
+             constraints: { app_packages: /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ }
+        delete '/permitted_apps/:app_packages', to: 'whitelists#remove_permitted_apps',
+               constraints: { app_packages: /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ }
+      end
 
     end
   end

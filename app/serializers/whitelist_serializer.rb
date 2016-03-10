@@ -5,7 +5,7 @@ class WhitelistSerializer < ModelWithStatusSerializer
 
   def attributes
     data = super
-    hashids = Hashids.new(Rails.configuration.hashids.salt+:whitelist.to_s, 6)
+    hashids = Hashids.new(Rails.configuration.hashids.salt+:whitelist.to_s, Rails.configuration.ids_length)
     data[:id] = hashids.encode(data[:id])
     data
   end

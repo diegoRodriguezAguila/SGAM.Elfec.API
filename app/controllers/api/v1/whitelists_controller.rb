@@ -18,7 +18,7 @@ class Api::V1::WhitelistsController < ApplicationController
   def index
     raise Exceptions::SecurityTransgression unless Whitelist.are_viewable_by? current_user
     whitelists = Whitelist.where(whitelist_filter_params).order(sort_params_for(Whitelist))
-    render json: whitelists,include: request_includes, host: request.host_with_port, root: false, status: :ok
+    render json: whitelists, include: request_includes, host: request.host_with_port, root: false, status: :ok
   end
 
   #POST whitelists
@@ -48,8 +48,56 @@ class Api::V1::WhitelistsController < ApplicationController
     end
   end
 
+  #region permitted_apps
+  def show_permitted_apps
+    whitelist = Whitelist.find_by(id: HASHIDS.decode(params[:whitelist_id]))
+    if whitelist.nil?
+      head :not_found
+    else
+      render json: whitelist.permitted_apps, host: request.host_with_port, root: false, status: :ok
+    end
+  end
+
+  def add_permitted_apps
+    whitelist = Whitelist.find_by(id: HASHIDS.decode(params[:whitelist_id]))
+    if whitelist.nil?
+      head :not_found
+    else
+      apps_to_permit = []
+      whitelist_app_packages_params.each do |package|
+        app = WhitelistApp.find_or_create_by(package: package, whitelist_id: whitelist.id)
+        unless app.errors.empty?
+          return render json: {errors: app.errors.full_messages[0]}, status: :unprocessable_entity
+        end
+        apps_to_permit << app
+      end
+      apps_to_permit = apps_to_permit - whitelist.permitted_apps
+      whitelist.permitted_apps << apps_to_permit
+      head :no_content
+    end
+  end
+
+  def remove_permitted_apps
+    whitelist = Whitelist.find_by(id: HASHIDS.decode(params[:whitelist_id]))
+    if whitelist.nil?
+      head :not_found
+    else
+      users_to_del = User.where(username: user_group_usernames_params)
+      if users_to_del.empty? || !(users_to_del - whitelist.members).empty? ||
+          users_to_del.size<user_group_usernames_params.size
+        render json: {errors: I18n.t(:'api.errors.user_group.delete_user_memberships', cascade: true)}, status: :bad_request
+      else
+        whitelist.members = whitelist.members - users_to_del
+        head :no_content
+      end
+    end
+  end
+
+
+  #endregion
+
   private
-  HASHIDS = Hashids.new(Rails.configuration.hashids.salt+:whitelist.to_s, 6)
+  HASHIDS = Hashids.new(Rails.configuration.hashids.salt+:whitelist.to_s, Rails.configuration.ids_length)
 
   def whitelist_params
     params.require(:whitelist).permit(:title, :description)
@@ -58,5 +106,9 @@ class Api::V1::WhitelistsController < ApplicationController
   def whitelist_filter_params
     params.permit(:title, :description, :status)
   end
-  
+
+  def whitelist_app_packages_params
+    params[:app_packages].gsub(/\s+/, '').split(',')
+  end
+
 end

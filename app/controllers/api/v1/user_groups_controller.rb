@@ -96,7 +96,7 @@ class Api::V1::UserGroupsController < ApplicationController
   #endregion
 
   private
-  HASHIDS = Hashids.new(Rails.configuration.hashids.salt+:user_group.to_s, 6)
+  HASHIDS = Hashids.new(Rails.configuration.hashids.salt+:user_group.to_s, Rails.configuration.ids_length)
 
   def user_group_params
     params.require(:user_group).permit(:name, :description)

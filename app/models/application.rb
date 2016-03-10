@@ -2,37 +2,38 @@ class Application < ActiveRecord::Base
   enum status: [:disabled, :enabled]
   validates_presence_of :name, :package, :status
   validates_uniqueness_of :name, :package
+  validates_format_of :package, with: /\A[a-z][a-z0-9_]*(\.[a-z0-9_]+)+[0-9a-z_]\z/i
   has_many :app_versions, -> { order(version: :desc, version_code: :desc) }, dependent: :destroy
 
-  # Obtiene la ultima version de la aplicacion
+  # Obtiene la ultima version de la aplicaci贸n
   # @return [String]
   def latest_version
     update_latest_version_values
     read_attribute(:latest_version)
   end
 
-  # Obtiene el version code de la ultima version de la aplicacion
+  # Obtiene el version code de la 煤ltima version de la aplicaci贸n
   # @return [Integer]
   def latest_version_code
     update_latest_version_values
     read_attribute(:latest_version_code)
   end
 
-  # Verifica si la aplicaci髇 es creable por cierto usuario
+  # Verifica si la aplicaci贸n es creable por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def creatable_by? (user)
     user.has_permission? Permission.register_application
   end
 
-  # Verifica si esta aplicaci髇 espec韋ica es visible por cierto usuario
+  # Verifica si esta aplicaci贸n espec铆fica es visible por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def viewable_by? (user)
     user.has_permission? Permission.view_single_application
   end
 
-  # Verifica si esta aplicaci髇 es descargable por cierto usuario
+  # Verifica si esta aplicaci贸n es descargable por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def downloadable_by? (user)
@@ -46,7 +47,7 @@ class Application < ActiveRecord::Base
     return user.has_permission? Permission.view_applications
   end
 
-  # Asigna los valores de la 鷏tima version actual
+  # Asigna los valores de la 煤ltima version actual
   def update_latest_version_values(force_update=false)
     if @latest.nil? || force_update
       @latest = find_latest_version

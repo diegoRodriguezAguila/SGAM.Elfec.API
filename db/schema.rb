@@ -157,11 +157,11 @@ ActiveRecord::Schema.define(version: 20160303121321) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "whitelist_apps", force: :cascade do |t|
-    t.integer  "whitelist_id", null: false
-    t.string   "package",      null: false
-    t.integer  "status",       null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "whitelist_id",             null: false
+    t.string   "package",                  null: false
+    t.integer  "status",       default: 1, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "whitelist_apps", ["package"], name: "index_whitelist_apps_on_package", using: :btree

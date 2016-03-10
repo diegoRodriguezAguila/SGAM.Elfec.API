@@ -77,6 +77,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # config salt
-  config.hashids.salt = 'Elfec2015%#"#fvVASPoq1231/Asz!"234&//\\979¿'
-
+  config.hashids.salt = 'Elfec2015%#"#fvVASPoq1231/Asz!"234&//\\979@s'
+  config.ids_length = 6
 end

@@ -3,7 +3,7 @@ class CreateWhitelistApps < ActiveRecord::Migration
     create_table :whitelist_apps do |t|
       t.belongs_to :whitelist, index: true, null: false
       t.string :package, null: false, unique: true
-      t.integer :status, null: false
+      t.integer :status, null: false, default: 1
 
       t.timestamps null: false
     end

@@ -37,5 +37,6 @@ Rails.application.configure do
 
   # config salt
   config.hashids.salt = 'Elfec2015'
+  config.ids_length = 6
 
 end
