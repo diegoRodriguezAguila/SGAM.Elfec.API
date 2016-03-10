@@ -4,26 +4,13 @@
     <bookmark url="file://$PROJECT_DIR$/app/models/device.rb" line="7" />
     <bookmark url="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" line="43" />
     <bookmark url="file://$PROJECT_DIR$/spec/models/app_version_spec.rb" line="11" />
-    <bookmark url="file://$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb" line="67" />
-    <bookmark url="file://$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb" line="68" />
+    <bookmark url="file://$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb" line="60" />
+    <bookmark url="file://$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb" line="61" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c55ca71-823a-4342-9dac-17a4d2191cca" name="Default" comment="Se implementó controller para whitelist, con sus debidos permisos de uso de endpoints y con su serializacion">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+    <list default="true" id="8c55ca71-823a-4342-9dac-17a4d2191cca" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/application.rb" afterPath="$PROJECT_DIR$/app/models/application.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/whitelist_app.rb" afterPath="$PROJECT_DIR$/app/models/whitelist_app.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/serializers/user_group_serializer.rb" afterPath="$PROJECT_DIR$/app/serializers/user_group_serializer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/serializers/whitelist_serializer.rb" afterPath="$PROJECT_DIR$/app/serializers/whitelist_serializer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/test.rb" afterPath="$PROJECT_DIR$/config/environments/test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20151223150740_create_whitelist_apps.rb" afterPath="$PROJECT_DIR$/db/migrate/20151223150740_create_whitelist_apps.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="SGAM.Elfec.web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,6 +50,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="user_groups_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="83" column="70" selection-start-line="83" selection-start-column="6" selection-end-line="83" selection-end-column="70" />
+              <folding>
+                <element signature="e#3160#3231#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -76,8 +75,8 @@
       <file leaf-file-name="whitelists_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4188406">
-              <caret line="68" column="32" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.44347826">
+              <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -153,8 +152,8 @@
         <option value="$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/application.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20151223150740_create_whitelist_apps.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/whitelist_app.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb" />
       </list>
     </option>
   </component>
@@ -698,12 +697,6 @@
       <option name="number" value="Default" />
       <updated>1441119307959</updated>
     </task>
-    <task id="LOCAL-00038" summary="Ahora se tiene la opción de asignar uno o mas dispositivos a un usuario, asi como quitar dichas asignaciones">
-      <created>1444232454373</created>
-      <option name="number" value="00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1444232454373</updated>
-    </task>
     <task id="LOCAL-00039" summary="Corregido error que no se controlaba formato de modelo y marca al hacer update de un dispositivo, se implementó métodoo de validacion de formato de dispositivos">
       <created>1444246664211</created>
       <option name="number" value="00039" />
@@ -992,7 +985,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457103927225</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Se implementó controller para agregar apps a las whitelist, se valido unicidad de whitelist_app dentro el scope de cada whitelist">
+      <created>1457619889894</created>
+      <option name="number" value="00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1457619889895</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1015,6 +1014,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2667095" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962447" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18497914" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22980501" sideWeight="0.5025707" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17287917" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962447" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1024,7 +1024,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18497914" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1047,7 +1046,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Se refactorizaron con constantes los nombre dados a los iconos y apks de las aplicaciones. Se está realizando integración con activedirectory para usuarios" />
     <MESSAGE value="Sincronizacion y cacheo de activedirectory realizada para recurso de usuario específico users/:id" />
     <MESSAGE value="Modificado modo de sort siguiente la guía de REST API json , ahora se utiliza &quot;-&quot; para poder ordenar descendentemente en los parámetros" />
     <MESSAGE value="Se modificó el error que se mostraba con parámetros invalidos de ordenamiento. Ahora según guía de REST API json devuelve bad request y un mensaje correcto de error" />
@@ -1072,7 +1070,8 @@
     <MESSAGE value="Created whitelist model" />
     <MESSAGE value="Created whitelist migrations working" />
     <MESSAGE value="Se implementó controller para whitelist, con sus debidos permisos de uso de endpoints y con su serializacion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se implementó controller para whitelist, con sus debidos permisos de uso de endpoints y con su serializacion" />
+    <MESSAGE value="Se implementó controller para agregar apps a las whitelist, se valido unicidad de whitelist_app dentro el scope de cada whitelist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se implementó controller para agregar apps a las whitelist, se valido unicidad de whitelist_app dentro el scope de cada whitelist" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1279,6 +1278,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8028985">
           <caret line="80" column="23" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1286,6 +1286,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8028985">
           <caret line="39" column="19" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1340,16 +1341,6 @@
         <state vertical-scroll-proportion="0.09855072">
           <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9115942">
-          <caret line="88" column="62" selection-start-line="88" selection-start-column="50" selection-end-line="88" selection-end-column="62" />
-          <folding>
-            <element signature="e#3160#3231#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1417,14 +1408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="43" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/application.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09855072">
@@ -1465,10 +1448,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="43" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="70" selection-start-line="83" selection-start-column="6" selection-end-line="83" selection-end-column="70" />
+          <folding>
+            <element signature="e#3160#3231#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4188406">
-          <caret line="68" column="32" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.44347826">
+          <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
           <folding />
         </state>
       </provider>
