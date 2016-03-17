@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303121321) do
+ActiveRecord::Schema.define(version: 20160314155603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,15 @@ ActiveRecord::Schema.define(version: 20160303121321) do
 
   add_index "permissions", ["name"], name: "index_permissions_on_name", unique: true, using: :btree
 
+  create_table "policies", force: :cascade do |t|
+    t.string   "type"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "status",      default: 1, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "role_assignations", id: false, force: :cascade do |t|
     t.integer  "role_id",    null: false
     t.integer  "user_id",    null: false
@@ -103,6 +112,20 @@ ActiveRecord::Schema.define(version: 20160303121321) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "rules", force: :cascade do |t|
+    t.integer  "policy_id",               null: false
+    t.string   "type"
+    t.string   "name"
+    t.text     "description"
+    t.string   "value"
+    t.string   "exception"
+    t.integer  "status",      default: 1, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "rules", ["policy_id"], name: "index_rules_on_policy_id", using: :btree
 
   create_table "user_devices", id: false, force: :cascade do |t|
     t.integer  "device_id",  null: false
@@ -181,6 +204,7 @@ ActiveRecord::Schema.define(version: 20160303121321) do
   add_foreign_key "role_assignations", "users"
   add_foreign_key "role_permissions", "permissions"
   add_foreign_key "role_permissions", "roles"
+  add_foreign_key "rules", "policies"
   add_foreign_key "user_devices", "devices"
   add_foreign_key "user_devices", "users"
   add_foreign_key "user_group_members", "user_groups"

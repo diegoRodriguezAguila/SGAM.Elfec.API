@@ -43,6 +43,14 @@ p20 = Permission.create(name: 'update_whitelist',
 role = Role.create(role: 'Administrador',
                    description: 'Rol de usuario administrador del sistema de gestión de aplicaciones', status: 1)
 role.permissions << [p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20]
+
+Policy.create(type: Policy.types[:application_control], name: 'Directivas de control de aplicaciones',
+              description: 'Utilize estas directivas para poder definir que aplicaciones estan permitidas/denegadas,
+de usar un usuario o un grupo de usuarios')
+Policy.create(type: Policy.types[:device_restriction], name: 'Directivas de restricción de dispositivos',
+              description: 'Utilize estas directivas para poder definir que usuarios o grupos de usuarios tienen acceso
+a que dispositivos')
+
 user = User.create(username: 'drodriguez', authentication_token: '_rD46PrUrWDaxfyQGyDK',
                    last_ad_sync_at: Time.now,status: 1)
 user.roles << role
