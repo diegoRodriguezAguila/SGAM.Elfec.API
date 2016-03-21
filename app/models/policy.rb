@@ -4,4 +4,5 @@ class Policy < ActiveRecord::Base
   validates_presence_of :type, :name, :description
   validates_uniqueness_of :type, :name
   has_many :rules
+  self.inheritance_column = 'parent_type'
 end

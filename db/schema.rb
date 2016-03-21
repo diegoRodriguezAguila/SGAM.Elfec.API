@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314155603) do
+ActiveRecord::Schema.define(version: 20160321133321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,17 @@ ActiveRecord::Schema.define(version: 20160314155603) do
   end
 
   add_index "devices", ["imei"], name: "index_devices_on_imei", unique: true, using: :btree
+
+  create_table "entity_rules", force: :cascade do |t|
+    t.integer  "entity_id"
+    t.string   "entity_type"
+    t.integer  "rule_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "entity_rules", ["entity_type", "entity_id"], name: "index_entity_rules_on_entity_type_and_entity_id", using: :btree
+  add_index "entity_rules", ["rule_id"], name: "index_entity_rules_on_rule_id", using: :btree
 
   create_table "permissions", force: :cascade do |t|
     t.string   "name",        null: false

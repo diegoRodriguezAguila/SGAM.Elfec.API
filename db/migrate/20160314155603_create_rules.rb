@@ -8,8 +8,6 @@ class CreateRules < ActiveRecord::Migration
       t.string :value
       t.string :exception
 
-
-
       t.integer :status, null: false, default: 1
       t.timestamps null: false
     end

@@ -5,6 +5,7 @@ class UserGroup < ActiveRecord::Base
 
 
   has_and_belongs_to_many :members, class_name: 'User', join_table: 'user_group_members'
+  has_many :entity_rules, as: :entity
 
   # Verifica si este grupo de usuarios es creable por cierto usuario
   # @param [User] user
@@ -18,7 +19,7 @@ class UserGroup < ActiveRecord::Base
   def updatable_by? (user)
     user.has_permission? Permission.update_user_group
   end
-  # Verifica si este grupo de usuarios específico esn visible por cierto usuario
+  # Verifica si este grupo de usuarios especï¿½fico esn visible por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def viewable_by? (user)
