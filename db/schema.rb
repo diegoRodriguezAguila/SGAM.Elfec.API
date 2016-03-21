@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(version: 20160321133321) do
 
   create_table "rules", force: :cascade do |t|
     t.integer  "policy_id",               null: false
-    t.string   "type"
+    t.string   "action"
     t.string   "name"
     t.text     "description"
     t.string   "value"
@@ -190,27 +190,6 @@ ActiveRecord::Schema.define(version: 20160321133321) do
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
-  create_table "whitelist_apps", force: :cascade do |t|
-    t.integer  "whitelist_id",             null: false
-    t.string   "package",                  null: false
-    t.integer  "status",       default: 1, null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
-  add_index "whitelist_apps", ["package"], name: "index_whitelist_apps_on_package", using: :btree
-  add_index "whitelist_apps", ["whitelist_id"], name: "index_whitelist_apps_on_whitelist_id", using: :btree
-
-  create_table "whitelists", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "status",      default: 1, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  add_index "whitelists", ["title"], name: "index_whitelists_on_title", unique: true, using: :btree
-
   add_foreign_key "role_assignations", "roles"
   add_foreign_key "role_assignations", "users"
   add_foreign_key "role_permissions", "permissions"
@@ -220,5 +199,4 @@ ActiveRecord::Schema.define(version: 20160321133321) do
   add_foreign_key "user_devices", "users"
   add_foreign_key "user_group_members", "user_groups"
   add_foreign_key "user_group_members", "users"
-  add_foreign_key "whitelist_apps", "whitelists"
 end

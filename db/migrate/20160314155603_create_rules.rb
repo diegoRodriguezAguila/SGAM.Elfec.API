@@ -2,7 +2,7 @@ class CreateRules < ActiveRecord::Migration
   def change
     create_table :rules do |t|
       t.belongs_to :policy, index: true, null: false
-      t.string :type
+      t.string :action
       t.string :name
       t.text :description
       t.string :value
