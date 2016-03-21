@@ -25,6 +25,9 @@ Rails.application.routes.draw do
         post '/members/:usernames', to: 'user_groups#add_members'
         delete '/members/:usernames', to: 'user_groups#remove_members'
       end
+
+      resources :policies, only: [:show, :index] do
+      end
     end
   end
 end
