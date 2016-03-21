@@ -14,11 +14,7 @@ class Permission < ActiveRecord::Base
               register_user_group:    'register_user_group',
               view_user_groups:       'view_user_groups',
               view_single_user_group: 'view_single_user_group',
-              update_user_group:      'update_user_group',
-              register_whitelist:    'register_whitelist',
-              view_whitelists:       'view_whitelists',
-              view_single_whitelist: 'view_single_whitelist',
-              update_whitelist:      'update_whitelist'}
+              update_user_group:      'update_user_group'}
 
   enum status: [:disabled, :enabled]
   has_and_belongs_to_many :roles, join_table: :role_permissions

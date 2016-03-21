@@ -7,14 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c55ca71-823a-4342-9dac-17a4d2191cca" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/whitelist.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/whitelist_app.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20151223150740_create_whitelist_apps.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20160302215450_create_whitelists.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20160303121321_add_foreign_key_to_white_list_apps.rb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/permission.rb" afterPath="$PROJECT_DIR$/app/models/permission.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds/development.rb" afterPath="$PROJECT_DIR$/db/seeds/development.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds/test.rb" afterPath="$PROJECT_DIR$/db/seeds/test.rb" />
     </list>
     <ignored path="SGAM.Elfec.web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,16 +50,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="20160314155128_create_policies.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20160314155128_create_policies.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="policy.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/policy.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -124,11 +110,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6405797">
+            <state vertical-scroll-proportion="0.0">
               <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="permission.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/permission.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="development.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/seeds/development.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.38405797">
+              <caret line="36" column="89" selection-start-line="36" selection-start-column="89" selection-end-line="36" selection-end-column="89" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/seeds/test.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="36" column="89" selection-start-line="36" selection-start-column="89" selection-end-line="36" selection-end-column="89" />
               <folding />
             </state>
           </provider>
@@ -184,8 +200,6 @@
         <option value="$PROJECT_DIR$/db/migrate/20160302215450_create_whitelists.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160303120937_add_foreign_key_to_white_list_apps.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160303121321_add_foreign_key_to_white_list_apps.rb" />
-        <option value="$PROJECT_DIR$/app/models/permission.rb" />
-        <option value="$PROJECT_DIR$/db/seeds/test.rb" />
         <option value="$PROJECT_DIR$/app/models/whitelist.rb" />
         <option value="$PROJECT_DIR$/app/serializers/whitelist_app_serializer.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
@@ -202,7 +216,6 @@
         <option value="$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160314155128_create_policies.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" />
-        <option value="$PROJECT_DIR$/db/seeds/development.rb" />
         <option value="$PROJECT_DIR$/app/models/policy.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160314155603_create_rules.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160321133321_create_entity_rules.rb" />
@@ -211,6 +224,9 @@
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/models/rule.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/models/permission.rb" />
+        <option value="$PROJECT_DIR$/db/seeds/test.rb" />
+        <option value="$PROJECT_DIR$/db/seeds/development.rb" />
       </list>
     </option>
   </component>
@@ -304,24 +320,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="seeds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SGAM.Elfec.web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SGAM.Elfec.web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -700,12 +698,6 @@
       <option name="number" value="Default" />
       <updated>1441119307959</updated>
     </task>
-    <task id="LOCAL-00042" summary="Se agregó autenticación para acceder a aplicaciones">
-      <created>1444846066283</created>
-      <option name="number" value="00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1444846066283</updated>
-    </task>
     <task id="LOCAL-00043" summary="Se agregó funcionalidad de ver todas las aplicaciones">
       <created>1444847465154</created>
       <option name="number" value="00043" />
@@ -994,7 +986,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458569252342</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="Eliminadas whitelist y whitelist app, para reemplazar por policies y rules">
+      <created>1458569741728</created>
+      <option name="number" value="00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1458569741728</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1049,7 +1047,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modificados nombres de metodos para URL y DIR de usuarios. Se mejoró la serialización de usuarios para mostrar o no los tokens segun los permisos" />
     <MESSAGE value="Aumentado concern de includible, para poder utilizar opcion de include para obtener relaciones en los endpoints de la api" />
     <MESSAGE value="Cambios de includible para show de usuario simple e inicio de sesion, siempre debe retornar roles y permisos del usuario" />
     <MESSAGE value="Agregada la opcion de obtener los usuarios de AD con la opcion status=2 en los filtros de usuarios. También se hizo que se muestre el campo o un campo por defecto para las fotos de los usuarios. Falta redireccionar links de recursos a la foto del usuario" />
@@ -1074,7 +1071,8 @@
     <MESSAGE value="Se implementó controller para eliminar apps a las whitelist, Some refactorings" />
     <MESSAGE value="Agregadas tablas de directivas (policies) y reglas (rules)" />
     <MESSAGE value="Agregada la relacion de asignación de usuarios/grupos de usuarios a las reglas de las directivas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agregada la relacion de asignación de usuarios/grupos de usuarios a las reglas de las directivas" />
+    <MESSAGE value="Eliminadas whitelist y whitelist app, para reemplazar por policies y rules" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eliminadas whitelist y whitelist app, para reemplazar por policies y rules" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1328,26 +1326,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/permission.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56666666">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/role.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09855072">
           <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds/development.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.010145">
-          <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -1425,8 +1408,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6405797">
+        <state vertical-scroll-proportion="0.0">
           <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/permission.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds/test.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="89" selection-start-line="36" selection-start-column="89" selection-end-line="36" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds/development.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38405797">
+          <caret line="36" column="89" selection-start-line="36" selection-start-column="89" selection-end-line="36" selection-end-column="89" />
           <folding />
         </state>
       </provider>
