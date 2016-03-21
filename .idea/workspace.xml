@@ -4,24 +4,17 @@
     <bookmark url="file://$PROJECT_DIR$/app/models/device.rb" line="7" />
     <bookmark url="file://$PROJECT_DIR$/app/controllers/api/v1/applications_controller.rb" line="43" />
     <bookmark url="file://$PROJECT_DIR$/spec/models/app_version_spec.rb" line="11" />
-    <bookmark url="file://$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb" line="60" />
-    <bookmark url="file://$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb" line="61" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c55ca71-823a-4342-9dac-17a4d2191cca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/entity_rule.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20160321133321_create_entity_rules.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/factories/entity_rules.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/models/entity_rule_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/whitelist.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/whitelist_app.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20151223150740_create_whitelist_apps.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20160302215450_create_whitelists.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20160303121321_add_foreign_key_to_white_list_apps.rb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/policy.rb" afterPath="$PROJECT_DIR$/app/models/policy.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/rule.rb" afterPath="$PROJECT_DIR$/app/models/rule.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user_group.rb" afterPath="$PROJECT_DIR$/app/models/user_group.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20160314155603_create_rules.rb" afterPath="$PROJECT_DIR$/db/migrate/20160314155603_create_rules.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
     </list>
     <ignored path="SGAM.Elfec.web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -101,10 +94,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rule.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rule.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/rule.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22173913">
+            <state vertical-scroll-proportion="0.0">
               <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
               <folding />
             </state>
@@ -126,6 +119,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6405797">
+              <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -192,7 +195,6 @@
         <option value="$PROJECT_DIR$/config/environments/test.rb" />
         <option value="$PROJECT_DIR$/app/serializers/user_group_serializer.rb" />
         <option value="$PROJECT_DIR$/app/serializers/whitelist_serializer.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/application.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20151223150740_create_whitelist_apps.rb" />
@@ -208,6 +210,7 @@
         <option value="$PROJECT_DIR$/app/models/user_group.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/models/rule.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
       </list>
     </option>
   </component>
@@ -319,6 +322,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="migrate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SGAM.Elfec.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SGAM.Elfec.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -683,12 +700,6 @@
       <option name="number" value="Default" />
       <updated>1441119307959</updated>
     </task>
-    <task id="LOCAL-00041" summary="Se agregó controller para ver una aplicación específica y toda la lógica con tests.">
-      <created>1444836126382</created>
-      <option name="number" value="00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1444836126383</updated>
-    </task>
     <task id="LOCAL-00042" summary="Se agregó autenticación para acceder a aplicaciones">
       <created>1444846066283</created>
       <option name="number" value="00042" />
@@ -977,7 +988,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458249103934</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Agregada la relacion de asignación de usuarios/grupos de usuarios a las reglas de las directivas">
+      <created>1458569252341</created>
+      <option name="number" value="00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1458569252342</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1000,6 +1017,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2769923" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962447" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18497914" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22980501" sideWeight="0.5025707" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17287917" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962447" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1009,7 +1027,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18497914" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1032,7 +1049,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Se modificó el error que se mostraba con parámetros invalidos de ordenamiento. Ahora según guía de REST API json devuelve bad request y un mensaje correcto de error" />
     <MESSAGE value="Modificados nombres de metodos para URL y DIR de usuarios. Se mejoró la serialización de usuarios para mostrar o no los tokens segun los permisos" />
     <MESSAGE value="Aumentado concern de includible, para poder utilizar opcion de include para obtener relaciones en los endpoints de la api" />
     <MESSAGE value="Cambios de includible para show de usuario simple e inicio de sesion, siempre debe retornar roles y permisos del usuario" />
@@ -1057,7 +1073,8 @@
     <MESSAGE value="Se implementó controller para agregar apps a las whitelist, se valido unicidad de whitelist_app dentro el scope de cada whitelist" />
     <MESSAGE value="Se implementó controller para eliminar apps a las whitelist, Some refactorings" />
     <MESSAGE value="Agregadas tablas de directivas (policies) y reglas (rules)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agregadas tablas de directivas (policies) y reglas (rules)" />
+    <MESSAGE value="Agregada la relacion de asignación de usuarios/grupos de usuarios a las reglas de las directivas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregada la relacion de asignación de usuarios/grupos de usuarios a las reglas de las directivas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1140,13 +1157,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17246377">
           <caret line="7" column="106" selection-start-line="7" selection-start-column="106" selection-end-line="7" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/whitelist.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09855072">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1240,29 +1250,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/whitelists_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="5" selection-start-line="41" selection-start-column="4" selection-end-line="42" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160302215450_create_whitelists.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20150923140809_create_devices.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5173913">
@@ -1291,14 +1278,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.76376814">
           <caret line="56" column="104" selection-start-line="56" selection-start-column="91" selection-end-line="56" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/whitelist_app.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="54" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1365,14 +1344,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20151223150740_create_whitelist_apps.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29565218">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds/development.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.010145">
@@ -1412,14 +1383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user_group.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1446,8 +1409,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/rule.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22173913">
+        <state vertical-scroll-proportion="0.0">
           <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6405797">
+          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
           <folding />
         </state>
       </provider>
