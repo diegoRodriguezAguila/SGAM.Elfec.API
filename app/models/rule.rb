@@ -1,6 +1,7 @@
 class Rule < ActiveRecord::Base
   enum action: {permit: 'permit',
               deny:   'deny'}
+  enum status: [:disabled, :enabled]
   validates_presence_of :policy, :action, :name, :value
   validates_uniqueness_of :name, scope: :policy
   belongs_to :policy

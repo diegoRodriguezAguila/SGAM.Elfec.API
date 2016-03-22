@@ -27,9 +27,7 @@ Rails.application.routes.draw do
       end
 
       resources :policies, only: [:show, :index] do
-        get '/rules', to: 'policies#show_rules'
-        post '/rules', to: 'policies#add_rule'
-        delete '/rules/:rule_id', to: 'policies#delete_rule'
+        resources :rules, only: [:index, :create, :destroy]
       end
     end
   end

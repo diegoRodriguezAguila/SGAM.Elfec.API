@@ -1,4 +1,4 @@
-class RuleSerializer < ActiveModel::Serializer
+class RuleSerializer < ModelWithStatusSerializer
   attributes :id, :action, :name, :description, :value, :exception, :status
   self.root = false
   def attributes
