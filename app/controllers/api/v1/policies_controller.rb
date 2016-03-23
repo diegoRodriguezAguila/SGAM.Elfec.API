@@ -14,7 +14,7 @@ class Api::V1::PoliciesController < ApplicationController
   def index
     raise Exceptions::SecurityTransgression unless Policy.are_viewable_by? current_user
     policies = Policy.where(policy_filter_params).order(sort_params_for(Policy))
-    render json: policies,include: request_includes, host: request.host_with_port, root: false, status: :ok
+    render json: policies, include: request_includes, host: request.host_with_port, root: false, status: :ok
   end
 
   private

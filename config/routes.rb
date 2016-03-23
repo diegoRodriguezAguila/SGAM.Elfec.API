@@ -29,6 +29,12 @@ Rails.application.routes.draw do
       resources :policies, only: [:show, :index] do
         resources :rules, only: [:index, :create, :destroy]
       end
+
+      resources :rules, only: [:index, :create, :destroy] do
+        get '/applies_to_entities', to: 'rules#show_applies_to_entities'
+        post '/applies_to_entities/:entity_ids', to: 'rules#add_entities'
+        delete '/applies_to_entities/:entity_ids', to: 'rules#remove_entities'
+      end
     end
   end
 end
