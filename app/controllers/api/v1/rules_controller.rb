@@ -31,15 +31,15 @@ class Api::V1::RulesController < ApplicationController
 
   #region applies_to_entities
 
-  #GET rules/:rule_id/applies_to_entities
-  def show_applies_to_entities
+  #GET rules/:rule_id/entities
+  def show_entities
     rule = Rule.find_by(id: HASHIDS.decode(params[:rule_id]))
     return head :not_found if rule.nil?
     # raise Exceptions::SecurityTransgression unless rule.viewable_by? current_user
-    render json: rule.entities, host: request.host_with_port, root: false, status: :ok
+    render json: rule.entities, host: request.host_with_port, include:['entity_type'],root: false, status: :ok
   end
 
-  #POST rules/:rule_id/applies_to_entities/:entity_ids
+  #POST rules/:rule_id/entities/:entity_ids
   def add_entities
     rule = Rule.find_by(id: HASHIDS.decode(params[:rule_id]))
     return head :not_found if rule.nil?
@@ -52,7 +52,7 @@ class Api::V1::RulesController < ApplicationController
     head :no_content
   end
 
-  #DELETE rules/:rule_id/applies_to_entities/:entity_ids
+  #DELETE rules/:rule_id/entities/:entity_ids
   def remove_entities
     rule = Rule.find_by(id: HASHIDS.decode(params[:rule_id]))
     return head :not_found if rule.nil?

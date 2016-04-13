@@ -31,9 +31,9 @@ Rails.application.routes.draw do
       end
 
       resources :rules, only: [:index, :create, :destroy] do
-        get '/applies_to_entities', to: 'rules#show_applies_to_entities'
-        post '/applies_to_entities/:entity_ids', to: 'rules#add_entities'
-        delete '/applies_to_entities/:entity_ids', to: 'rules#remove_entities'
+        get '/entities', to: 'rules#show_entities'
+        post '/entities/:entity_ids', to: 'rules#add_entities'
+        delete '/entities/:entity_ids', to: 'rules#remove_entities'
       end
     end
   end
