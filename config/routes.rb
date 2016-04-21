@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
       resources :policies, only: [:show, :index] do
         resources :rules, only: [:index, :create, :destroy]
+        delete '/rules', to: 'rules#bulk_destroy'
       end
 
       resources :rules, only: [:index, :create, :destroy] do

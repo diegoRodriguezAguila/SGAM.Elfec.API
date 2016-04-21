@@ -29,6 +29,16 @@ class Api::V1::RulesController < ApplicationController
     head :no_content
   end
 
+  #DELETE policies/:policy_id/rules
+  def bulk_destroy
+    policy = Policy.find_by(type: policy_id_param)
+    return head :not_found if policy.nil?
+    rules = policy.rules.where(id: rule_ids_params)
+    return head :not_modified if rules.empty?
+    rules.destroy_all
+    head :no_content
+  end
+
   #region applies_to_entities
 
   #GET rules/:rule_id/entities
@@ -47,6 +57,7 @@ class Api::V1::RulesController < ApplicationController
                               status: User.statuses[:enabled]) - rule.users
     user_groups_to_add = UserGroup.where(id: user_group_ids_params,
                               status: UserGroup.statuses[:enabled]) - rule.user_groups
+    return head :not_modified if users_to_add.empty? && user_groups_to_add.empty?
     rule.users << users_to_add
     rule.user_groups << user_groups_to_add
     head :no_content
@@ -58,6 +69,7 @@ class Api::V1::RulesController < ApplicationController
     return head :not_found if rule.nil?
     users_to_del = User.where(username: entity_ids_params)
     user_groups_to_del = UserGroup.where(id: user_group_ids_params)
+    return head :not_modified if users_to_del.empty? && user_groups_to_del.empty?
     rule.users = rule.users - users_to_del
     rule.user_groups = rule.user_groups - user_groups_to_del
     head :no_content
@@ -78,6 +90,14 @@ class Api::V1::RulesController < ApplicationController
 
   def entity_ids_params
     params[:entity_ids].gsub(/\s+/, '').split(',')
+  end
+
+  def rule_ids_params
+    params.require(:ids)
+    undecoded_ids = (params[:ids].is_a? Array)? params[:ids] : params[:ids].gsub(/\s+/, '').split(',')
+    ids = []
+    undecoded_ids.each {|id| ids << HASHIDS.decode(id)}
+    ids
   end
 
   def user_group_ids_params

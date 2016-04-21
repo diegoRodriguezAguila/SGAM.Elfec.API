@@ -10,8 +10,8 @@ module Sortable
     sort_params = {}
     sort_params_a.each do |h|
       param_name= h.tr('-','')
-      raise Exceptions::InvalidSortException unless model_methods.include? param_name
-      sort_params[param_name.to_sym] = (h[0]=='-' )? :desc : :asc
+      #raise Exceptions::InvalidSortException unless model_methods.include? param_name
+      sort_params[param_name.to_sym] = (h[0]=='-' )? :desc : :asc  if model_methods.include? param_name
     end
     sort_params
   end
