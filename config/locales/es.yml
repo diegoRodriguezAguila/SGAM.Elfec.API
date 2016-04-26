@@ -14,6 +14,10 @@ es:
           attributes:
             version:
               taken: "%{value} de la aplicación que está intentando subir ya existe"
+        rule:
+          attributes:
+            name:
+              taken: "%{value} ya existe en la directiva seleccionada"
     attributes:
       user:
         username: "El nombre de usuario"
@@ -25,6 +29,8 @@ es:
         name: "El nombre de la aplicación"
       app_version:
         version: "La versión"
+      rule:
+        name: "Una regla con el nombre"
   errors:
     messages:
       imei: "con formato no válido"
@@ -45,6 +51,8 @@ es:
       user_group:
         user_memberships: "Uno o varios de los usuarios no son válidos o ya pertenecen al grupo solicitado, no se realizó ninguna acción"
         delete_user_memberships: "Uno o varios de los usuarios no son válidos, no se realizó ninguna acción"
+      rule:
+        delete_entities: "Algunas de las entidades no son un recurso válido, no se realizó ninguna acción"
       sort:
         invalid_params: "Uno o varios de los parámetros de ordenamiento solicitados no son válidos"
 

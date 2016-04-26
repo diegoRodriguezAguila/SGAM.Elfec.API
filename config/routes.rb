@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         post '/devices/:imeis', to: 'users#assign_devices'
         delete '/devices/:imeis', to: 'users#remove_device_assignations'
         get '/resources/:file_name', to: 'users#show_res_file', constraints: { :file_name => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ }
+        get '/policy_rules', to: 'users#generate_policy_rules'
       end
       resources :sessions, :only => [:create, :destroy]
       resources :devices, :only => [:show, :index, :create, :update]

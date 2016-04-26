@@ -33,8 +33,13 @@ class Api::V1::RulesController < ApplicationController
   def bulk_destroy
     policy = Policy.find_by(type: policy_id_param)
     return head :not_found if policy.nil?
-    rules = policy.rules.where(id: rule_ids_params)
-    return head :not_modified if rules.empty?
+    rule_ids = rule_ids_params
+    rules = policy.rules.where(id: rule_ids)
+    p rule_ids.size
+    p rules.size
+    return render json: {errors:
+                         I18n.t(:'api.errors.rule.delete_entities')},
+                          status: :bad_request if rules.empty? || rules.size < rule_ids.size
     rules.destroy_all
     head :no_content
   end
@@ -97,7 +102,7 @@ class Api::V1::RulesController < ApplicationController
     undecoded_ids = (params[:ids].is_a? Array)? params[:ids] : params[:ids].gsub(/\s+/, '').split(',')
     ids = []
     undecoded_ids.each {|id| ids << HASHIDS.decode(id)}
-    ids
+    ids.flatten
   end
 
   def user_group_ids_params

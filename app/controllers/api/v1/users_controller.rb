@@ -90,6 +90,25 @@ class Api::V1::UsersController < ApplicationController
 
 #endregion
 
+  #region policy rules
+  # Gets all the policy rules that should apply to
+  # the requested user, directly or indirectly (via a user_group)
+  def generate_policy_rules
+    user = User.find_by(username: params[:user_id])
+    if user.nil?
+      head :not_found
+    else
+      raise Exceptions::SecurityTransgression unless user.viewable_by? current_user
+      rules = []
+      user.entity_rules.each{|ent| rules << ent.rule}
+      user.groups.each do |group|
+        group.entity_rules.each{|ent| rules << ent.rule}
+      end
+      render json: rules.uniq, root: false, include: request_includes, host: request.host_with_port, status: :ok
+    end
+  end
+  #endregion
+
   private
 
   def user_params

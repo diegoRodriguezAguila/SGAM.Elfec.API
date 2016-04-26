@@ -4,7 +4,7 @@ class Policy < ActiveRecord::Base
   enum status: [:disabled, :enabled]
   validates_presence_of :type, :name, :description
   validates_uniqueness_of :type, :name
-  has_many :rules
+  has_many :rules, -> { order(:name) }
   self.inheritance_column = 'parent_type'
 
   # Verifica si esta directiva de usuarios específica es visible por cierto usuario
