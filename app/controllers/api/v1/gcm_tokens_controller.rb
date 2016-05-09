@@ -22,7 +22,7 @@ class Api::V1::GcmTokensController < ApplicationController
     return head :not_found if device.nil?
     raise Exceptions::SecurityTransgression unless device.updatable_by? current_user
     return head :not_found if device.gcm_token.nil?
-    return render json: {errors: device.errors.full_messages[0]},
+    return render json: {errors: device.gcm_token.errors.full_messages[0]},
                   status: :unprocessable_entity unless device.gcm_token.update(gcm_token_params)
     head :no_content
   end

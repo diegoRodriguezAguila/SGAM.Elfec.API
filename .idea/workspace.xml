@@ -7,20 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c55ca71-823a-4342-9dac-17a4d2191cca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/api/v1/gcm_tokens_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/device_gcm_token.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20160509155300_create_device_gcm_tokens.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/factories/device_gcm_tokens.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/models/device_gcm_token_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SGAM.Elfec.web.iml" afterPath="$PROJECT_DIR$/.idea/SGAM.Elfec.web.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/device.rb" afterPath="$PROJECT_DIR$/app/models/device.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/es.yml" afterPath="$PROJECT_DIR$/config/locales/es.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/gcm_tokens_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/gcm_tokens_controller.rb" />
     </list>
     <ignored path="SGAM.Elfec.web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,6 +48,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="users_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="15" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="policies_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/policies_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -83,8 +81,8 @@
       <file leaf-file-name="gcm_tokens_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/gcm_tokens_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42424244">
-              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.6854257">
+              <caret line="25" column="59" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -184,9 +182,9 @@
         <option value="$PROJECT_DIR$/db/migrate/20160509155300_create_device_gcm_tokens.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/models/device.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/v1/gcm_tokens_controller.rb" />
         <option value="$PROJECT_DIR$/config/locales/es.yml" />
         <option value="$PROJECT_DIR$/app/models/device_gcm_token.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/api/v1/gcm_tokens_controller.rb" />
       </list>
     </option>
   </component>
@@ -347,6 +345,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SGAM.Elfec.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SGAM.Elfec.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="serializers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -716,12 +732,6 @@
       <option name="number" value="Default" />
       <updated>1441119307959</updated>
     </task>
-    <task id="LOCAL-00052" summary="Temporalmente se devuelve un solo mensaje de error para aplicaciones">
-      <created>1445975407024</created>
-      <option name="number" value="00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1445975407024</updated>
-    </task>
     <task id="LOCAL-00053" summary="Se modificó modelos de aplicaciones y versiones. Los atributos de url e icon_url serán generados dinámicamente en vez de ser guardados en la base de datos, para mayor flexibilidad">
       <created>1446039935853</created>
       <option name="number" value="00053" />
@@ -1010,7 +1020,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461703211493</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="Implementados endpoints para guardado y update de gcm tokens para los dispositivos">
+      <created>1462820337388</created>
+      <option name="number" value="00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1462820337396</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1071,7 +1087,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Agregada validacion al registrar usuarios, no se puede registrar un usuario que se encuentra dado de baja" />
     <MESSAGE value="Agregado grupos de usuarios junto con sus respectivas settings para uso de hashids para publicar sus ids" />
     <MESSAGE value="Implementados endpoints para obtener grupo de usuario especifico, todos los grupos de usuario y crear grupo de usuario, falta control de permisos para poder realizar operaciones" />
     <MESSAGE value="Agregado control de permisos para operaciones sobre grupos de usuarios" />
@@ -1096,7 +1111,8 @@
     <MESSAGE value="Se implementó soporte de indicar el tipo de los objetos entities de las reglas de directivas" />
     <MESSAGE value="Implementado Bulk Delete de Reglas" />
     <MESSAGE value="Agregado endpoint para obtener todas las reglas de directivas que aplican a un usuario especifico, ya sea directa o indirectamente (via un user_group)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agregado endpoint para obtener todas las reglas de directivas que aplican a un usuario especifico, ya sea directa o indirectamente (via un user_group)" />
+    <MESSAGE value="Implementados endpoints para guardado y update de gcm tokens para los dispositivos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementados endpoints para guardado y update de gcm tokens para los dispositivos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1224,13 +1240,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/serializers/device_serializer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22173913">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/active_directory_user_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1298,13 +1307,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="608" column="6" selection-start-line="608" selection-start-column="6" selection-end-line="608" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1390,26 +1392,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.027417028">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/device.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32900432">
-          <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -1470,10 +1456,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="15" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="626" column="9" selection-start-line="626" selection-start-column="6" selection-end-line="626" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/device.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32900432">
+          <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/serializers/device_serializer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41125542">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/gcm_tokens_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42424244">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.6854257">
+          <caret line="25" column="59" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
           <folding />
         </state>
       </provider>
