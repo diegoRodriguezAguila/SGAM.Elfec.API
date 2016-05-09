@@ -11,26 +11,27 @@ class Device < ActiveRecord::Base
   validates_format_of :screen_resolution, with: /\A\d+[x]\d+\z/i, allow_nil: true
 
   has_and_belongs_to_many :users, join_table: 'user_devices'
+  has_one :gcm_token, class_name: 'DeviceGcmToken', dependent: :destroy
 
   # Verifica si el dispositivo es creable por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def creatable_by? (user)
-    return user.has_permission? Permission.register_device
+    user.has_permission? Permission.register_device
   end
 
   # Verifica si el dispositivo es updateable por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def updatable_by? (user)
-    return user.has_permission? Permission.update_device
+    user.has_permission? Permission.update_device
   end
 
-  # Verifica si este dispositivo específico esn visible por cierto usuario
+  # Verifica si este dispositivo especï¿½fico esn visible por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def viewable_by? (user)
-    return user.has_permission? Permission.view_single_device
+    user.has_permission? Permission.view_single_device
   end
 
   # Verifica si el recurso de los dispositivos son visible por cierto usuario

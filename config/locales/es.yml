@@ -18,6 +18,12 @@ es:
           attributes:
             name:
               taken: "%{value} ya existe en la directiva seleccionada"
+        device_gcm_token:
+          attributes:
+            token:
+              taken: "solicitado ya fué asignado a otro dispositivo"
+            device:
+              taken: "solicitado ya tiene asignado un token"
     attributes:
       user:
         username: "El nombre de usuario"
@@ -31,6 +37,9 @@ es:
         version: "La versión"
       rule:
         name: "Una regla con el nombre"
+      device_gcm_token:
+        token: "El token"
+        device: "El dispositivo"
   errors:
     messages:
       imei: "con formato no válido"

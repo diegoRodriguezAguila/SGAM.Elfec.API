@@ -14,7 +14,11 @@ Rails.application.routes.draw do
         get '/policy_rules', to: 'users#generate_policy_rules'
       end
       resources :sessions, :only => [:create, :destroy]
-      resources :devices, :only => [:show, :index, :create, :update]
+      resources :devices, :only => [:show, :index, :create, :update] do
+        post '/gcm_token', to: 'gcm_tokens#create'
+        patch '/gcm_token', to: 'gcm_tokens#update'
+        put '/gcm_token', to: 'gcm_tokens#update'
+      end
       resources :applications, :only => [:show, :index, :create], constraints: { :id => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ } do
         get '/:version', to: 'applications#download_version_apk', constraints: { :version => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/}
         get '/:version/resources/:file_name', to: 'applications#show_version_res_file', constraints: { :version => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/,

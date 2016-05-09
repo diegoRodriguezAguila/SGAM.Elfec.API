@@ -99,12 +99,12 @@ class Api::V1::UsersController < ApplicationController
       head :not_found
     else
       raise Exceptions::SecurityTransgression unless user.viewable_by? current_user
-      rules = []
+      rules = Set[]
       user.entity_rules.each{|ent| rules << ent.rule}
       user.groups.each do |group|
         group.entity_rules.each{|ent| rules << ent.rule}
       end
-      render json: rules.uniq, root: false, include: request_includes, host: request.host_with_port, status: :ok
+      render json: rules, root: false, include: request_includes, host: request.host_with_port, status: :ok
     end
   end
   #endregion

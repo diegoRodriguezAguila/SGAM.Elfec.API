@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321133321) do
+ActiveRecord::Schema.define(version: 20160509155300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20160321133321) do
 
   add_index "applications", ["name"], name: "index_applications_on_name", using: :btree
   add_index "applications", ["package"], name: "index_applications_on_package", using: :btree
+
+  create_table "device_gcm_tokens", force: :cascade do |t|
+    t.integer  "device_id",  null: false
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "device_gcm_tokens", ["device_id"], name: "index_device_gcm_tokens_on_device_id", using: :btree
 
   create_table "devices", force: :cascade do |t|
     t.string   "name"
@@ -190,6 +199,7 @@ ActiveRecord::Schema.define(version: 20160321133321) do
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "device_gcm_tokens", "devices"
   add_foreign_key "role_assignations", "roles"
   add_foreign_key "role_assignations", "users"
   add_foreign_key "role_permissions", "permissions"
