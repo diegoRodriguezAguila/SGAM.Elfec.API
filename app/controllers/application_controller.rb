@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   # @param [Exception]
   def exception_handler(exception)
+    p logger.error exception.backtrace.join("\n")
     render json: {errors: exception.message}, status: :internal_server_error
   end
 end

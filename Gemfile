@@ -20,7 +20,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'responders', '~> 2.0'
 # Google Cloud Messaging
-gem 'gcm', '>=0.1.1'
+gem 'gcm'
+gem 'certified'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

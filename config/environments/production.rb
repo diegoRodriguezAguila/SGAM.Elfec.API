@@ -79,4 +79,6 @@ Rails.application.configure do
   # config salt
   config.hashids.salt = 'Elfec2015%#"#fvVASPoq1231/Asz!"234&//\\979@s'
   config.ids_length = 6
+  # config gcm api key
+  config.gcm_api_key = 'AIzaSyDKGdljdlRQZxrMovOiyAMNownQoWbMH2k'
 end
