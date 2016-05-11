@@ -39,4 +39,8 @@ Rails.application.configure do
   # config salt
   config.hashids.salt = 'Elfec2015'
   config.ids_length = 6
+  # config gcm api key
+  config.gcm_api_key = 'AIzaSyDKGdljdlRQZxrMovOiyAMNownQoWbMH2k'
+  # config gcm app
+  config.gcm_app = 'android_sender'
 end
