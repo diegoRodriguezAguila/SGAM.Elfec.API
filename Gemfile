@@ -23,6 +23,9 @@ gem 'responders', '~> 2.0'
 gem 'gcm'
 gem 'certified'
 
+#Job scheduler for gcm sending
+gem 'sidekiq', '~> 4.1.2'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

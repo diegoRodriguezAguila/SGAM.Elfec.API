@@ -16,6 +16,7 @@ class Api::V1::RulesController < ApplicationController
     return head :not_found if policy.nil?
     rule = policy.rules.create(rule_params)
     return render json: {errors: rule.errors.full_messages[0]}, status: :unprocessable_entity unless rule.errors.empty?
+    RulesNotifier.propagate_rule(rule)
     render json: rule, status: :created, location: api_policy_rules_url(rule)
   end
 

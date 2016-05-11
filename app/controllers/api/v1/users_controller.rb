@@ -5,7 +5,6 @@ class Api::V1::UsersController < ApplicationController
   include ActiveDirectoryUserHelper
 
   def show
-    GcmDispatcher.send(["eXBg3J4J3Hw:APA91bGhc_WXop5pcpt3OBvaeGxIHaqz5nlvaOWoVFCPoAc2jtIvvvUuiGuNJ_OwX58NbnZyDX2jFGaLOAIAgGxVezEibKCK3p3g1g2l7DRPz78Z8-giwOEd4koUD2WVwW1bpsedbqUL"])
     user = User.find_by(username: params[:id])
     user = get_active_directory_user(params[:id], false) if user.nil?
     if user.nil?
