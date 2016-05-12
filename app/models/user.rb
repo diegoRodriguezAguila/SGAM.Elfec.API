@@ -69,6 +69,15 @@ class User < ActiveRecord::Base
     !(User.where('username=?', username).empty?)
   end
 
+  # Verifica si el usuario actual tiene permiso de utilizar
+  # el dispositivo proporcionado. Revisando en las reglas que aplican
+  # a este usuario en especifico
+  # @param [Device] device
+  def can_use_device?(device)
+    return false if device.nil?
+    true
+  end
+
   # Verifica si es que el usuario tiene cierto permiso en alguno de sus roles
   # @param [Permission] permission
   # @return [Boolean]

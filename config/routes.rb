@@ -41,6 +41,8 @@ Rails.application.routes.draw do
         post '/entities/:entity_ids', to: 'rules#add_entities'
         delete '/entities/:entity_ids', to: 'rules#remove_entities'
       end
+
+      resources :device_sessions, only: [:create, :destroy]
     end
   end
 end

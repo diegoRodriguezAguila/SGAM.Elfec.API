@@ -50,6 +50,8 @@ es:
       session:
         invalid_credentials: "El usuario o password proporcionados no son válidos, por favor revise los datos e inténtelo nuevamente"
         insufficient_privileges: "El usuario no tiene los privilegios suficientes para realizar la acción solicitada"
+        unpermitted_device: "El usuario %{username} no tiene permiso para utilizar este dispositivo.
+        Para solicitar los permisos necesarios contáctese con el departamento de T.I."
       user:
         invalid_user: "El usuario que intenta crear no corresponde a un usuario de Active Directory válido o se encuentra inactivo"
         device_assignations: "Uno o varios de los dispositivos son inválidos o las asignaciones solicitadas ya existen, no se realizó ninguna acción"
