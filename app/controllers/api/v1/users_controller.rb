@@ -39,45 +39,7 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-#region devices
-  def show_devices
-    user = User.find_by(username: params[:user_id])
-    if user.nil?
-      head :not_found
-    else
-      render json: user.devices, root: false, status: :ok
-    end
-  end
-
-  def assign_devices
-    user = User.find_by(username: params[:user_id])
-    if user.nil?
-      head :not_found
-    else
-      devices_to_add = Device.where(imei: user_device_imeis_params, status: Device.statuses[:authorized]) - user.devices
-      if devices_to_add.empty? || devices_to_add.size<user_device_imeis_params.size
-        render json: {errors: I18n.t(:'api.errors.user.device_assignations', :cascade => true)}, status: :bad_request
-      else
-        user.devices << devices_to_add
-        head :no_content
-      end
-    end
-  end
-
-  def remove_device_assignations
-    user = User.find_by(username: params[:user_id])
-    if user.nil?
-      head :not_found
-    else
-      devices_to_del = Device.where(imei: user_device_imeis_params)
-      if devices_to_del.empty? || !(devices_to_del - user.devices).empty? || devices_to_del.size<user_device_imeis_params.size
-        render json: {errors: I18n.t(:'api.errors.user.delete_device_assignations', :cascade => true)}, status: :bad_request
-      else
-        user.devices = user.devices - devices_to_del
-        head :no_content
-      end
-    end
-  end
+  #region File handling
 
   def show_res_file
     path = File.join(api_user_dir(params[:user_id]), params[:file_name])
@@ -88,7 +50,7 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-#endregion
+  #endregion
 
   #region policy rules
   # Gets all the policy rules that should apply to

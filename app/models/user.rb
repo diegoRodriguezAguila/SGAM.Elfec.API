@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
   validates :authentication_token, uniqueness: true
 
   has_and_belongs_to_many :roles, join_table: 'role_assignations'
-  has_and_belongs_to_many :devices, join_table: 'user_devices'
   has_and_belongs_to_many :groups, class_name: 'UserGroup', join_table: 'user_group_members'
   has_many :entity_rules, as: :entity
+  has_many :device_sessions
 
   # Define el identificador del tipo de entidad que es
   def entity_type

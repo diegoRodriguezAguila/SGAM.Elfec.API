@@ -13,6 +13,8 @@ class Device < ActiveRecord::Base
   has_and_belongs_to_many :users, join_table: 'user_devices'
   has_one :gcm_token, class_name: 'DeviceGcmToken', dependent: :destroy
 
+  has_many :device_sessions
+
   # Verifica si el dispositivo es creable por cierto usuario
   # @param [User] user
   # @return [Boolean]

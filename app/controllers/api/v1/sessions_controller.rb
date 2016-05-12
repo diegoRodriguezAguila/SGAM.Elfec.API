@@ -1,5 +1,6 @@
 #encoding: UTF-8
 class Api::V1::SessionsController < ApplicationController
+
   def create
     user_username = params[:session][:username]
     user_password = params[:session][:password]
@@ -20,6 +21,7 @@ class Api::V1::SessionsController < ApplicationController
     if user.nil?
       head :bad_request
     else
+      sign_out user
       user.authentication_token = nil
       user.save
       head :no_content

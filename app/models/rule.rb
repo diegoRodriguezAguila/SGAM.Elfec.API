@@ -15,4 +15,15 @@ class Rule < ActiveRecord::Base
     user_groups.each{|ug| entity_list<<ug}
     entity_list
   end
+
+  # Generates the plain list of all users
+  # that this rule applies to, thus, flattens
+  # the users that are members of groups
+  # @return [Array]
+  def plain_users
+    all_users = Set[]
+    all_users << users.to_set
+    all_users << user_groups.collect(&:members).flatten.to_set
+    all_users.flatten.to_a
+  end
 end

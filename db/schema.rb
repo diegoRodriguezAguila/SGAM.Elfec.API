@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509155300) do
+ActiveRecord::Schema.define(version: 20160512160349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,19 @@ ActiveRecord::Schema.define(version: 20160509155300) do
   end
 
   add_index "device_gcm_tokens", ["device_id"], name: "index_device_gcm_tokens_on_device_id", using: :btree
+
+  create_table "device_sessions", force: :cascade do |t|
+    t.integer  "user_id",                       null: false
+    t.integer  "device_id",                     null: false
+    t.string   "username",                      null: false
+    t.string   "imei",                          null: false
+    t.string   "status",     default: "opened", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "device_sessions", ["device_id"], name: "index_device_sessions_on_device_id", using: :btree
+  add_index "device_sessions", ["user_id"], name: "index_device_sessions_on_user_id", using: :btree
 
   create_table "devices", force: :cascade do |t|
     t.string   "name"
@@ -133,6 +146,67 @@ ActiveRecord::Schema.define(version: 20160509155300) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "rpush_apps", force: :cascade do |t|
+    t.string   "name",                                null: false
+    t.string   "environment"
+    t.text     "certificate"
+    t.string   "password"
+    t.integer  "connections",             default: 1, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "type",                                null: false
+    t.string   "auth_key"
+    t.string   "client_id"
+    t.string   "client_secret"
+    t.string   "access_token"
+    t.datetime "access_token_expiration"
+  end
+
+  create_table "rpush_feedback", force: :cascade do |t|
+    t.string   "device_token", limit: 64, null: false
+    t.datetime "failed_at",               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "app_id"
+  end
+
+  add_index "rpush_feedback", ["device_token"], name: "index_rpush_feedback_on_device_token", using: :btree
+
+  create_table "rpush_notifications", force: :cascade do |t|
+    t.integer  "badge"
+    t.string   "device_token",      limit: 64
+    t.string   "sound",                        default: "default"
+    t.text     "alert"
+    t.text     "data"
+    t.integer  "expiry",                       default: 86400
+    t.boolean  "delivered",                    default: false,     null: false
+    t.datetime "delivered_at"
+    t.boolean  "failed",                       default: false,     null: false
+    t.datetime "failed_at"
+    t.integer  "error_code"
+    t.text     "error_description"
+    t.datetime "deliver_after"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "alert_is_json",                default: false
+    t.string   "type",                                             null: false
+    t.string   "collapse_key"
+    t.boolean  "delay_while_idle",             default: false,     null: false
+    t.text     "registration_ids"
+    t.integer  "app_id",                                           null: false
+    t.integer  "retries",                      default: 0
+    t.string   "uri"
+    t.datetime "fail_after"
+    t.boolean  "processing",                   default: false,     null: false
+    t.integer  "priority"
+    t.text     "url_args"
+    t.string   "category"
+    t.boolean  "content_available",            default: false
+    t.text     "notification"
+  end
+
+  add_index "rpush_notifications", ["delivered", "failed"], name: "index_rpush_notifications_multi", where: "((NOT delivered) AND (NOT failed))", using: :btree
+
   create_table "rules", force: :cascade do |t|
     t.integer  "policy_id",               null: false
     t.string   "action"
@@ -200,6 +274,8 @@ ActiveRecord::Schema.define(version: 20160509155300) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   add_foreign_key "device_gcm_tokens", "devices"
+  add_foreign_key "device_sessions", "devices"
+  add_foreign_key "device_sessions", "users"
   add_foreign_key "role_assignations", "roles"
   add_foreign_key "role_assignations", "users"
   add_foreign_key "role_permissions", "permissions"

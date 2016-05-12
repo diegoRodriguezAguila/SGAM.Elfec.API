@@ -16,7 +16,6 @@ class Api::V1::RulesController < ApplicationController
     return head :not_found if policy.nil?
     rule = policy.rules.create(rule_params)
     return render json: {errors: rule.errors.full_messages[0]}, status: :unprocessable_entity unless rule.errors.empty?
-    RulesNotifier.propagate_rule(rule)
     render json: rule, status: :created, location: api_policy_rules_url(rule)
   end
 
@@ -66,6 +65,7 @@ class Api::V1::RulesController < ApplicationController
     return head :not_modified if users_to_add.empty? && user_groups_to_add.empty?
     rule.users << users_to_add
     rule.user_groups << user_groups_to_add
+    RulesNotifier.propagate_rule(rule)
     head :no_content
   end
 
