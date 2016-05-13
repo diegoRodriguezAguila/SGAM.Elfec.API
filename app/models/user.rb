@@ -21,6 +21,17 @@ class User < ActiveRecord::Base
     self.class.name
   end
 
+  # Obtiene todas las reglas que aplican a este usuario.
+  # Busca en las reglas que aplican a los grupos de usuarios
+  # a los que el usuario pertenece
+  # @return [Array] lista de reglas
+  def all_rules
+    rules = Set[]
+    rules << entity_rules.map{|ent| ent.rule}.to_set
+    rules << groups.collect(&:entity_rules).flatten.map{|ent| ent.rule}.to_set
+    rules.flatten.to_a
+  end
+
   # Busca en la base el usuario en intenta logearlo es decir, que tiene que existir el usuario
   # a nivel de postgres
   # @param [String] password
@@ -75,7 +86,8 @@ class User < ActiveRecord::Base
   # @param [Device] device
   def can_use_device?(device)
     return false if device.nil?
-    true
+    rules = all_rules.select { |rule| rule.policy.device_restriction? }
+    Rule.is_permitted?(device.imei, rules)
   end
 
   # Verifica si es que el usuario tiene cierto permiso en alguno de sus roles
@@ -83,7 +95,8 @@ class User < ActiveRecord::Base
   # @return [Boolean]
   def has_permission?(permission)
     self.roles.each do |role|
-      res = Permission.joins(:roles).where(roles:{ id: role.id}, permissions: {name: permission.name})
+      res = Permission.joins(:roles).where(roles: {id: role.id},
+                                           permissions: {name: permission.name})
       if res.size > 0
         return true
       end

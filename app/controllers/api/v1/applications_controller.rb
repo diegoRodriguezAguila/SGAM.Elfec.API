@@ -5,18 +5,13 @@ class Api::V1::ApplicationsController < ApplicationController
   def show
     # searches by package
     application = Application.find_by(package: params[:id])
-    if application.nil?
-      head :not_found
-    else
-      raise Exceptions::SecurityTransgression unless application.viewable_by? current_user
-      if !params.has_key?(:d)
-        render json: application, host: request.host_with_port, status: :ok
-      else
-        params[:application_id] = params[:id]
-        params[:version] = application.latest_version
-        download_version_apk
-      end
-    end
+    return head :not_found if application.nil?
+    raise Exceptions::SecurityTransgression unless application.viewable_by? current_user
+    return render json: application, host: request.host_with_port,
+                  status: :ok unless params.has_key?(:d)
+    params[:application_id] = params[:id]
+    params[:version] = application.latest_version
+    download_version_apk
   end
 
   def index
@@ -37,64 +32,52 @@ class Api::V1::ApplicationsController < ApplicationController
     version_code = manifest.version_code
     new_app = Application.find_by(package: package_name) # existe ya
     if new_app.nil?
-      new_app = Application.new(name: app_name, package: package_name, status: Application.statuses[:enabled]) # no existe
+      new_app = Application.new(name: app_name, package: package_name,
+                                status: Application.statuses[:enabled]) # no existe
     elsif version_code > new_app.latest_version_code
       # si la version de la app nueva es mayor a la ultima
       # actualizamos el nombre
       new_app.name = app_name
     end
-    app_version = AppVersion.new(version: version_name, version_code: version_code, status: AppVersion.statuses[:enabled])
+    app_version = AppVersion.new(version: version_name, version_code: version_code,
+                                 status: AppVersion.statuses[:enabled])
     raise Exceptions::SecurityTransgression unless new_app.creatable_by? current_user
-    if new_app.save
-      app_version.application = new_app
-      if app_version.valid?
-        save_apk(application_version_dir(package_name, version_name), params[:file])
-        save_icon(application_version_res_dir(package_name, version_name), apk)
-        app_version.save
-        new_app.app_versions << app_version
-        render json: new_app, host: request.host_with_port, status: :created, location: [:api, new_app]
-      else
-        render json: {errors: app_version.errors.full_messages[0]}, status: :unprocessable_entity
-      end
-    else
-      render json: {errors: new_app.errors.full_messages[0]}, status: :unprocessable_entity
-    end
+    return render json: {errors: new_app.errors.full_messages[0]},
+                  status: :unprocessable_entity unless new_app.save
+    app_version.application = new_app
+    return render json: {errors: app_version.errors.full_messages[0]},
+                  status: :unprocessable_entity unless app_version.valid?
+    save_apk(application_version_dir(package_name, version_name), params[:file])
+    save_icon(application_version_res_dir(package_name, version_name), apk)
+    app_version.save
+    new_app.app_versions << app_version
+    render json: new_app, host: request.host_with_port, status: :created,
+           location: [:api, new_app]
   end
 
   def show_version_res_file
     path = File.join(application_version_res_dir(params[:application_id], params[:version]), params[:file_name])
-    if !File.exists? path
-      head :not_found
-    else
-      send_file path, :disposition => 'inline'
-    end
+    return head :not_found unless File.exists? path
+    send_file path, :disposition => 'inline'
   end
 
   def download_version_apk
-    if params.has_key?(:d)
-      package = params[:application_id]
-      version = params[:version]
-      application = Application.find_by(package: package)
-      if application.nil? || application.app_versions.where(version: version).size==0
-        head :not_found
-      else
-        raise Exceptions::SecurityTransgression unless application.downloadable_by? current_user
-        send_file "#{application_version_dir(package, version)}/#{APK_FILENAME}",
-                  filename: apk_public_file_name(package, version)
-      end
-    else
-      head :not_acceptable
-    end
+    return head :not_acceptable unless params.has_key?(:d)
+    package = params[:application_id]
+    version = params[:version]
+    application = Application.find_by(package: package)
+    return head :not_found if application.nil? ||
+        application.app_versions.where(version: version).size==0
+    raise Exceptions::SecurityTransgression unless application.downloadable_by? current_user
+    send_file "#{application_version_dir(package, version)}/#{APK_FILENAME}",
+              filename: apk_public_file_name(package, version)
   end
 
   def show_res_file
     application = Application.find_by(package: params[:application_id])
-    if application.nil?
-      head :not_found
-    else
-      params[:version] = application.latest_version
-      show_version_res_file
-    end
+    return head :not_found if application.nil?
+    params[:version] = application.latest_version
+    show_version_res_file
   end
 
   private

@@ -7,14 +7,11 @@ class Api::V1::UsersController < ApplicationController
   def show
     user = User.find_by(username: params[:id])
     user = get_active_directory_user(params[:id], false) if user.nil?
-    if user.nil?
-      head :not_found
-    else
-      raise Exceptions::SecurityTransgression unless user.viewable_by? current_user
-      # si tiene que sincronizar con AD lo hace
-      user.update_ad_attributes!
-      render json: user, include: request_includes, host: request.host_with_port, status: :ok
-    end
+    return head :not_found if user.nil?
+    raise Exceptions::SecurityTransgression unless user.viewable_by? current_user
+    # si tiene que sincronizar con AD lo hace
+    user.update_ad_attributes!
+    render json: user, include: request_includes, host: request.host_with_port, status: :ok
   end
 
   def index
@@ -27,27 +24,20 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     user = get_active_directory_user(user_params, true)
-    if user.nil? || user.disabled?
-      render json: {errors: I18n.t(:'api.errors.user.invalid_user', cascade: true)}, status: :not_found
-    else
-      raise Exceptions::SecurityTransgression unless user.creatable_by? current_user
-      if user.save
-        render json: user, status: :created, host: request.host_with_port,  location: [:api, user]
-      else
-        render json: {errors: user.errors.full_messages[0]}, status: :unprocessable_entity
-      end
-    end
+    return render json: {errors: I18n.t(:'api.errors.user.invalid_user')},
+                  status: :not_found if user.nil? || user.disabled?
+    raise Exceptions::SecurityTransgression unless user.creatable_by? current_user
+    render json: {errors: user.errors.full_messages[0]},
+           status: :unprocessable_entity unless user.save
+    render json: user, status: :created, host: request.host_with_port, location: [:api, user]
   end
 
   #region File handling
 
   def show_res_file
     path = File.join(api_user_dir(params[:user_id]), params[:file_name])
-    if !File.exists? path
-      head :not_found
-    else
-      send_file path, :disposition => 'inline'
-    end
+    return head :not_found unless File.exists? path
+    send_file path, :disposition => 'inline'
   end
 
   #endregion
@@ -57,18 +47,12 @@ class Api::V1::UsersController < ApplicationController
   # the requested user, directly or indirectly (via a user_group)
   def generate_policy_rules
     user = User.find_by(username: params[:user_id])
-    if user.nil?
-      head :not_found
-    else
-      raise Exceptions::SecurityTransgression unless user.viewable_by? current_user
-      rules = Set[]
-      user.entity_rules.each{|ent| rules << ent.rule}
-      user.groups.each do |group|
-        group.entity_rules.each{|ent| rules << ent.rule}
-      end
-      render json: rules, root: false, include: request_includes, host: request.host_with_port, status: :ok
-    end
+    head :not_found if user.nil?
+    raise Exceptions::SecurityTransgression unless user.viewable_by? current_user
+    render json: user.all_rules, root: false,
+           include: request_includes, host: request.host_with_port, status: :ok
   end
+
   #endregion
 
   private

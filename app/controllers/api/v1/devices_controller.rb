@@ -5,12 +5,9 @@ class Api::V1::DevicesController < ApplicationController
   def show
     # searches by imei or name
     device = Device.find_by_imei_or_name(params[:id], params[:id])
-    if device.nil?
-      head :not_found
-    else
-      raise Exceptions::SecurityTransgression unless device.viewable_by? current_user
-      render json: device, status: :ok
-    end
+    return head :not_found if device.nil?
+    raise Exceptions::SecurityTransgression unless device.viewable_by? current_user
+    render json: device, status: :ok
   end
 
   def index
@@ -23,27 +20,20 @@ class Api::V1::DevicesController < ApplicationController
     device = Device.new(device_params)
     raise Exceptions::SecurityTransgression unless device.creatable_by? current_user
     device.format_for_save!
-    if device.save
-      render json: device, status: :created, location: [:api, device]
-    else
-      render json: {errors: device.errors}, status: :unprocessable_entity
-    end
+    return render json: {errors: device.errors},
+                  status: :unprocessable_entity unless device.save
+    render json: device, status: :created, location: [:api, device]
   end
 
   def update
     device = Device.find_by(imei: params[:id])
-    if device.nil?
-      head :not_found
-    else
-      raise Exceptions::SecurityTransgression unless device.updatable_by? current_user
-      device.attributes = device_params
-      device.format_for_save!
-      if device.save
-        render json: device, status: :ok, location: [:api, device]
-      else
-        render json: {errors: device.errors}, status: :unprocessable_entity
-      end
-    end
+    return head :not_found if device.nil?
+    raise Exceptions::SecurityTransgression unless device.updatable_by? current_user
+    device.attributes = device_params
+    device.format_for_save!
+    render json: {errors: device.errors},
+           status: :unprocessable_entity unless device.save
+    render json: device, status: :ok, location: [:api, device]
   end
 
   private
