@@ -7,91 +7,74 @@ class Api::V1::UserGroupsController < ApplicationController
   def show
     # searches by hashed id
     user_group = UserGroup.find_by(id: HASHIDS.decode(params[:id]))
-    if user_group.nil?
-      head :not_found
-    else
-      raise Exceptions::SecurityTransgression unless user_group.viewable_by? current_user
-      render json: user_group, include: request_includes, host: request.host_with_port, status: :ok
-    end
+    return head :not_found if user_group.nil?
+    raise Exceptions::SecurityTransgression unless user_group
+                                                       .viewable_by? current_user
+    render json: user_group, include: request_includes,
+           host: request.host_with_port, status: :ok
   end
 
   #GET user_groups
   def index
     raise Exceptions::SecurityTransgression unless UserGroup.are_viewable_by? current_user
     user_groups = UserGroup.where(user_group_filter_params).order(sort_params_for(UserGroup))
-    render json: user_groups,include: request_includes, host: request.host_with_port, root: false, status: :ok
+    render json: user_groups, include: request_includes,
+           host: request.host_with_port, root: false, status: :ok
   end
 
   #POST user_groups
   def create
     user_group = UserGroup.new(user_group_params)
     raise Exceptions::SecurityTransgression unless user_group.creatable_by? current_user
-    if user_group.save
-      render json: user_group, status: :created, location: [:api, user_group]
-    else
-      render json: {errors: user_group.errors.full_messages[0]}, status: :unprocessable_entity
-    end
+    users_to_add = User.where(username: user_group_usernames_params,
+                              status: :enabled)
+    user_group.members << users_to_add
+    return render json: {errors: user_group.errors.full_messages[0]},
+                  status: :unprocessable_entity unless user_group.save
+    render json: user_group, status: :created, location: [:api, user_group]
   end
 
   #PATCH user_groups/:id
   def update
     # searches by hashed id
     user_group = UserGroup.find_by(id: HASHIDS.decode(params[:id]))
-    if user_group.nil?
-      head :not_found
-    else
-      raise Exceptions::SecurityTransgression unless user_group.updatable_by? current_user
-      if user_group.update(user_group_params)
-        render json: user_group, status: :ok, location: [:api, user_group]
-      else
-        render json: {errors: user_group.errors.full_messages[0]}, status: :unprocessable_entity
-      end
-    end
+    return head :not_found if user_group.nil?
+    raise Exceptions::SecurityTransgression unless user_group.updatable_by? current_user
+    return render json: {errors: user_group.errors.full_messages[0]},
+                  status: :unprocessable_entity unless user_group
+                                                           .update(user_group_params)
+    render json: user_group, status: :ok, location: [:api, user_group]
   end
 
   #region members
   def show_members
     user_group = UserGroup.find_by(id: HASHIDS.decode(params[:user_group_id]))
-    if user_group.nil?
-      head :not_found
-    else
-      user_group.members.each { |user| user.update_ad_attributes! }
-      render json: user_group.members, host: request.host_with_port, root: false, status: :ok
-    end
+    return head :not_found if user_group.nil?
+    user_group.members.each { |user| user.update_ad_attributes! }
+    render json: user_group.members, host: request.host_with_port, root: false, status: :ok
   end
 
   def add_members
     user_group = UserGroup.find_by(id: HASHIDS.decode(params[:user_group_id]))
-    if user_group.nil?
-      head :not_found
-    else
-      users_to_add = User.where(username: user_group_usernames_params,
-                                status: User.statuses[:enabled]) - user_group.members
-      if users_to_add.empty? || users_to_add.size<user_group_usernames_params.size
-        render json: {errors: I18n.t(:'api.errors.user_group.user_memberships', cascade: true)}, status: :bad_request
-      else
-        user_group.members << users_to_add
-        head :no_content
-      end
-    end
+    return head :not_found if user_group.nil?
+    users_to_add = User.where(username: user_group_usernames_params,
+                              status: :enabled) - user_group.members
+    return render json: {errors: I18n.t(:'api.errors.user_group.user_memberships')},
+                  status: :bad_request unless users_to_add_valid?(users_to_add)
+    user_group.members << users_to_add
+    head :no_content
   end
 
   def remove_members
     user_group = UserGroup.find_by(id: HASHIDS.decode(params[:user_group_id]))
-    if user_group.nil?
-      head :not_found
-    else
-      users_to_del = User.where(username: user_group_usernames_params)
-      if users_to_del.empty? || !(users_to_del - user_group.members).empty? ||
-          users_to_del.size<user_group_usernames_params.size
-        render json: {errors: I18n.t(:'api.errors.user_group.delete_user_memberships', cascade: true)}, status: :bad_request
-      else
-        user_group.members = user_group.members - users_to_del
-        head :no_content
-      end
-    end
-  end
 
+    return head :not_found if user_group.nil?
+    users_to_del = User.where(username: user_group_usernames_params)
+    return render json: {errors: I18n.t(:'api.errors.user_group.delete_user_memberships')},
+                  status: :bad_request unless users_to_del_valid?(user_group, users_to_del)
+    user_group.members = user_group.members - users_to_del
+    head :no_content
+  end
 
   #endregion
 
@@ -108,6 +91,17 @@ class Api::V1::UserGroupsController < ApplicationController
 
   def user_group_usernames_params
     params[:usernames].gsub(/\s+/, '').split(',')
+  end
+
+  def users_to_add_valid?(users_to_add)
+    users_to_add.empty? ||
+        users_to_add.size<user_group_usernames_params.size
+  end
+
+  def users_to_del_valid?(user_group, users_to_del)
+    users_to_del.empty? ||
+        !(users_to_del - user_group.members).empty? ||
+        users_to_del.size<user_group_usernames_params.size
   end
 
 end
