@@ -14,8 +14,17 @@ class Api::V1::RulesController < ApplicationController
   def create
     policy = Policy.find_by(type: policy_id_param)
     return head :not_found if policy.nil?
-    rule = policy.rules.create(rule_params)
-    return render json: {errors: rule.errors.full_messages[0]}, status: :unprocessable_entity unless rule.errors.empty?
+    rule_attr = rule_params
+    rule_attr[:policy] = policy
+    rule = Rule.new(rule_attr)
+    users_to_add = User.where(username: entity_ids_params,
+                              status: User.statuses[:enabled])
+    user_groups_to_add = UserGroup.where(id: user_group_ids_params,
+                                         status: UserGroup.statuses[:enabled])
+    rule.users << users_to_add
+    rule.user_groups << user_groups_to_add
+    return render json: {errors: rule.errors.full_messages[0]},
+                  status: :unprocessable_entity unless rule.save
     render json: rule, status: :created, location: api_policy_rules_url(rule)
   end
 

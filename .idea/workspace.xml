@@ -11,7 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8c55ca71-823a-4342-9dac-17a4d2191cca" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/rules_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/rules_controller.rb" />
     </list>
     <ignored path="SGAM.Elfec.web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,34 +52,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="device_session.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/device_session.rb">
+      <file leaf-file-name="rules_controller.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/rules_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.74025977">
+              <caret line="123" column="13" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_groups_controller.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28282827">
-              <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
-              <folding>
-                <element signature="e#2701#2750#0" expanded="true" />
-                <element signature="e#3149#3205#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="device_sessions_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/device_sessions_controller.rb">
+      <file leaf-file-name="device_session.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/device_session.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+              <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -144,7 +131,6 @@
         <option value="$PROJECT_DIR$/app/messengers/gcm/rules_notifier.rb" />
         <option value="$PROJECT_DIR$/app/messengers/gcm/gcm_dispatcher.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/v1/rules_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/rule.rb" />
         <option value="$PROJECT_DIR$/app/jobs/propagate_rule_job.rb" />
@@ -162,6 +148,7 @@
         <option value="$PROJECT_DIR$/app/models/device_session.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/v1/device_sessions_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/v1/user_groups_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/api/v1/rules_controller.rb" />
       </list>
     </option>
   </component>
@@ -815,12 +802,6 @@
       <option name="number" value="Default" />
       <updated>1441119307959</updated>
     </task>
-    <task id="LOCAL-00057" summary="Ahora se requiere permisos para realizar acciones sobre aplicaciones">
-      <created>1446554272372</created>
-      <option name="number" value="00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1446554272372</updated>
-    </task>
     <task id="LOCAL-00058" summary="Se modificó modo de autenticación, ahora se utiliza active directory">
       <created>1448551522578</created>
       <option name="number" value="00058" />
@@ -1109,7 +1090,13 @@
       <option name="project" value="LOCAL" />
       <updated>1463087600113</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="Backend corregido para poder registrar un grupo de usuario con miembros, asi se evitan 2 transacciones innecesarias">
+      <created>1463150435329</created>
+      <option name="number" value="00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1463150435329</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1170,7 +1157,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Agregada funcionalidad de ver, agregar y eliminar miembros de un grupo de usuarios. No tienen aun control de permisos" />
     <MESSAGE value="Agregada whitelist de aplicaciones, faltan relaciones con usuarios y grupos de usuarios" />
     <MESSAGE value="some refactors" />
     <MESSAGE value="Some bug fixes for devices and sessions. In sessions there was not including host to link photo" />
@@ -1195,7 +1181,8 @@
     <MESSAGE value="Instalado sidekiq junto con redis para poder enviar los gcm asyncronamente, en modo de desarrollo se lo hace inline de todas formas para asi poder testear que está efectivamente enviando y posibles excepciones" />
     <MESSAGE value="Eliminadas asignaciones de dispositivos a usuarios, las asigaciones ahora se hacen segun directivas de dispositivos. Agregada nueva tabla de sesiones abiertas en dispositivos falta backend" />
     <MESSAGE value="Implementado backend de inicio de sesion especial de dispositivos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementado backend de inicio de sesion especial de dispositivos" />
+    <MESSAGE value="Backend corregido para poder registrar un grupo de usuario con miembros, asi se evitan 2 transacciones innecesarias" />
+    <option name="LAST_COMMIT_MESSAGE" value="Backend corregido para poder registrar un grupo de usuario con miembros, asi se evitan 2 transacciones innecesarias" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1571,24 +1558,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/device_sessions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.64357865">
           <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/rules_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5108695">
-          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/device_session.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -1601,6 +1572,22 @@
             <element signature="e#2701#2750#0" expanded="true" />
             <element signature="e#3149#3205#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/device_session.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/rules_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74025977">
+          <caret line="123" column="13" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
