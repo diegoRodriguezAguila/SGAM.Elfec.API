@@ -90,6 +90,15 @@ class User < ActiveRecord::Base
     Rule.is_permitted?(device.imei, rules)
   end
 
+  # Obtiene todos los dispositivos permitidos al usuario
+  # segun las reglas de politicas de restricción de dispositivos
+  # definidas actualmente
+  # @return [Array]
+  def all_permitted_devices
+    rules = all_rules.select { |rule| rule.policy.device_restriction? }
+    Device.filter_by_rules rules
+  end
+
   # Verifica si es que el usuario tiene cierto permiso en alguno de sus roles
   # @param [Permission] permission
   # @return [Boolean]

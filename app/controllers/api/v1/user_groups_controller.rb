@@ -28,7 +28,7 @@ class Api::V1::UserGroupsController < ApplicationController
     raise Exceptions::SecurityTransgression unless user_group.creatable_by? current_user
     users_to_add = User.where(username: user_group_usernames_params,
                               status: :enabled)
-    user_group.members << users_to_add
+    user_group.me
     return render json: {errors: user_group.errors.full_messages[0]},
                   status: :unprocessable_entity unless user_group.save
     render json: user_group, status: :created, location: [:api, user_group]

@@ -59,8 +59,6 @@ class Rule < ActiveRecord::Base
   def is_permitted?(value)
     value = '' if (value.nil?)
     negate = self.deny?
-    p 'value pattern: '+value_pattern.to_s
-    #p 'exception pattern: '+exception_pattern.to_s
     val_match = value_pattern.match value
     exc_match = !(exception_pattern.match value)
     negate ^ (val_match && exc_match)
@@ -83,6 +81,27 @@ class Rule < ActiveRecord::Base
     permitted
   end
 
+  # Generates the like queries to match this set of rules
+  #
+  # @return [Array]
+  def self.like_queries_for(rules)
+    like = Set['']
+    not_like = Set['']
+    rules.each do |rule|
+      value = rule.value.gsub(/\s+/, '').gsub('*', '%').gsub(';', ',').split(',')
+      except = rule.exception.nil? ? [''] :
+          rule.exception.gsub(/\s+/, '').gsub('*', '%').gsub(';', ',').split(',')
+      if rule.deny?
+        temp = value
+        value = except
+        except = temp
+      end
+      like.merge(value)
+      not_like.merge(except)
+    end
+    {like: like.to_a, not_like: not_like.to_a}
+  end
+
   private
 
   # Converts regex fro string value
@@ -92,7 +111,7 @@ class Rule < ActiveRecord::Base
     pattern = val.gsub(',', '|').gsub(';', '|')
                   .gsub('.', '\\.').gsub('*', '.*').gsub('%', '.*')
                   .gsub('/[-[\\]{end+?\\^$|#\\s]/g', '\\$&')
-    Regexp.new '^('+pattern+')$'
+    Regexp.new pattern
   end
 
 end
