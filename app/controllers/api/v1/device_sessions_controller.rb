@@ -9,7 +9,7 @@ class Api::V1::DeviceSessionsController < ApplicationController
         user.can_use_device? device
     # if an already opened session exists for the same device, just retrieve it
     device_session = DeviceSession.find_or_create_by(user: user,
-                                         device: device, status: :opened)
+                                         device: device, status: DeviceSession.statuses[:opened])
     return render json: {errors: device_session.errors.full_messages[0]},
                   status: :unprocessable_entity unless device_session.save
     render json: device_session, status: :ok

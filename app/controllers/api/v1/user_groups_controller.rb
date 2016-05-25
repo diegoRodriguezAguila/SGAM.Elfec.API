@@ -27,7 +27,8 @@ class Api::V1::UserGroupsController < ApplicationController
     user_group = UserGroup.new(user_group_params)
     raise Exceptions::SecurityTransgression unless user_group.creatable_by? current_user
     users_to_add = User.where(username: user_group_usernames_params,
-                              status: :enabled)
+                              status: UserGroup.statuses[:enabled])
+    p users_to_add
     user_group.members << users_to_add
     return render json: {errors: user_group.errors.full_messages[0]},
                   status: :unprocessable_entity unless user_group.save
@@ -59,7 +60,7 @@ class Api::V1::UserGroupsController < ApplicationController
     return head :not_found if user_group.nil?
     raise Exceptions::SecurityTransgression unless user_group.updatable_by? current_user
     users_to_add = User.where(username: user_group_usernames_params,
-                              status: :enabled) - user_group.members
+                              status: UserGroup.statuses[:enabled]) - user_group.members
     return render json: {errors: I18n.t(:'api.errors.user_group.user_memberships')},
                   status: :bad_request unless users_to_add_valid?(users_to_add)
     user_group.members << users_to_add

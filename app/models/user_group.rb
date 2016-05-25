@@ -23,13 +23,13 @@ class UserGroup < ActiveRecord::Base
   # @param [User] user
   # @return [Boolean]
   def creatable_by? (user)
-    user.has_permission? Permission.register_user_group && !sealed?
+    user.has_permission?(Permission.register_user_group) && !sealed?
   end
   # Verifica si el grupo de usuarios es updateable por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def updatable_by? (user)
-    user.has_permission? Permission.update_user_group && !sealed?
+    user.has_permission?(Permission.update_user_group) && !sealed?
   end
   # Verifica si este grupo de usuarios específico esn visible por cierto usuario
   # @param [User] user
