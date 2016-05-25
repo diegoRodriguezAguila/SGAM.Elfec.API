@@ -16,7 +16,7 @@ class UserGroup < ActiveRecord::Base
   # Obtiene el grupo de usuarios: todos los usuarios
   # @return [UserGroup]
   def self.all_users_group
-    find_or_create_by(name: 'Todos los usuarios', status: :sealed)
+    find_or_create_by(name: 'Todos los usuarios', status: statuses[:sealed])
   end
 
   # Verifica si este grupo de usuarios es creable por cierto usuario

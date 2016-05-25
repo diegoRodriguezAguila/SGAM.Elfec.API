@@ -45,7 +45,7 @@ Policy.create(type: Policy.types[:application_control], name: 'Directivas de con
 Policy.create(type: Policy.types[:device_restriction], name: 'Directivas de restricción de dispositivos',
               description: 'Utilize estas directivas para poder definir que usuarios o grupos de usuarios tienen acceso a que dispositivos')
 
-user = User.create(username: 'drodriguez', authentication_token: '_rD46PrUrWDaxfyQGyDK',
+user = User.create(username: 'drodriguez', authentication_token: 'nRfDYwFgZks5226asgV5',
                    last_ad_sync_at: Time.now,status: 1)
 user.roles << role
 
