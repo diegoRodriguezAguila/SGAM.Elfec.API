@@ -27,7 +27,9 @@ class Api::V1::UsersController < ApplicationController
     return render json: {errors: I18n.t(:'api.errors.user.invalid_user')},
                   status: :not_found if user.nil? || user.disabled?
     raise Exceptions::SecurityTransgression unless user.creatable_by? current_user
-    render json: {errors: user.errors.full_messages[0]},
+    # Always add user to All users group
+    user.groups << UserGroup.all_users_group
+    return render json: {errors: user.errors.full_messages[0]},
            status: :unprocessable_entity unless user.save
     render json: user, status: :created, host: request.host_with_port, location: [:api, user]
   end

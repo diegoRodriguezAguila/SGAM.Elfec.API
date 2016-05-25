@@ -28,7 +28,7 @@ class Api::V1::UserGroupsController < ApplicationController
     raise Exceptions::SecurityTransgression unless user_group.creatable_by? current_user
     users_to_add = User.where(username: user_group_usernames_params,
                               status: :enabled)
-    user_group.me
+    user_group.members << users_to_add
     return render json: {errors: user_group.errors.full_messages[0]},
                   status: :unprocessable_entity unless user_group.save
     render json: user_group, status: :created, location: [:api, user_group]
@@ -57,6 +57,7 @@ class Api::V1::UserGroupsController < ApplicationController
   def add_members
     user_group = UserGroup.find_by(id: HASHIDS.decode(params[:user_group_id]))
     return head :not_found if user_group.nil?
+    raise Exceptions::SecurityTransgression unless user_group.updatable_by? current_user
     users_to_add = User.where(username: user_group_usernames_params,
                               status: :enabled) - user_group.members
     return render json: {errors: I18n.t(:'api.errors.user_group.user_memberships')},
@@ -67,8 +68,8 @@ class Api::V1::UserGroupsController < ApplicationController
 
   def remove_members
     user_group = UserGroup.find_by(id: HASHIDS.decode(params[:user_group_id]))
-
     return head :not_found if user_group.nil?
+    raise Exceptions::SecurityTransgression unless user_group.updatable_by? current_user
     users_to_del = User.where(username: user_group_usernames_params)
     return render json: {errors: I18n.t(:'api.errors.user_group.delete_user_memberships')},
                   status: :bad_request unless users_to_del_valid?(user_group, users_to_del)

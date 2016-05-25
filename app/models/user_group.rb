@@ -1,6 +1,7 @@
 class UserGroup < ActiveRecord::Base
-  enum status: [:disabled, :enabled]
-  validates_presence_of :name, :description, :status
+  enum status: [:disabled, :enabled, :sealed]
+  validates_presence_of :name, :status
+  validates_presence_of :description, unless: Proc.new { |ug| ug.sealed? }
   validates_uniqueness_of :name
 
 
@@ -12,19 +13,25 @@ class UserGroup < ActiveRecord::Base
     self.class.name
   end
 
+  # Obtiene el grupo de usuarios: todos los usuarios
+  # @return [UserGroup]
+  def self.all_users_group
+    find_or_create_by(name: 'Todos los usuarios', status: :sealed)
+  end
+
   # Verifica si este grupo de usuarios es creable por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def creatable_by? (user)
-    user.has_permission? Permission.register_user_group
+    user.has_permission? Permission.register_user_group && !sealed?
   end
   # Verifica si el grupo de usuarios es updateable por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def updatable_by? (user)
-    user.has_permission? Permission.update_user_group
+    user.has_permission? Permission.update_user_group && !sealed?
   end
-  # Verifica si este grupo de usuarios espec�fico esn visible por cierto usuario
+  # Verifica si este grupo de usuarios específico esn visible por cierto usuario
   # @param [User] user
   # @return [Boolean]
   def viewable_by? (user)
