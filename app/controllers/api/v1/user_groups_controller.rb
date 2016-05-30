@@ -40,10 +40,12 @@ class Api::V1::UserGroupsController < ApplicationController
     # searches by hashed id
     user_group = UserGroup.find_by(id: HASHIDS.decode(params[:id]))
     return head :not_found if user_group.nil?
-    raise Exceptions::SecurityTransgression unless user_group.updatable_by? current_user
+    update_params = update_user_group_params
+    raise Exceptions::SecurityTransgression if !user_group.updatable_by?(current_user)||
+        update_params[:status]==UserGroup.statuses[:sealed]#users can't set a group to sealed
     return render json: {errors: user_group.errors.full_messages[0]},
                   status: :unprocessable_entity unless user_group
-                                                           .update(user_group_params)
+                                                           .update(update_params)
     render json: user_group, status: :ok, location: [:api, user_group]
   end
 
@@ -85,6 +87,10 @@ class Api::V1::UserGroupsController < ApplicationController
 
   def user_group_params
     params.require(:user_group).permit(:name, :description)
+  end
+
+  def update_user_group_params
+    params.require(:user_group).permit(:name, :description, :status)
   end
 
   def user_group_filter_params
