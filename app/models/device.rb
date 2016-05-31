@@ -15,6 +15,7 @@ class Device < ActiveRecord::Base
 
   has_many :device_sessions
 
+  before_save :format_for_save
   # Verifica si el dispositivo es creable por cierto usuario
   # @param [User] user
   # @return [Boolean]
@@ -43,16 +44,6 @@ class Device < ActiveRecord::Base
     return user.has_permission? Permission.view_devices
   end
 
-  # Formatea los campos a lo estandarizado para el correcto guardado en la base de datos
-  def format_for_save!
-    model.upcase! unless model.nil?
-    brand.capitalize! unless brand.nil?
-    screen_resolution.downcase! unless screen_resolution.nil?
-    self.screen_size = screen_size.round(2) unless screen_size.nil?
-    self.camera = camera.round(2) unless camera.nil?
-    self.sd_memory_card = sd_memory_card.round(2) unless sd_memory_card.nil?
-  end
-
   # Dev sugar for query imei and name
   # @param [String] imei
   # @param [String] name
@@ -70,10 +61,14 @@ class Device < ActiveRecord::Base
                               .does_not_match_any(like_filters[:not_like])))
   }
 
-  class << self
-    Permission.names.keys.each do |key|
-      self.send(:define_method, key, -> { self.where(name: Permission.names[key], status: Permission.statuses[:enabled]).take })
-    end
+  private
+  # Formatea los campos a lo estandarizado para el correcto guardado en la base de datos
+  def format_for_save
+    model.upcase! unless model.nil?
+    brand.capitalize! unless brand.nil?
+    screen_resolution.downcase! unless screen_resolution.nil?
+    self.screen_size = screen_size.round(2) unless screen_size.nil?
+    self.camera = camera.round(2) unless camera.nil?
+    self.sd_memory_card = sd_memory_card.round(2) unless sd_memory_card.nil?
   end
-
 end

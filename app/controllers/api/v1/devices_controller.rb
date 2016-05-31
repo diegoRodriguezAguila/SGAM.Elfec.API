@@ -16,23 +16,24 @@ class Api::V1::DevicesController < ApplicationController
     render json: devices, root: false, status: :ok
   end
 
+  #POST devices
   def create
     device = Device.new(device_params)
     raise Exceptions::SecurityTransgression unless device.creatable_by? current_user
-    device.format_for_save!
-    return render json: {errors: device.errors},
+    return render json: {errors: device.errors.full_messages[0]},
                   status: :unprocessable_entity unless device.save
     render json: device, status: :created, location: [:api, device]
   end
 
+  #PATCH devices/:id
   def update
-    device = Device.find_by(imei: params[:id])
+    device = Device.find_by_imei_or_name(params[:id], params[:id])
     return head :not_found if device.nil?
-    raise Exceptions::SecurityTransgression unless device.updatable_by? current_user
-    device.attributes = device_params
-    device.format_for_save!
-    render json: {errors: device.errors},
-           status: :unprocessable_entity unless device.save
+    update_params = update_device_params
+    raise Exceptions::SecurityTransgression if !device.updatable_by?(current_user) ||
+        update_params[:status]==Device.statuses[:auth_pending]
+    return render json: {errors: device.errors.full_messages[0]},
+           status: :unprocessable_entity unless device.update(update_params)
     render json: device, status: :ok, location: [:api, device]
   end
 
@@ -42,6 +43,12 @@ class Api::V1::DevicesController < ApplicationController
     params.require(:device).permit(:name, :imei, :serial, :wifi_mac_address, :bluetooth_mac_address, :platform,
                                    :os_version, :baseband_version, :brand, :model, :phone_number, :screen_size,
                                    :screen_resolution, :camera, :sd_memory_card, :gmail_account, :comments, :status)
+  end
+
+  def update_device_params
+    params.require(:device).permit(:name, :os_version, :phone_number, :screen_size,
+                                   :screen_resolution, :camera,
+                                   :sd_memory_card, :gmail_account, :comments, :status)
   end
 
   def device_filter_params
