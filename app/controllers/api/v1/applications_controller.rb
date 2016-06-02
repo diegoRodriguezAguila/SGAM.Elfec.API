@@ -30,27 +30,25 @@ class Api::V1::ApplicationsController < ApplicationController
     package_name = manifest.package_name
     version_name = manifest.version_name
     version_code = manifest.version_code
-    new_app = Application.find_by(package: package_name) # existe ya
-    if new_app.nil?
-      new_app = Application.new(name: app_name, package: package_name,
-                                status: Application.statuses[:enabled]) # no existe
-    elsif version_code > new_app.latest_version_code
+    new_app = Application.find_or_create_instance(name: app_name,
+                                            package: package_name,
+                                                  status: Application.statuses[:enabled])
+    if version_code >= self.application.latest_version_code
       # si la version de la app nueva es mayor a la ultima
       # actualizamos el nombre
-      new_app.name = app_name
+      self.application.name = app_name
     end
     app_version = AppVersion.new(version: version_name, version_code: version_code,
                                  status: AppVersion.statuses[:enabled])
     raise Exceptions::SecurityTransgression unless new_app.creatable_by? current_user
     return render json: {errors: new_app.errors.full_messages[0]},
                   status: :unprocessable_entity unless new_app.save
-    app_version.application = new_app
-    return render json: {errors: app_version.errors.full_messages[0]},
-                  status: :unprocessable_entity unless app_version.valid?
     save_apk(application_version_dir(package_name, version_name), params[:file])
     save_icon(application_version_res_dir(package_name, version_name), apk)
-    app_version.save
-    new_app.app_versions << app_version
+    app_version.application = new_app
+    return render json: {errors: app_version.errors.full_messages[0]},
+                  status: :unprocessable_entity unless app_version.save
+    #new_app.app_versions << app_version
     render json: new_app, host: request.host_with_port, status: :created,
            location: [:api, new_app]
   end
@@ -80,6 +78,24 @@ class Api::V1::ApplicationsController < ApplicationController
     show_version_res_file
   end
 
+  #region AppVersion
+
+  # PATCH/PUT /applications/:application_id/:version/status
+  def edit_status
+    # searches by hashed id
+    app = Application.find_by(package: params[:application_id])
+    return head :not_found if app.nil?
+    app_version = app.app_versions.find_by(version: params[:version])
+    return head :not_found if app_version.nil?
+    raise Exceptions::SecurityTransgression unless app.updatable_by? current_user
+    return render json: {errors: user_group.errors.full_messages[0]},
+                  status: :unprocessable_entity unless app_version
+                                                           .update(app_version_status_params)
+    render json: app, status: :ok, location: [:api, app], host: request.host_with_port
+  end
+
+  #endregion
+
   private
 
   # @param [String] file_name
@@ -93,6 +109,11 @@ class Api::V1::ApplicationsController < ApplicationController
 
   # app filter params ?status=1
   def app_filter_params
+    params.permit(:status)
+  end
+
+  def app_version_status_params
+    params.require(:status)
     params.permit(:status)
   end
 

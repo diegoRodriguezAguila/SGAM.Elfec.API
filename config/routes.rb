@@ -24,6 +24,8 @@ Rails.application.routes.draw do
         get '/:version/resources/:file_name', to: 'applications#show_version_res_file', constraints: { :version => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/,
                                                                                 :file_name => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/}
         get '/resources/:file_name', to: 'applications#show_res_file', constraints: { :file_name => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ }
+        put '/:version/status', to: 'applications#edit_status', constraints: { :version => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/}
+        patch '/:version/status', to: 'applications#edit_status', constraints: { :version => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/}
       end
       resources :user_groups, :only => [:show, :index, :create, :update] do
         get '/members', to: 'user_groups#show_members'

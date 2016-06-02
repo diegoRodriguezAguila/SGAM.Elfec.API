@@ -5,6 +5,15 @@ class Application < ActiveRecord::Base
   validates_format_of :package, with: /\A[a-z][a-z0-9_]*(\.[a-z0-9_]+)+[0-9a-z_]\z/i
   has_many :app_versions, -> { order(version: :desc, version_code: :desc) }, dependent: :destroy
 
+  # Obtiene la aplicacion utilizando el nombre de paquete,
+  # si no existe crea una utilizando todos los atributos. Nota.-
+  # este metodo no guarda la nueva instancia
+  def self.find_or_create_instance(attrs={})
+    new_app = find_by_package(attrs[:package_name]) # existe ya
+    new_app = new(attrs) if new_app.nil?
+    new_app
+  end
+
   # Obtiene la ultima version de la aplicación
   # @return [String]
   def latest_version
@@ -23,6 +32,13 @@ class Application < ActiveRecord::Base
   # @param [User] user
   # @return [Boolean]
   def creatable_by? (user)
+    user.has_permission? Permission.register_application
+  end
+
+  # Verifica si la aplicación es actualizable por cierto usuario
+  # @param [User] user
+  # @return [Boolean]
+  def updatable_by? (user)
     user.has_permission? Permission.register_application
   end
 
