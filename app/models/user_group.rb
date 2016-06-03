@@ -5,7 +5,7 @@ class UserGroup < ActiveRecord::Base
   validates_uniqueness_of :name
 
 
-  has_and_belongs_to_many :members, class_name: 'User', join_table: 'user_group_members'
+  has_and_belongs_to_many :members,-> { order(status: :desc, username: :asc) }, class_name: 'User', join_table: 'user_group_members'
   has_many :entity_rules, as: :entity
 
   # Define el identificador del tipo de entidad que es
