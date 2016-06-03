@@ -33,10 +33,10 @@ class Api::V1::ApplicationsController < ApplicationController
     new_app = Application.find_or_create_instance(name: app_name,
                                             package: package_name,
                                                   status: Application.statuses[:enabled])
-    if version_code >= self.application.latest_version_code
+    if version_code >= new_app.latest_version_code
       # si la version de la app nueva es mayor a la ultima
       # actualizamos el nombre
-      self.application.name = app_name
+      new_app.name = app_name
     end
     app_version = AppVersion.new(version: version_name, version_code: version_code,
                                  status: AppVersion.statuses[:enabled])

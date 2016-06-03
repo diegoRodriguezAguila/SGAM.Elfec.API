@@ -9,8 +9,10 @@ class Application < ActiveRecord::Base
   # si no existe crea una utilizando todos los atributos. Nota.-
   # este metodo no guarda la nueva instancia
   def self.find_or_create_instance(attrs={})
-    new_app = find_by_package(attrs[:package_name]) # existe ya
-    new_app = new(attrs) if new_app.nil?
+    p attrs
+    new_app = find_by_package(attrs[:package]) # existe ya
+    new_app = Application.new(attrs) if new_app.nil?
+    p new_app
     new_app
   end
 
@@ -69,7 +71,7 @@ class Application < ActiveRecord::Base
       @latest = find_latest_version
       write_attribute(:latest_version, @latest.nil?? I18n.t(:'api.errors.application.undefined_version', :cascade => true) : @latest.version)
       write_attribute(:latest_version_code, @latest.nil?? I18n.t(:'api.errors.application.undefined_version', :cascade => true) : @latest.version_code)
-      save
+      #self.save
     end
   end
 
@@ -78,9 +80,7 @@ class Application < ActiveRecord::Base
 
   def find_latest_version
     active_versions = app_versions.where(status: 1)
-    if active_versions.size>0
-      return active_versions[0]
-    end
+    return active_versions[0] if active_versions.size>0
     nil
   end
 
