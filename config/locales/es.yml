@@ -24,6 +24,10 @@ es:
               taken: "solicitado ya fué asignado a otro dispositivo"
             device:
               taken: "solicitado ya tiene asignado un token"
+        installation:
+          attributes:
+            application:
+              taken: "ya tiene una instalación en el dispositivo seleccionado, actualice su estado"
     attributes:
       user:
         username: "El nombre de usuario"
@@ -40,6 +44,8 @@ es:
       device_gcm_token:
         token: "El token"
         device: "El dispositivo"
+      installation:
+        application: "La aplicación"
   errors:
     messages:
       imei: "con formato no válido"

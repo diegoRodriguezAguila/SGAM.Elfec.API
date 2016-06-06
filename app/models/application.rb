@@ -4,6 +4,7 @@ class Application < ActiveRecord::Base
   validates_uniqueness_of :name, :package
   validates_format_of :package, with: /\A[a-z][a-z0-9_]*(\.[a-z0-9_]+)+[0-9a-z_]\z/i
   has_many :app_versions, -> { order(version: :desc, version_code: :desc) }, dependent: :destroy
+  has_many :installations, dependent: :destroy
 
   # Obtiene la aplicacion utilizando el nombre de paquete,
   # si no existe crea una utilizando todos los atributos. Nota.-

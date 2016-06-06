@@ -15,6 +15,8 @@ class Device < ActiveRecord::Base
 
   has_many :device_sessions
 
+  has_many :installed_apps, class_name: 'Installation', dependent: :destroy
+
   before_save :format_for_save
   # Verifica si el dispositivo es creable por cierto usuario
   # @param [User] user
@@ -50,6 +52,11 @@ class Device < ActiveRecord::Base
   # @return [Device]
   scope :find_by_imei_or_name, ->(imei, name) {
     where('imei= ? OR name= ?', imei, name).first }
+  # Dev sugar for query imei and name
+  # @param [String] device_id imei or name
+  # @return [Device]
+  scope :find_by_imei_or_name, ->(device_id) {
+    where('imei= ? OR name= ?', device_id, device_id).first }
 
   # filters devices by rules that apply to them
   # @param [Array] rules

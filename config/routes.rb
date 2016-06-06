@@ -45,6 +45,8 @@ Rails.application.routes.draw do
       end
 
       resources :device_sessions, only: [:create, :destroy]
+
+      resources :installations, only: [:create, :update]
     end
   end
 end
