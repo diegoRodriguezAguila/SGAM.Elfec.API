@@ -16,11 +16,31 @@ class Api::V1::InstallationsController < ApplicationController
     render json: installation, status: :created, location: [:api, installation]
   end
 
+  #POST installations/:id
+  def update
+    installation = Installation.find_by_id(HASHIDS.decode(params[:id]))
+    return head :not_found if installation.nil?
+    update_params = installation_update_params
+    attributes = {status: update_params[:status]}
+    if update_params.key? :version
+      attributes[:app_version] = installation.application.app_versions
+                                     .find_by_version(update_params[:version])
+      return head :not_found if attributes[:app_version].nil?
+    end
+    return render json: {errors: installation.errors.full_messages[0]},
+                  status: :unprocessable_entity unless installation.update(attributes)
+    render json: installation, status: :ok, location: [:api, installation]
+  end
+
   private
   HASHIDS = Hashids.new(Rails.configuration.hashids.salt+:installation.to_s,
                         Rails.configuration.ids_length)
 
   def installation_params
     params.require(:installation).permit(:application_id, :version, :device_id)
+  end
+
+  def installation_update_params
+    params.require(:installation).permit(:version, :status)
   end
 end
