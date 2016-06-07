@@ -46,6 +46,7 @@ es:
         device: "El dispositivo"
       installation:
         application: "La aplicación"
+        app_version: "La versión de la aplicación"
   errors:
     messages:
       imei: "con formato no válido"

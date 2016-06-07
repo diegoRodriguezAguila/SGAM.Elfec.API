@@ -81,4 +81,8 @@ Rails.application.configure do
   config.ids_length = 6
   # config gcm api key
   config.gcm_api_key = 'AIzaSyDKGdljdlRQZxrMovOiyAMNownQoWbMH2k'
+  config.use_proxy = false
+  # IF proxy needed uncomment this
+  # config.proxy_addr = 'proxy'
+  # config.proxy_port = 8080
 end
