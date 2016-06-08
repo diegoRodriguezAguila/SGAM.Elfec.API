@@ -47,5 +47,6 @@ module SGAMElfecWeb
 
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/app/messengers/gcm)
+    config.middleware.use Rack::ContentLength
   end
 end

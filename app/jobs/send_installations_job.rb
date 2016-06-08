@@ -4,12 +4,12 @@ class SendInstallationsJob < ActiveJob::Base
   def perform(installation_ids)
     installations = Installation.where(id: installation_ids,
                                        status: status_filter)
-    tokens = installations.collect(&:device)
-                 .flatten.to_set.map{|d| d.gcm_token.token}
-    installation = installations.first
-    GcmDispatcher.send(tokens, {type: 'installation', status: installation.status,
-                                package: installation.package, version: installation.version})
-    p tokens.map{|t| t.hash}
+    installations.each do |ins|
+      data = InstallationSerializer.new(ins)
+      installation = {}; data.attributes.each { |k,v| installation[k] = v }
+      installation[:type] = INSTALLATION_KEY
+      GcmDispatcher.send([ins.device.gcm_token.token], installation)
+    end
   end
 
   private
@@ -17,5 +17,7 @@ class SendInstallationsJob < ActiveJob::Base
     [Installation.statuses[:install_pending],
      Installation.statuses[:uninstall_pending]]
   end
+
+  INSTALLATION_KEY = 'installation'
 
 end

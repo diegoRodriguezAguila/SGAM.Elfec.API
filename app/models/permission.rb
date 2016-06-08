@@ -25,7 +25,7 @@ class Permission < ActiveRecord::Base
 
   class << self
     Permission.names.keys.each do |key|
-      self.send_rule(:define_method, key, -> { self.where(name: Permission.names[key], status: Permission.statuses[:enabled]).take})
+      self.send(:define_method, key, -> { self.where(name: Permission.names[key], status: Permission.statuses[:enabled]).take})
     end
   end
 
