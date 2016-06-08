@@ -1,6 +1,6 @@
 class Api::V1::ApplicationsController < ApplicationController
   acts_as_token_authentication_handler_for User, except: [:show_version_res_file, :show_res_file]
-  include Sortable, FileUrlHelper, ApkIconsHelper, ApkLabelHelper, ApplicationHelper
+  include Sortable, Includible, FileUrlHelper, ApkIconsHelper, ApkLabelHelper, ApplicationHelper
 
   def show
     # searches by package
@@ -8,7 +8,7 @@ class Api::V1::ApplicationsController < ApplicationController
     return head :not_found if application.nil?
     raise Exceptions::SecurityTransgression unless application.viewable_by? current_user
     return render json: application, host: request.host_with_port,
-                  status: :ok unless params.has_key?(:d)
+                  include: request_includes, status: :ok unless params.has_key?(:d)
     params[:application_id] = params[:id]
     params[:version] = application.latest_version
     download_version_apk
@@ -17,7 +17,8 @@ class Api::V1::ApplicationsController < ApplicationController
   def index
     raise Exceptions::SecurityTransgression unless Application.are_viewable_by? current_user
     apps = Application.where(app_filter_params).order(sort_params_for(Application))
-    render json: apps, root: false, host: request.host_with_port, status: :ok
+    render json: apps, root: false, host: request.host_with_port,
+           include: request_includes, status: :ok
   end
 
 
