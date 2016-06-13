@@ -12,6 +12,10 @@ class Installation < ActiveRecord::Base
   validate :status_changes
   validate :version_changes
 
+  def app_name
+    application.nil? ? nil : application.name
+  end
+
   def package
     application.nil? ? nil : application.package
   end

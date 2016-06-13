@@ -85,4 +85,6 @@ Rails.application.configure do
   # IF proxy needed uncomment this
   # config.proxy_addr = 'proxy'
   # config.proxy_port = 8080
+  #config host
+  config.domain = 'https://sgam.elfec.bo'
 end

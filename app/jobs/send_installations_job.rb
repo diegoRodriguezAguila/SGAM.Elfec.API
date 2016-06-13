@@ -5,7 +5,7 @@ class SendInstallationsJob < ActiveJob::Base
     installations = Installation.where(id: installation_ids,
                                        status: status_filter)
     installations.each do |ins|
-      data = InstallationSerializer.new(ins)
+      data = InstallationSerializer.new(ins, {host: Rails.configuration.domain})
       installation = {}; data.attributes.each { |k,v| installation[k] = v }
       installation[:type] = INSTALLATION_KEY
       GcmDispatcher.send([ins.device.gcm_token.token], installation)

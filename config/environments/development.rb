@@ -46,4 +46,7 @@ Rails.application.configure do
   config.proxy_addr = 'proxy'
   config.proxy_port = 8080
 
+  #config host
+  config.domain = 'http://192.168.50.56:3000'
+
 end

@@ -14,7 +14,8 @@ class Api::V1::InstallationsController < ApplicationController
     return render json: {errors: installation.errors.full_messages[0]},
                   status: :unprocessable_entity unless installation.save
     InstallationsNotifier.propagate_installations([installation])
-    render json: installation, status: :created, location: [:api, installation]
+    render json: installation, host: request.host_with_port, status: :created,
+           location: [:api, installation]
   end
 
   #POST installations/:id
@@ -31,7 +32,8 @@ class Api::V1::InstallationsController < ApplicationController
     return render json: {errors: installation.errors.full_messages[0]},
                   status: :unprocessable_entity unless installation.update(attributes)
     InstallationsNotifier.propagate_installations([installation])
-    render json: installation, status: :ok, location: [:api, installation]
+    render json: installation, host: request.host_with_port, status: :ok,
+           location: [:api, installation]
   end
 
   private
