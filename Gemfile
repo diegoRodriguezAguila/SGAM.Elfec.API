@@ -32,7 +32,7 @@ group :doc do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
-
+gem 'nokogiri', '>= 1.6.8'
 group :test do
   gem 'rspec-rails', '~> 3.3.0'
   gem 'rspec', '~> 3.3.0'
