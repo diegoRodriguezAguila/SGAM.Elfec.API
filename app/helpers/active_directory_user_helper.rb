@@ -13,7 +13,7 @@ module ActiveDirectoryUserHelper
   # Conexión para operaciones de LDAP a nombre de la aplicacion
   OP_CONN = Net::LDAP.new(:host => SERVER, :port => PORT, :base => BASE,
                           :auth => {username: "drodriguez@#{DOMAIN}",
-                                    password: 'Rasta1234',
+                                    password: 'Rasta4321',
                                     method: :simple})
 
 
