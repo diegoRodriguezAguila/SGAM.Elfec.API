@@ -24,13 +24,11 @@ class Api::V1::ApplicationsController < ApplicationController
 
   def create
     params.require(:file)
-    apk = Android::Apk.new(params[:file].path)
-    manifest = apk.manifest
-    app_name = manifest.label
-    app_name = apk_app_name(params[:file].path) if app_name.nil?
-    package_name = manifest.package_name
-    version_name = manifest.version_name
-    version_code = manifest.version_code
+    apk_info = ApkParser.new(params[:file].path).parse
+    app_name = apk_info.label
+    package_name = apk_info.package_name
+    version_name = apk_info.version_name
+    version_code = apk_info.version_code
     new_app = Application.find_or_create_instance(name: app_name,
                                             package: package_name,
                                                   status: Application.statuses[:enabled])
@@ -45,11 +43,10 @@ class Api::V1::ApplicationsController < ApplicationController
     return render json: {errors: new_app.errors.full_messages[0]},
                   status: :unprocessable_entity unless new_app.save
     save_apk(application_version_dir(package_name, version_name), params[:file])
-    save_icon(application_version_res_dir(package_name, version_name), apk)
+    save_icon(application_version_res_dir(package_name, version_name), apk_info)
     app_version.application = new_app
     return render json: {errors: app_version.errors.full_messages[0]},
                   status: :unprocessable_entity unless app_version.save
-    #new_app.app_versions << app_version
     render json: new_app, host: request.host_with_port, status: :created,
            location: [:api, new_app]
   end

@@ -1,26 +1,31 @@
-require 'zip'
+require 'zip/zip'
 
-module ApkParser
-  include FileUrlHelper
+class ApkParser
+  class NotApkFileError < StandardError;
+  end
   USER_PERMISSION = 'uses-permission:'
   APP_LABEL = 'application-label:'
   APP_ICON = 'application-icon-'
   SUPPORTS_SCREENS = 'supports-screens: '
 
+  attr_reader :apk_file_path
+
+  def initialize(apk_file_path)
+    raise NotFoundError, "'#{apk_file_path}'" unless File.exist? apk_file_path
+    @apk_file_path = apk_file_path
+  end
+
   # 
   # Parses an apk file and returns its major information
-  # 
-  # @param apk_file_path path to the apk file
-  # @return ApkInfo major info of the apk
-  def parse(apk_file_path)
-    raise NotFoundError, "'#{apk_file_path}'" unless File.exist? apk_file_path
-    output = `aapt.exe dump badging "#{apk_file_path}"`
-    apk_out = output.split("\r\n")
+  # @return [ApkInfo] major info of the apk
+  def parse
+    output = `aapt.exe dump badging "#{@apk_file_path}"`
+    apk_out = output.split("\n")
     apk_info = ApkInfo.new
     set_package_data(apk_info, apk_out[0])
     set_sdk_data(apk_info, apk_out[1], apk_out[2])
     set_permissions_and_label(apk_info, apk_out)
-    set_icons(apk_info, apk_out, apk_file_path)
+    set_icons(apk_info, apk_out)
     apk_info
   end
 
@@ -32,18 +37,9 @@ module ApkParser
   # @param [String] package_data
   def set_package_data(apk_info, package_data)
     parts = package_data.split
-    if parts.length > 1
-      string name = parts[1]
-      apk_info.package_name = name.split("'")[1]
-    end
-    if parts.length > 2
-      string version_code = parts[2]
-      apk_info.version_code = version_code.split("'")[1].to_i
-    end
-    if parts.length > 3
-      string version_name = parts[3]
-      apk_info.version_name = version_name.split("'")[1]
-    end
+    apk_info.package_name = parts[1].split("'")[1] if parts.length > 1
+    apk_info.version_code = parts[2].split("'")[1].to_i if parts.length > 2
+    apk_info.version_name = parts[3].split("'")[1] if parts.length > 3
   end
 
   # Assigns the sdk data
@@ -58,17 +54,17 @@ module ApkParser
   # @param [ApkInfo] apk_info
   # @param [Array] apk_out
   def set_permissions_and_label(apk_info, apk_out)
-    (3..apk_out.length).each { |i|
-      split = apk_out[i].split("'")
-      apk_info.permissions << split[1] if split[0] == USER_PERMISSION
-      apk_info.label = split[1] if split[0] == APP_LABEL
-      set_screen_support(apk_info, split) if split[0] == SUPPORTS_SCREENS
+    (3...apk_out.length).each { |i|
+      sp = apk_out[i].split("'")
+      apk_info.permissions << sp[1] if sp[0] == USER_PERMISSION
+      apk_info.label = sp[1] if sp[0] == APP_LABEL
+      set_screen_support(apk_info, sp) if sp[0] == SUPPORTS_SCREENS
     }
   end
 
   def set_screen_support(apk_info, supports_screens)
     screen_support = ScreenSupport.new
-    (1..supports_screens.length).step(2) do |i|
+    (1...supports_screens.length).step(2) do |i|
       screen_support.small = true if (i == 1 && supports_screens[i] == 'small')
       screen_support.normal = true if (i == 3 && supports_screens[i] == 'normal')
       screen_support.large = true if (i == 5 && supports_screens[i] == 'large')
@@ -77,16 +73,16 @@ module ApkParser
     apk_info.screen_support = screen_support
   end
 
-  def set_icons(apk_info, apk_out, apk_file_path)
+  def set_icons(apk_info, apk_out)
     icon_names = Set[]
-    (3..apk_out.length).each { |i|
+    (3...apk_out.length).each { |i|
       if apk_out[i].start_with?(APP_ICON)
-        split = apk_out[i].split("'")
-        icon_names << split[1]
+        sp = apk_out[i].split("'")
+        icon_names << sp[1]
       end
     }
     begin
-      @zip = Zip::ZipFile.open(apk_file_path)
+      @zip = Zip::ZipFile.open(@apk_file_path)
     rescue Zip::ZipError => e
       raise NotApkFileError, e.message
     end
