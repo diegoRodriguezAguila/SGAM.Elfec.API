@@ -253,6 +253,7 @@ DEPENDENCIES
   rspec (~> 3.3.0)
   rspec-rails (~> 3.3.0)
   ruby_apk
+  rubyzip
   sass-rails (~> 4.0.3)
   sdoc
   shoulda-matchers (~> 2.8.0)

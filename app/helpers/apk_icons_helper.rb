@@ -1,7 +1,7 @@
 #encode utf-8
 module ApkIconsHelper
   APP_ICON_FILENAME = 'icon.png'
-  # Obtiene los iconos de la aplicación
+  # Obtiene los iconos de la aplicaciÃ³n
   # si no se puede encontrar se obtiene el xhpdi por defecto
   # @param [Android::Apk] apk
   def icons_of_apk(apk)
@@ -14,7 +14,7 @@ module ApkIconsHelper
     icons
   end
 
-  # Obtiene el icono que se guardara de la aplicación
+  # Obtiene el icono que se guardara de la aplicaciÃ³n
   # mayormente es el xhdpi, con nombre ic_launcher
   # @param [Android::Apk] apk
   def app_icon(apk)
@@ -24,8 +24,8 @@ module ApkIconsHelper
         return {name: APP_ICON_FILENAME, data: data}
       end
     end
-    # Si no tiene xhdpi se envía el
+    # Si no tiene xhdpi se envÃ­a el
     name = icons.keys[icons.size-1]
-    {name: name, data: icons[name]}
+    {name: APP_ICON_FILENAME, data: icons[name]}
   end
 end

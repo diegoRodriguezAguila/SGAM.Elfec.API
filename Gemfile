@@ -71,6 +71,7 @@ gem 'missing_validators', '~> 2.1.0'
 
 #Parse APK
 gem 'ruby_apk'
+gem 'rubyzip'
 
 #Active directory auth
 gem 'net-ldap'
