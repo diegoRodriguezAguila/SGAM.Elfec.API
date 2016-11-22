@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Rails SGAM.Elfec.web: test">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.6">
+    <database id="1" name="sgam_test">
+      <object-id>36799</object-id>
+      <visible>1</visible>
+    </database>
+    <database id="2" name="postgres">
+      <object-id>12896</object-id>
+    </database>
+    <database id="3" name="ssc_elfec">
+      <object-id>16389</object-id>
+    </database>
+    <database id="4" name="sgam">
+      <object-id>36798</object-id>
+    </database>
+    <database id="5" name="seci_elfec">
+      <object-id>37199</object-id>
+    </database>
+    <schema id="6" parent="1" name="public">
+      <object-id>2200</object-id>
+      <comment>standard public schema</comment>
+      <introspection-timestamp>2016-06-15.09:57:58.058</introspection-timestamp>
+    </schema>
+    <schema id="7" parent="1" name="pg_catalog">
+      <object-id>11</object-id>
+    </schema>
+    <schema id="8" parent="1" name="pg_toast">
+      <object-id>99</object-id>
+    </schema>
+    <schema id="9" parent="1" name="pg_temp_1">
+      <object-id>11215</object-id>
+    </schema>
+    <schema id="10" parent="1" name="pg_toast_temp_1">
+      <object-id>11216</object-id>
+    </schema>
+    <schema id="11" parent="1" name="information_schema">
+      <object-id>12348</object-id>
+    </schema>
+  </database-model>
+</dataSource>
