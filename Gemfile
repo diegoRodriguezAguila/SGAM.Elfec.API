@@ -55,26 +55,25 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-#Api gems
+# Api gems
 gem 'active_model_serializers', '~> 0.8.2'
-#Gem for API authentication
+# Gem for API authentication
 gem 'devise'
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
-#Gem for API management and versioning
+# Gem for API management and versioning
 gem 'rocket_pants', '~> 1.9.2'
 
-#Language translations
+# Language translations
 gem 'rails-i18n', '~> 4.0.0' # for Rails 4
 
-#Validations
+# Validations
 gem 'missing_validators', '~> 2.1.0'
 
-#Parse APK
-gem 'ruby_apk'
+# Parse APK
 gem 'rubyzip'
 
-#Active directory auth
+# Active directory auth
 gem 'net-ldap'
 
-#Hash Ids
+# Hash Ids
 gem 'hashids'

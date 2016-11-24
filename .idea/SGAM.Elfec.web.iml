@@ -258,7 +258,6 @@
     <orderEntry type="library" scope="PROVIDED" name="rspec-mocks (v3.3.2, ruby-2.2.5-p319) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-rails (v3.3.3, ruby-2.2.5-p319) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-support (v3.3.0, ruby-2.2.5-p319) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="ruby_apk (v0.7.1, ruby-2.2.5-p319) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v0.9.9, ruby-2.2.5-p319) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.2.19, ruby-2.2.5-p319) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v4.0.5, ruby-2.2.5-p319) [gem]" level="application" />

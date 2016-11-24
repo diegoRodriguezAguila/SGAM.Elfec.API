@@ -1,6 +1,6 @@
 class Api::V1::ApplicationsController < ApplicationController
   acts_as_token_authentication_handler_for User, except: [:show_version_res_file, :show_res_file]
-  include Sortable, Includible, FileUrlHelper, ApkIconsHelper, ApkLabelHelper, ApplicationHelper
+  include Sortable, Includible, FileUrlHelper, ApkIconsHelper, ApplicationHelper
 
   def show
     # searches by package
