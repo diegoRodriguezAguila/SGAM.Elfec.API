@@ -50,22 +50,25 @@ class Device < ActiveRecord::Base
   # @param [String] imei
   # @param [String] name
   # @return [Device]
-  scope :find_by_imei_or_name, ->(imei, name) {
-    where('imei= ? OR name= ?', imei, name).first }
+  def self.find_by_imei_or_name(imei, name)
+    where('imei= ? OR name= ?', imei, name).first
+  end
+
   # Dev sugar for query imei and name
   # @param [String] device_id imei or name
   # @return [Device]
-  scope :find_by_imei_or_name, ->(device_id) {
-    where('imei= ? OR name= ?', device_id, device_id).first }
+  def self.find_by_identifier(device_id)
+    where('imei= ? OR name= ?', device_id, device_id).first
+  end
 
   # filters devices by rules that apply to them
   # @param [Array] rules
-  scope :filter_by_rules, ->(rules){
+  scope :filter_by_rules, ->(rules) {
     devices_table = Device.arel_table
     like_filters = Rule.like_queries_for rules
     where(devices_table[:imei].matches_any(like_filters[:like])
-                     .and(devices_table[:imei]
-                              .does_not_match_any(like_filters[:not_like])))
+              .and(devices_table[:imei]
+                       .does_not_match_any(like_filters[:not_like])))
   }
 
   private

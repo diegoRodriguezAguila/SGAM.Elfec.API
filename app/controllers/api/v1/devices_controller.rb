@@ -4,7 +4,7 @@ class Api::V1::DevicesController < ApplicationController
 
   def show
     # searches by imei or name
-    device = Device.find_by_imei_or_name(params[:id], params[:id])
+    device = Device.find_by_identifier(params[:id])
     return head :not_found if device.nil?
     raise Exceptions::SecurityTransgression unless device.viewable_by? current_user
     render json: device, status: :ok
