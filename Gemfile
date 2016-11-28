@@ -19,8 +19,6 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 gem 'responders', '~> 2.0'
-# Google Cloud Messaging
-gem 'gcm'
 # Firebase Cloud Messaging
 gem 'fcm'
 gem 'certified'

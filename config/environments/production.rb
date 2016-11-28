@@ -77,14 +77,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # config salt
-  config.hashids.salt = 'Elfec2015%#"#fvVASPoq1231/Asz!"234&//\\979@s'
+  config.hashids.salt = 'key=Elfec2015%#"#fvVASPoq1231/Asz!"234&//\\979@s'
   config.ids_length = 6
 
   # config fcm api key
   config.fcm_api_key = 'AIzaSyCONvIW4g6sW7ycY4OrrMDc6-zvd7OweyQ'
 
-  # config gcm api key
-  config.gcm_api_key = 'AIzaSyDKGdljdlRQZxrMovOiyAMNownQoWbMH2k'
   config.use_proxy = false
   # IF proxy needed uncomment this
   # config.proxy_addr = 'proxy'

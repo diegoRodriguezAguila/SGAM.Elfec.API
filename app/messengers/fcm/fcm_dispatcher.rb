@@ -5,7 +5,7 @@ module FcmDispatcher
   def self.send_rule(registration_ids, rule_name)
     options = {data: {message: "Rule created:#{rule_name}", title: 'SIDEKIQ WORKS'},
                collapse_key: "signal_type"}
-    FCM_CLIENT.send(registration_ids, options)
+    resp = FCM_CLIENT.send(registration_ids, options)
   end
 
   # Sends the fcm message to the registration ids
@@ -15,7 +15,7 @@ module FcmDispatcher
   def self.send(registration_ids, data, collapse_key=nil)
     options = {data: data,
                collapse_key: collapse_key}
-    FCM_CLIENT.send(registration_ids, options)
+    resp = FCM_CLIENT.send(registration_ids, options)
   end
 
   # Sends the fcm message to the devices
@@ -27,7 +27,7 @@ module FcmDispatcher
 
 
   private
-  FCM_CLIENT = FCM.new(Rails.configuration.fcm_api_key)
+  FCM_CLIENT = FCM.new(Rails.configuration.fcm_api_key) unless Rails.configuration.use_proxy
   if Rails.configuration.use_proxy
     FCM_CLIENT = FCM.new(Rails.configuration.fcm_api_key,
                              http_proxyaddr: Rails.configuration.proxy_addr,

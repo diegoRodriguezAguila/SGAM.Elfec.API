@@ -46,7 +46,8 @@ module SGAMElfecWeb
     config.hashids = ActiveSupport::OrderedOptions.new
 
     config.autoload_paths += %W(#{config.root}/lib)
-    config.autoload_paths += %W(#{config.root}/app/messengers/gcm)
+    config.autoload_paths += %W(#{config.root}/app/messengers)
+    config.autoload_paths += %W(#{config.root}/app/messengers/fcm)
     config.middleware.use Rack::ContentLength
   end
 end

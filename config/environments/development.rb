@@ -43,9 +43,6 @@ Rails.application.configure do
   # config fcm api key
   config.fcm_api_key = 'AIzaSyCONvIW4g6sW7ycY4OrrMDc6-zvd7OweyQ'
 
-  # config gcm api key
-  config.gcm_api_key = 'AIzaSyDKGdljdlRQZxrMovOiyAMNownQoWbMH2k'
-
   config.use_proxy = true
   config.proxy_addr = 'proxy'
   config.proxy_port = 8080
