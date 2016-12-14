@@ -175,16 +175,6 @@ ActiveRecord::Schema.define(version: 20160606203306) do
 
   add_index "rules", ["policy_id"], name: "index_rules_on_policy_id", using: :btree
 
-  create_table "user_devices", id: false, force: :cascade do |t|
-    t.integer  "device_id",  null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "user_devices", ["device_id", "user_id"], name: "index_user_devices_on_device_id_and_user_id", unique: true, using: :btree
-  add_index "user_devices", ["user_id", "device_id"], name: "index_user_devices_on_user_id_and_device_id", unique: true, using: :btree
-
   create_table "user_group_members", id: false, force: :cascade do |t|
     t.integer  "user_id",       null: false
     t.integer  "user_group_id", null: false
@@ -238,8 +228,6 @@ ActiveRecord::Schema.define(version: 20160606203306) do
   add_foreign_key "role_permissions", "permissions"
   add_foreign_key "role_permissions", "roles"
   add_foreign_key "rules", "policies"
-  add_foreign_key "user_devices", "devices"
-  add_foreign_key "user_devices", "users"
   add_foreign_key "user_group_members", "user_groups"
   add_foreign_key "user_group_members", "users"
 end
