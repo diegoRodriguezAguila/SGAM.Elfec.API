@@ -102,6 +102,34 @@ class Rule < ActiveRecord::Base
     {like: like.to_a, not_like: not_like.to_a}
   end
 
+  # Verifica si esta regla es creable por cierto usuario
+  # @param [User] user
+  # @return [Boolean]
+  def creatable_by? (user)
+    user.has_permission?(Permission.add_rule)
+  end
+
+  # Verifica si la regla es updateable por cierto usuario
+  # @param [User] user
+  # @return [Boolean]
+  def updatable_by? (user)
+    user.has_permission?(Permission.update_rule)
+  end
+
+  # Verifica si la regla es eliminable por cierto usuario
+  # @param [User] user
+  # @return [Boolean]
+  def deletable_by? (user)
+    user.has_permission?(Permission.delete_rule)
+  end
+
+  # Verifica si el recurso de las reglas son eliminables por cierto usuario
+  # @param [User] user
+  # @return [Boolean]
+  def self.are_deletable_by? (user)
+    return user.has_permission? Permission.delete_rule
+  end
+
   private
 
   # Converts regex fro string value

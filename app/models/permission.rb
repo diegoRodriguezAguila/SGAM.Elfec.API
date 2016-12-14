@@ -15,8 +15,11 @@ class Permission < ActiveRecord::Base
               view_user_groups:       'view_user_groups',
               view_single_user_group: 'view_single_user_group',
               update_user_group:      'update_user_group',
-              view_policies:       'view_policies',
-              view_single_policy: 'view_single_policy', }
+              view_policies:          'view_policies',
+              view_single_policy:     'view_single_policy',
+              add_rule:               'add_rule',
+              update_rule:            'update_rule',
+              delete_rule:            'delete_rule'}
 
   enum status: [:disabled, :enabled]
   has_and_belongs_to_many :roles, join_table: :role_permissions

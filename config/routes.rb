@@ -38,7 +38,7 @@ Rails.application.routes.draw do
         delete '/rules', to: 'rules#bulk_destroy'
       end
 
-      resources :rules, only: [:index, :create, :destroy] do
+      resources :rules, only: [:index, :create, :update ,:destroy] do
         get '/entities', to: 'rules#show_entities'
         post '/entities/:entity_ids', to: 'rules#add_entities'
         delete '/entities/:entity_ids', to: 'rules#remove_entities'

@@ -36,9 +36,17 @@ p17 = Permission.create(name: 'view_policies',
                         description: 'Ver todas las directivas de usuarios', status: 1)
 p18 = Permission.create(name: 'view_single_policy',
                         description: 'Ver una directiva de usuarios específica', status: 1)
+p19 = Permission.create(name: 'add_rule',
+                        description: 'Agregar una regla de directiva de usuarios', status: 1)
+p20 = Permission.create(name: 'update_rule',
+                        description: 'Actualizar los datos de una regla de directiva de usuarios', status: 1)
+p21 = Permission.create(name: 'delete_rule',
+                                   description: 'Eliminar una regla de directiva de usuarios', status: 1)
+
 role = Role.create(role: 'Administrador',
                    description: 'Rol de usuario administrador del sistema de gestión de aplicaciones', status: 1)
-role.permissions << [p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18]
+role.permissions << [p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11,
+                     p12, p13, p14, p15, p16, p17, p18, p19, p20, p21]
 
 Policy.create(type: Policy.types[:application_control], name: 'Directivas de control de aplicaciones',
               description: 'Utilize estas directivas para poder definir que aplicaciones estan permitidas/denegadas, de usar un usuario o un grupo de usuarios')
