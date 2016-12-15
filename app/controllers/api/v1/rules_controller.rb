@@ -90,8 +90,9 @@ class Api::V1::RulesController < ApplicationController
     return head :not_modified if users_to_add.empty? && user_groups_to_add.empty?
     rule.users << users_to_add
     rule.user_groups << user_groups_to_add
-    RulesNotifier.propagate_rule(rule)
-    head :no_content
+    # RulesNotifier.propagate_rule(rule)
+    render json: rule, include: %w(entities entity_type), host: request.host_with_port,
+           status: :ok, location: [:api, rule]
   end
 
   #DELETE rules/:rule_id/entities/:entity_ids
@@ -103,7 +104,8 @@ class Api::V1::RulesController < ApplicationController
     return head :not_modified if users_to_del.empty? && user_groups_to_del.empty?
     rule.users = rule.users - users_to_del
     rule.user_groups = rule.user_groups - user_groups_to_del
-    head :no_content
+    render json: rule, include: %w(entities entity_type), host: request.host_with_port,
+           status: :ok, location: [:api, rule]
   end
 
   #endregion

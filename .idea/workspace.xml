@@ -11,10 +11,6 @@
     <list default="true" id="8c55ca71-823a-4342-9dac-17a4d2191cca" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/v1/rules_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/v1/rules_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/permission.rb" afterPath="$PROJECT_DIR$/app/models/permission.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/rule.rb" afterPath="$PROJECT_DIR$/app/models/rule.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds/development.rb" afterPath="$PROJECT_DIR$/db/seeds/development.rb" />
     </list>
     <ignored path="SGAM.Elfec.web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,8 +78,8 @@
       <file leaf-file-name="rules_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/rules_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+            <state relative-caret-position="541">
+              <caret line="107" column="46" selection-start-line="107" selection-start-column="46" selection-end-line="107" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -764,14 +760,7 @@
       <workItem from="1479825678654" duration="45947000" />
       <workItem from="1481205637355" duration="2497000" />
       <workItem from="1481547252073" duration="1449000" />
-      <workItem from="1481660259615" duration="19405000" />
-    </task>
-    <task id="LOCAL-00082" summary="some refactors">
-      <created>1454613819044</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1454613819063</updated>
+      <workItem from="1481660259615" duration="20777000" />
     </task>
     <task id="LOCAL-00083" summary="Some bug fixes for devices and sessions. In sessions there was not including host to link photo">
       <created>1456251375903</created>
@@ -1109,7 +1098,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481722952755</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="Implemented permission control to create, edit and delete rules. Implemented rule edition">
+      <created>1481751296792</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1481751296792</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1127,7 +1123,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80190000" />
+    <option name="totallyTimeSpent" value="81562000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1142,7 +1138,7 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26413882" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26413882" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871014" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40915394" sideWeight="0.51028275" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19987147" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1176,7 +1172,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Backend corregido para poder registrar un grupo de usuario con miembros, asi se evitan 2 transacciones innecesarias" />
     <MESSAGE value="Modificado el controlador de reglas para aceptar regla con miembros en un solo request" />
     <MESSAGE value="Se implementó la validación de regla de dispositivo permitido para poder permitir o denegar la creación&#10;de una sesión de dispositivo" />
     <MESSAGE value="implementados metodos para obtener todos los dispositivos permitidos a un usuario" />
@@ -1201,7 +1196,8 @@
     <MESSAGE value="Re-structuring for gcm replacement with fcm" />
     <MESSAGE value="Migrated from GCM to FCM" />
     <MESSAGE value="Changed database to official development database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed database to official development database" />
+    <MESSAGE value="Implemented permission control to create, edit and delete rules. Implemented rule edition" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented permission control to create, edit and delete rules. Implemented rule edition" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1585,8 +1581,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/rules_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+        <state relative-caret-position="541">
+          <caret line="107" column="46" selection-start-line="107" selection-start-column="46" selection-end-line="107" selection-end-column="46" />
           <folding />
         </state>
       </provider>
