@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -23,9 +22,8 @@ ActiveRecord::Schema.define(version: 20160606203306) do
     t.integer  "status",         null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.index ["application_id"], name: "index_app_versions_on_application_id", using: :btree
   end
-
-  add_index "app_versions", ["application_id"], name: "index_app_versions_on_application_id", using: :btree
 
   create_table "applications", force: :cascade do |t|
     t.string   "name",                null: false
@@ -35,19 +33,17 @@ ActiveRecord::Schema.define(version: 20160606203306) do
     t.integer  "status",              null: false
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.index ["name"], name: "index_applications_on_name", using: :btree
+    t.index ["package"], name: "index_applications_on_package", using: :btree
   end
-
-  add_index "applications", ["name"], name: "index_applications_on_name", using: :btree
-  add_index "applications", ["package"], name: "index_applications_on_package", using: :btree
 
   create_table "device_gcm_tokens", force: :cascade do |t|
     t.integer  "device_id",  null: false
     t.string   "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["device_id"], name: "index_device_gcm_tokens_on_device_id", using: :btree
   end
-
-  add_index "device_gcm_tokens", ["device_id"], name: "index_device_gcm_tokens_on_device_id", using: :btree
 
   create_table "device_sessions", force: :cascade do |t|
     t.integer  "user_id",                       null: false
@@ -57,10 +53,9 @@ ActiveRecord::Schema.define(version: 20160606203306) do
     t.string   "status",     default: "opened", null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.index ["device_id"], name: "index_device_sessions_on_device_id", using: :btree
+    t.index ["user_id"], name: "index_device_sessions_on_user_id", using: :btree
   end
-
-  add_index "device_sessions", ["device_id"], name: "index_device_sessions_on_device_id", using: :btree
-  add_index "device_sessions", ["user_id"], name: "index_device_sessions_on_user_id", using: :btree
 
   create_table "devices", force: :cascade do |t|
     t.string   "name"
@@ -84,9 +79,8 @@ ActiveRecord::Schema.define(version: 20160606203306) do
     t.integer  "status",                default: 2,         null: false
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
+    t.index ["imei"], name: "index_devices_on_imei", unique: true, using: :btree
   end
-
-  add_index "devices", ["imei"], name: "index_devices_on_imei", unique: true, using: :btree
 
   create_table "entity_rules", force: :cascade do |t|
     t.integer  "entity_id"
@@ -94,10 +88,9 @@ ActiveRecord::Schema.define(version: 20160606203306) do
     t.integer  "rule_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["entity_type", "entity_id"], name: "index_entity_rules_on_entity_type_and_entity_id", using: :btree
+    t.index ["rule_id"], name: "index_entity_rules_on_rule_id", using: :btree
   end
-
-  add_index "entity_rules", ["entity_type", "entity_id"], name: "index_entity_rules_on_entity_type_and_entity_id", using: :btree
-  add_index "entity_rules", ["rule_id"], name: "index_entity_rules_on_rule_id", using: :btree
 
   create_table "installations", force: :cascade do |t|
     t.integer  "application_id"
@@ -107,12 +100,11 @@ ActiveRecord::Schema.define(version: 20160606203306) do
     t.string   "status",         null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.index ["app_version_id"], name: "index_installations_on_app_version_id", using: :btree
+    t.index ["application_id"], name: "index_installations_on_application_id", using: :btree
+    t.index ["device_id"], name: "index_installations_on_device_id", using: :btree
+    t.index ["status"], name: "index_installations_on_status", using: :btree
   end
-
-  add_index "installations", ["app_version_id"], name: "index_installations_on_app_version_id", using: :btree
-  add_index "installations", ["application_id"], name: "index_installations_on_application_id", using: :btree
-  add_index "installations", ["device_id"], name: "index_installations_on_device_id", using: :btree
-  add_index "installations", ["status"], name: "index_installations_on_status", using: :btree
 
   create_table "permissions", force: :cascade do |t|
     t.string   "name",        null: false
@@ -120,9 +112,8 @@ ActiveRecord::Schema.define(version: 20160606203306) do
     t.integer  "status",      null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["name"], name: "index_permissions_on_name", unique: true, using: :btree
   end
-
-  add_index "permissions", ["name"], name: "index_permissions_on_name", unique: true, using: :btree
 
   create_table "policies", force: :cascade do |t|
     t.string   "type"
@@ -138,20 +129,18 @@ ActiveRecord::Schema.define(version: 20160606203306) do
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["role_id", "user_id"], name: "index_role_assignations_on_role_id_and_user_id", unique: true, using: :btree
+    t.index ["user_id", "role_id"], name: "index_role_assignations_on_user_id_and_role_id", unique: true, using: :btree
   end
-
-  add_index "role_assignations", ["role_id", "user_id"], name: "index_role_assignations_on_role_id_and_user_id", unique: true, using: :btree
-  add_index "role_assignations", ["user_id", "role_id"], name: "index_role_assignations_on_user_id_and_role_id", unique: true, using: :btree
 
   create_table "role_permissions", id: false, force: :cascade do |t|
     t.integer  "permission_id", null: false
     t.integer  "role_id",       null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["permission_id", "role_id"], name: "permission_id_role_id_index", unique: true, using: :btree
+    t.index ["role_id", "permission_id"], name: "role_id_permission_id_index", unique: true, using: :btree
   end
-
-  add_index "role_permissions", ["permission_id", "role_id"], name: "permission_id_role_id_index", unique: true, using: :btree
-  add_index "role_permissions", ["role_id", "permission_id"], name: "role_id_permission_id_index", unique: true, using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "role",        null: false
@@ -171,19 +160,17 @@ ActiveRecord::Schema.define(version: 20160606203306) do
     t.integer  "status",      default: 1, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.index ["policy_id"], name: "index_rules_on_policy_id", using: :btree
   end
-
-  add_index "rules", ["policy_id"], name: "index_rules_on_policy_id", using: :btree
 
   create_table "user_group_members", id: false, force: :cascade do |t|
     t.integer  "user_id",       null: false
     t.integer  "user_group_id", null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["user_group_id", "user_id"], name: "user_group_id_user_id_index", unique: true, using: :btree
+    t.index ["user_id", "user_group_id"], name: "user_id_user_group_id_index", unique: true, using: :btree
   end
-
-  add_index "user_group_members", ["user_group_id", "user_id"], name: "user_group_id_user_id_index", unique: true, using: :btree
-  add_index "user_group_members", ["user_id", "user_group_id"], name: "user_id_user_group_id_index", unique: true, using: :btree
 
   create_table "user_groups", force: :cascade do |t|
     t.string   "name"
@@ -191,9 +178,8 @@ ActiveRecord::Schema.define(version: 20160606203306) do
     t.integer  "status",      default: 1, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.index ["name"], name: "index_user_groups_on_name", unique: true, using: :btree
   end
-
-  add_index "user_groups", ["name"], name: "index_user_groups_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",             default: "", null: false
@@ -212,10 +198,9 @@ ActiveRecord::Schema.define(version: 20160606203306) do
     t.integer  "status",                            null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
+    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
-
-  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
-  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   add_foreign_key "device_gcm_tokens", "devices"
   add_foreign_key "device_sessions", "devices"

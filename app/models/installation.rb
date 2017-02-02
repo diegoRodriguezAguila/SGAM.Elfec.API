@@ -1,4 +1,4 @@
-class Installation < ActiveRecord::Base
+class Installation < ApplicationRecord
   enum status: {install_pending: 'install_pending',
                 installed: 'installed',
                 uninstall_pending: 'uninstall_pending',

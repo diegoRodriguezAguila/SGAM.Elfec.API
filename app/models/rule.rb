@@ -1,4 +1,4 @@
-class Rule < ActiveRecord::Base
+class Rule < ApplicationRecord
   enum action: {permit: 'permit',
                 deny: 'deny'}
   enum status: [:disabled, :enabled]

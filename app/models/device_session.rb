@@ -1,4 +1,4 @@
-class DeviceSession < ActiveRecord::Base
+class DeviceSession < ApplicationRecord
   enum status: {opened: 'opened',
               closed: 'closed'}
   validates_presence_of :user, :username, :device, :imei, :status

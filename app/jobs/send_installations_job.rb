@@ -1,4 +1,4 @@
-class SendInstallationsJob < ActiveJob::Base
+class SendInstallationsJob < ApplicationJob
   queue_as :default
 
   def perform(installation_ids)

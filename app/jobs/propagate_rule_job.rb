@@ -1,4 +1,4 @@
-class PropagateRuleJob < ActiveJob::Base
+class PropagateRuleJob < ApplicationJob
   queue_as :default
 
   def perform(rule_id)

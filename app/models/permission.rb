@@ -1,4 +1,4 @@
-class Permission < ActiveRecord::Base
+class Permission < ApplicationRecord
   enum name: {admin_app_access:       'admin_app_access',
               register_user:          'register_user',
               view_users:             'view_users',

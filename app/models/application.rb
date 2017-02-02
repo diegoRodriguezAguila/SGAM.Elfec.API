@@ -1,4 +1,4 @@
-class Application < ActiveRecord::Base
+class Application < ApplicationRecord
   enum status: [:disabled, :enabled]
   validates_presence_of :name, :package, :status
   validates_uniqueness_of :name, :package

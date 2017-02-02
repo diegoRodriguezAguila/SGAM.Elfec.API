@@ -1,4 +1,4 @@
-class UserGroup < ActiveRecord::Base
+class UserGroup < ApplicationRecord
   enum status: [:disabled, :enabled, :sealed]
   validates_presence_of :name, :status
   validates_presence_of :description, unless: Proc.new { |ug| ug.sealed? }

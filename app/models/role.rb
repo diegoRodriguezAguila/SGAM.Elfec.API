@@ -1,4 +1,4 @@
-class Role < ActiveRecord::Base
+class Role < ApplicationRecord
   enum status: [:disabled, :enabled]
   has_and_belongs_to_many :users, join_table: :role_assignations
   has_and_belongs_to_many :permissions, join_table: :role_permissions

@@ -1,4 +1,4 @@
-class Policy < ActiveRecord::Base
+class Policy < ApplicationRecord
   enum type: {application_control: 'application_control',
               device_restriction:      'device_restriction'}
   enum status: [:disabled, :enabled]

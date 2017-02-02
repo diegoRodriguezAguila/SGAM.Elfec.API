@@ -69,3 +69,13 @@ gem 'net-ldap'
 
 # Hash Ids
 gem 'hashids'
+
+# Enable Assets pipeline
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 5.0'
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 2.7.2'
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
