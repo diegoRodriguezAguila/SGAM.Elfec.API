@@ -2,49 +2,55 @@
 <dataSource name="Rails SGAM.Elfec.web: test">
   <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.6">
     <database id="1" name="sgam_test">
-      <object-id>85335</object-id>
+      <object-id>19997</object-id>
       <visible>1</visible>
     </database>
     <database id="2" name="postgres">
-      <object-id>13003</object-id>
+      <object-id>13269</object-id>
     </database>
-    <database id="3" name="sgo">
-      <object-id>35825</object-id>
+    <database id="3" name="laboratorio_mediciones">
+      <object-id>16799</object-id>
     </database>
-    <database id="4" name="st_2">
-      <object-id>80289</object-id>
+    <database id="4" name="mantmt">
+      <object-id>17996</object-id>
     </database>
-    <database id="5" name="laboratorio_mediciones">
-      <object-id>82015</object-id>
+    <database id="5" name="repocod">
+      <object-id>18127</object-id>
     </database>
-    <database id="6" name="autenticacion">
-      <object-id>83514</object-id>
+    <database id="6" name="servicio_tecnico">
+      <object-id>18289</object-id>
     </database>
-    <database id="7" name="servicio_tecnico">
-      <object-id>83904</object-id>
+    <database id="7" name="sgam">
+      <object-id>19739</object-id>
     </database>
-    <database id="8" name="sgam">
-      <object-id>85334</object-id>
+    <database id="8" name="sgo">
+      <object-id>19998</object-id>
     </database>
-    <schema id="9" parent="1" name="public">
+    <database id="9" name="autenticacion">
+      <object-id>22509</object-id>
+    </database>
+    <database id="10" name="cartografia">
+      <object-id>23400</object-id>
+    </database>
+    <schema id="11" parent="1" name="public">
       <object-id>2200</object-id>
       <visible>1</visible>
-      <introspection-timestamp>2016-12-14.08:40:51.352</introspection-timestamp>
+      <introspection-timestamp>2017-02-02.09:06:27.505</introspection-timestamp>
     </schema>
-    <schema id="10" parent="1" name="pg_catalog">
+    <schema id="12" parent="1" name="pg_catalog">
       <object-id>11</object-id>
     </schema>
-    <schema id="11" parent="1" name="pg_toast">
+    <schema id="13" parent="1" name="pg_toast">
       <object-id>99</object-id>
     </schema>
-    <schema id="12" parent="1" name="pg_temp_1">
-      <object-id>11320</object-id>
+    <schema id="14" parent="1" name="pg_temp_1">
+      <object-id>11848</object-id>
     </schema>
-    <schema id="13" parent="1" name="pg_toast_temp_1">
-      <object-id>11321</object-id>
+    <schema id="15" parent="1" name="pg_toast_temp_1">
+      <object-id>11849</object-id>
     </schema>
-    <schema id="14" parent="1" name="information_schema">
-      <object-id>12453</object-id>
+    <schema id="16" parent="1" name="information_schema">
+      <object-id>12981</object-id>
     </schema>
   </database-model>
 </dataSource>

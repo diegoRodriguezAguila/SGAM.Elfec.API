@@ -2,49 +2,1191 @@
 <dataSource name="Rails SGAM.Elfec.web: production">
   <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.6">
     <database id="1" name="sgam">
-      <object-id>85334</object-id>
+      <object-id>19739</object-id>
       <visible>1</visible>
     </database>
     <database id="2" name="postgres">
-      <object-id>13003</object-id>
+      <object-id>13269</object-id>
     </database>
-    <database id="3" name="sgo">
-      <object-id>35825</object-id>
+    <database id="3" name="laboratorio_mediciones">
+      <object-id>16799</object-id>
     </database>
-    <database id="4" name="st_2">
-      <object-id>80289</object-id>
+    <database id="4" name="mantmt">
+      <object-id>17996</object-id>
     </database>
-    <database id="5" name="laboratorio_mediciones">
-      <object-id>82015</object-id>
+    <database id="5" name="repocod">
+      <object-id>18127</object-id>
     </database>
-    <database id="6" name="autenticacion">
-      <object-id>83514</object-id>
+    <database id="6" name="servicio_tecnico">
+      <object-id>18289</object-id>
     </database>
-    <database id="7" name="servicio_tecnico">
-      <object-id>83904</object-id>
+    <database id="7" name="sgam_test">
+      <object-id>19997</object-id>
     </database>
-    <database id="8" name="sgam_test">
-      <object-id>85335</object-id>
+    <database id="8" name="sgo">
+      <object-id>19998</object-id>
     </database>
-    <schema id="9" parent="1" name="public">
+    <database id="9" name="autenticacion">
+      <object-id>22509</object-id>
+    </database>
+    <database id="10" name="cartografia">
+      <object-id>23400</object-id>
+    </database>
+    <schema id="11" parent="1" name="public">
       <object-id>2200</object-id>
       <visible>1</visible>
-      <introspection-timestamp>2016-12-14.08:40:54.442</introspection-timestamp>
+      <introspection-state-number>5817</introspection-state-number>
+      <introspection-timestamp>2017-02-02.09:06:31.327</introspection-timestamp>
     </schema>
-    <schema id="10" parent="1" name="pg_catalog">
+    <schema id="12" parent="1" name="pg_catalog">
       <object-id>11</object-id>
     </schema>
-    <schema id="11" parent="1" name="pg_toast">
+    <schema id="13" parent="1" name="pg_toast">
       <object-id>99</object-id>
     </schema>
-    <schema id="12" parent="1" name="pg_temp_1">
-      <object-id>11320</object-id>
+    <schema id="14" parent="1" name="pg_temp_1">
+      <object-id>11848</object-id>
     </schema>
-    <schema id="13" parent="1" name="pg_toast_temp_1">
-      <object-id>11321</object-id>
+    <schema id="15" parent="1" name="pg_toast_temp_1">
+      <object-id>11849</object-id>
     </schema>
-    <schema id="14" parent="1" name="information_schema">
-      <object-id>12453</object-id>
+    <schema id="16" parent="1" name="information_schema">
+      <object-id>12981</object-id>
     </schema>
+    <sequence id="17" parent="11" name="app_versions_id_seq">
+      <object-id>19746</object-id>
+      <state-number>5657</state-number>
+    </sequence>
+    <sequence id="18" parent="11" name="applications_id_seq">
+      <object-id>19754</object-id>
+      <state-number>5662</state-number>
+    </sequence>
+    <sequence id="19" parent="11" name="device_gcm_tokens_id_seq">
+      <object-id>19762</object-id>
+      <state-number>5667</state-number>
+    </sequence>
+    <sequence id="20" parent="11" name="device_sessions_id_seq">
+      <object-id>19771</object-id>
+      <state-number>5672</state-number>
+    </sequence>
+    <sequence id="21" parent="11" name="devices_id_seq">
+      <object-id>19781</object-id>
+      <state-number>5677</state-number>
+    </sequence>
+    <sequence id="22" parent="11" name="entity_rules_id_seq">
+      <object-id>19789</object-id>
+      <state-number>5682</state-number>
+    </sequence>
+    <sequence id="23" parent="11" name="installations_id_seq">
+      <object-id>19797</object-id>
+      <state-number>5687</state-number>
+    </sequence>
+    <sequence id="24" parent="11" name="permissions_id_seq">
+      <object-id>19805</object-id>
+      <state-number>5692</state-number>
+    </sequence>
+    <sequence id="25" parent="11" name="policies_id_seq">
+      <object-id>19814</object-id>
+      <state-number>5697</state-number>
+    </sequence>
+    <sequence id="26" parent="11" name="roles_id_seq">
+      <object-id>19828</object-id>
+      <state-number>5706</state-number>
+    </sequence>
+    <sequence id="27" parent="11" name="rules_id_seq">
+      <object-id>19837</object-id>
+      <state-number>5711</state-number>
+    </sequence>
+    <sequence id="28" parent="11" name="user_groups_id_seq">
+      <object-id>19855</object-id>
+      <state-number>5720</state-number>
+    </sequence>
+    <sequence id="29" parent="11" name="users_id_seq">
+      <object-id>19865</object-id>
+      <state-number>5725</state-number>
+    </sequence>
+    <table id="30" parent="11" name="app_versions">
+      <object-id>19740</object-id>
+      <state-number>5814</state-number>
+    </table>
+    <table id="31" parent="11" name="applications">
+      <object-id>19748</object-id>
+      <state-number>5816</state-number>
+    </table>
+    <table id="32" parent="11" name="device_gcm_tokens">
+      <object-id>19756</object-id>
+      <state-number>5812</state-number>
+    </table>
+    <table id="33" parent="11" name="device_sessions">
+      <object-id>19764</object-id>
+      <state-number>5817</state-number>
+    </table>
+    <table id="34" parent="11" name="devices">
+      <object-id>19773</object-id>
+      <state-number>5812</state-number>
+    </table>
+    <table id="35" parent="11" name="entity_rules">
+      <object-id>19783</object-id>
+      <state-number>5680</state-number>
+    </table>
+    <table id="36" parent="11" name="installations">
+      <object-id>19791</object-id>
+      <state-number>5816</state-number>
+    </table>
+    <table id="37" parent="11" name="permissions">
+      <object-id>19799</object-id>
+      <state-number>5811</state-number>
+    </table>
+    <table id="38" parent="11" name="policies">
+      <object-id>19807</object-id>
+      <state-number>5813</state-number>
+    </table>
+    <table id="39" parent="11" name="role_assignations">
+      <object-id>19816</object-id>
+      <state-number>5810</state-number>
+    </table>
+    <table id="40" parent="11" name="role_permissions">
+      <object-id>19819</object-id>
+      <state-number>5811</state-number>
+    </table>
+    <table id="41" parent="11" name="roles">
+      <object-id>19822</object-id>
+      <state-number>5810</state-number>
+    </table>
+    <table id="42" parent="11" name="rules">
+      <object-id>19830</object-id>
+      <state-number>5813</state-number>
+    </table>
+    <table id="43" parent="11" name="schema_migrations">
+      <object-id>19839</object-id>
+      <state-number>5714</state-number>
+    </table>
+    <table id="44" parent="11" name="user_group_members">
+      <object-id>19845</object-id>
+      <state-number>5815</state-number>
+    </table>
+    <table id="45" parent="11" name="user_groups">
+      <object-id>19848</object-id>
+      <state-number>5815</state-number>
+    </table>
+    <table id="46" parent="11" name="users">
+      <object-id>19857</object-id>
+      <state-number>5817</state-number>
+    </table>
+    <column id="47" parent="30" name="id">
+      <state-number>5727</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;app_versions_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="48" parent="30" name="application_id">
+      <state-number>5654</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="49" parent="30" name="version">
+      <state-number>5654</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="50" parent="30" name="version_code">
+      <state-number>5654</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="51" parent="30" name="status">
+      <state-number>5654</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="52" parent="30" name="created_at">
+      <state-number>5654</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="53" parent="30" name="updated_at">
+      <state-number>5654</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="54" parent="30" name="app_versions_pkey">
+      <object-id>19880</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="55" parent="30" name="index_app_versions_on_application_id">
+      <object-id>19906</object-id>
+      <columns>application_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="56" parent="30" name="app_versions_pkey">
+      <object-id>19881</object-id>
+      <columns>id</columns>
+      <underlying-index>app_versions_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="57" parent="31" name="id">
+      <state-number>5728</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;applications_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="58" parent="31" name="name">
+      <state-number>5659</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="59" parent="31" name="package">
+      <state-number>5659</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="60" parent="31" name="latest_version">
+      <state-number>5659</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="61" parent="31" name="latest_version_code">
+      <state-number>5659</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="62" parent="31" name="status">
+      <state-number>5659</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="63" parent="31" name="created_at">
+      <state-number>5659</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="64" parent="31" name="updated_at">
+      <state-number>5659</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="65" parent="31" name="applications_pkey">
+      <object-id>19882</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="66" parent="31" name="index_applications_on_name">
+      <object-id>19907</object-id>
+      <columns>name</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="67" parent="31" name="index_applications_on_package">
+      <object-id>19908</object-id>
+      <columns>package</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="68" parent="31" name="applications_pkey">
+      <object-id>19883</object-id>
+      <columns>id</columns>
+      <underlying-index>applications_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="69" parent="32" name="id">
+      <state-number>5729</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;device_gcm_tokens_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="70" parent="32" name="device_id">
+      <state-number>5664</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="71" parent="32" name="token">
+      <state-number>5664</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="72" parent="32" name="created_at">
+      <state-number>5664</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="73" parent="32" name="updated_at">
+      <state-number>5664</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="74" parent="32" name="device_gcm_tokens_pkey">
+      <object-id>19884</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="75" parent="32" name="index_device_gcm_tokens_on_device_id">
+      <object-id>19909</object-id>
+      <columns>device_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="76" parent="32" name="device_gcm_tokens_pkey">
+      <object-id>19885</object-id>
+      <columns>id</columns>
+      <underlying-index>device_gcm_tokens_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="77" parent="32" name="fk_rails_6696916a83">
+      <object-id>19966</object-id>
+      <columns>device_id</columns>
+      <ref-key>~.devices.devices_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="78" parent="33" name="id">
+      <state-number>5730</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;device_sessions_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="79" parent="33" name="user_id">
+      <state-number>5669</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="80" parent="33" name="device_id">
+      <state-number>5669</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="81" parent="33" name="username">
+      <state-number>5669</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="82" parent="33" name="imei">
+      <state-number>5669</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="83" parent="33" name="status">
+      <state-number>5669</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+      <default-expression>&apos;opened&apos;::character varying</default-expression>
+    </column>
+    <column id="84" parent="33" name="created_at">
+      <state-number>5669</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="85" parent="33" name="updated_at">
+      <state-number>5669</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="86" parent="33" name="device_sessions_pkey">
+      <object-id>19886</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="87" parent="33" name="index_device_sessions_on_user_id">
+      <object-id>19911</object-id>
+      <columns>user_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="88" parent="33" name="index_device_sessions_on_device_id">
+      <object-id>19910</object-id>
+      <columns>device_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="89" parent="33" name="device_sessions_pkey">
+      <object-id>19887</object-id>
+      <columns>id</columns>
+      <underlying-index>device_sessions_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="90" parent="33" name="fk_rails_e1c0c8b4c2">
+      <object-id>19991</object-id>
+      <columns>user_id</columns>
+      <ref-key>~.users.users_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="91" parent="33" name="fk_rails_245cc72165">
+      <object-id>19941</object-id>
+      <columns>device_id</columns>
+      <ref-key>~.devices.devices_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="92" parent="34" name="id">
+      <state-number>5731</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;devices_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="93" parent="34" name="name">
+      <state-number>5674</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="94" parent="34" name="imei">
+      <state-number>5674</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="95" parent="34" name="serial">
+      <state-number>5674</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="96" parent="34" name="wifi_mac_address">
+      <state-number>5674</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="97" parent="34" name="bluetooth_mac_address">
+      <state-number>5674</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="98" parent="34" name="platform">
+      <state-number>5674</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+      <default-expression>&apos;Android&apos;::character varying</default-expression>
+    </column>
+    <column id="99" parent="34" name="os_version">
+      <state-number>5674</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="100" parent="34" name="baseband_version">
+      <state-number>5674</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="101" parent="34" name="brand">
+      <state-number>5674</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="102" parent="34" name="model">
+      <state-number>5674</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="103" parent="34" name="phone_number">
+      <state-number>5674</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="104" parent="34" name="id_cisco_asa">
+      <state-number>5674</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="105" parent="34" name="screen_size">
+      <state-number>5674</state-number>
+      <data-type>numeric|0</data-type>
+    </column>
+    <column id="106" parent="34" name="screen_resolution">
+      <state-number>5674</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="107" parent="34" name="camera">
+      <state-number>5674</state-number>
+      <data-type>numeric|0</data-type>
+    </column>
+    <column id="108" parent="34" name="sd_memory_card">
+      <state-number>5674</state-number>
+      <data-type>numeric|0</data-type>
+    </column>
+    <column id="109" parent="34" name="gmail_account">
+      <state-number>5674</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="110" parent="34" name="comments">
+      <state-number>5674</state-number>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="111" parent="34" name="status">
+      <state-number>5674</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>2</default-expression>
+    </column>
+    <column id="112" parent="34" name="created_at">
+      <state-number>5674</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="113" parent="34" name="updated_at">
+      <state-number>5674</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="114" parent="34" name="devices_pkey">
+      <object-id>19888</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="115" parent="34" name="index_devices_on_imei">
+      <object-id>19912</object-id>
+      <columns>imei</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="116" parent="34" name="devices_pkey">
+      <object-id>19889</object-id>
+      <columns>id</columns>
+      <underlying-index>devices_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="117" parent="35" name="id">
+      <state-number>5732</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;entity_rules_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="118" parent="35" name="entity_id">
+      <state-number>5679</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="119" parent="35" name="entity_type">
+      <state-number>5679</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="120" parent="35" name="rule_id">
+      <state-number>5679</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="121" parent="35" name="created_at">
+      <state-number>5679</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="122" parent="35" name="updated_at">
+      <state-number>5679</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="123" parent="35" name="entity_rules_pkey">
+      <object-id>19890</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="124" parent="35" name="index_entity_rules_on_entity_type_and_entity_id">
+      <object-id>19913</object-id>
+      <columns>entity_type
+entity_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="125" parent="35" name="index_entity_rules_on_rule_id">
+      <object-id>19914</object-id>
+      <columns>rule_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="126" parent="35" name="entity_rules_pkey">
+      <object-id>19891</object-id>
+      <columns>id</columns>
+      <underlying-index>entity_rules_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="127" parent="36" name="id">
+      <state-number>5733</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;installations_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="128" parent="36" name="application_id">
+      <state-number>5684</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="129" parent="36" name="app_version_id">
+      <state-number>5684</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="130" parent="36" name="device_id">
+      <state-number>5684</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="131" parent="36" name="version">
+      <state-number>5684</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="132" parent="36" name="status">
+      <state-number>5684</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="133" parent="36" name="created_at">
+      <state-number>5684</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="134" parent="36" name="updated_at">
+      <state-number>5684</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="135" parent="36" name="installations_pkey">
+      <object-id>19892</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="136" parent="36" name="index_installations_on_application_id">
+      <object-id>19916</object-id>
+      <columns>application_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="137" parent="36" name="index_installations_on_app_version_id">
+      <object-id>19915</object-id>
+      <columns>app_version_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="138" parent="36" name="index_installations_on_device_id">
+      <object-id>19917</object-id>
+      <columns>device_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="139" parent="36" name="index_installations_on_status">
+      <object-id>19918</object-id>
+      <columns>status</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="140" parent="36" name="installations_pkey">
+      <object-id>19893</object-id>
+      <columns>id</columns>
+      <underlying-index>installations_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="141" parent="36" name="fk_rails_cf3704cd97">
+      <object-id>19986</object-id>
+      <columns>application_id</columns>
+      <ref-key>~.applications.applications_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="142" parent="36" name="fk_rails_87764cb1a4">
+      <object-id>19976</object-id>
+      <columns>app_version_id</columns>
+      <ref-key>~.app_versions.app_versions_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="143" parent="36" name="fk_rails_316285dd54">
+      <object-id>19946</object-id>
+      <columns>device_id</columns>
+      <ref-key>~.devices.devices_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="144" parent="37" name="id">
+      <state-number>5734</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;permissions_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="145" parent="37" name="name">
+      <state-number>5689</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="146" parent="37" name="description">
+      <state-number>5689</state-number>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="147" parent="37" name="status">
+      <state-number>5689</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="148" parent="37" name="created_at">
+      <state-number>5689</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="149" parent="37" name="updated_at">
+      <state-number>5689</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="150" parent="37" name="permissions_pkey">
+      <object-id>19894</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="151" parent="37" name="index_permissions_on_name">
+      <object-id>19919</object-id>
+      <columns>name</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="152" parent="37" name="permissions_pkey">
+      <object-id>19895</object-id>
+      <columns>id</columns>
+      <underlying-index>permissions_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="153" parent="38" name="id">
+      <state-number>5735</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;policies_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="154" parent="38" name="type">
+      <state-number>5694</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="155" parent="38" name="name">
+      <state-number>5694</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="156" parent="38" name="description">
+      <state-number>5694</state-number>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="157" parent="38" name="status">
+      <state-number>5694</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>1</default-expression>
+    </column>
+    <column id="158" parent="38" name="created_at">
+      <state-number>5694</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="159" parent="38" name="updated_at">
+      <state-number>5694</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="160" parent="38" name="policies_pkey">
+      <object-id>19896</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="161" parent="38" name="policies_pkey">
+      <object-id>19897</object-id>
+      <columns>id</columns>
+      <underlying-index>policies_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="162" parent="39" name="role_id">
+      <state-number>5699</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="163" parent="39" name="user_id">
+      <state-number>5699</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="164" parent="39" name="created_at">
+      <state-number>5699</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="165" parent="39" name="updated_at">
+      <state-number>5699</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="166" parent="39" name="index_role_assignations_on_role_id_and_user_id">
+      <object-id>19920</object-id>
+      <columns>role_id
+user_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="167" parent="39" name="index_role_assignations_on_user_id_and_role_id">
+      <object-id>19921</object-id>
+      <columns>user_id
+role_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <foreign-key id="168" parent="39" name="fk_rails_4022870ffb">
+      <object-id>19956</object-id>
+      <columns>role_id</columns>
+      <ref-key>~.roles.roles_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="169" parent="39" name="fk_rails_12dabde428">
+      <object-id>19931</object-id>
+      <columns>user_id</columns>
+      <ref-key>~.users.users_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="170" parent="40" name="permission_id">
+      <state-number>5701</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="171" parent="40" name="role_id">
+      <state-number>5701</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="172" parent="40" name="created_at">
+      <state-number>5701</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="173" parent="40" name="updated_at">
+      <state-number>5701</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="174" parent="40" name="permission_id_role_id_index">
+      <object-id>19926</object-id>
+      <columns>permission_id
+role_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="175" parent="40" name="role_id_permission_id_index">
+      <object-id>19927</object-id>
+      <columns>role_id
+permission_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <foreign-key id="176" parent="40" name="fk_rails_4c101bb7e9">
+      <object-id>19961</object-id>
+      <columns>permission_id</columns>
+      <ref-key>~.permissions.permissions_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="177" parent="40" name="fk_rails_1c6056aabe">
+      <object-id>19936</object-id>
+      <columns>role_id</columns>
+      <ref-key>~.roles.roles_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="178" parent="41" name="id">
+      <state-number>5736</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;roles_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="179" parent="41" name="role">
+      <state-number>5703</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="180" parent="41" name="description">
+      <state-number>5703</state-number>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="181" parent="41" name="status">
+      <state-number>5703</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="182" parent="41" name="created_at">
+      <state-number>5703</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="183" parent="41" name="updated_at">
+      <state-number>5703</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="184" parent="41" name="roles_pkey">
+      <object-id>19898</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="185" parent="41" name="roles_pkey">
+      <object-id>19899</object-id>
+      <columns>id</columns>
+      <underlying-index>roles_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="186" parent="42" name="id">
+      <state-number>5737</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;rules_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="187" parent="42" name="policy_id">
+      <state-number>5708</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="188" parent="42" name="action">
+      <state-number>5708</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="189" parent="42" name="name">
+      <state-number>5708</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="190" parent="42" name="description">
+      <state-number>5708</state-number>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="191" parent="42" name="value">
+      <state-number>5708</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="192" parent="42" name="exception">
+      <state-number>5708</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="193" parent="42" name="status">
+      <state-number>5708</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>1</default-expression>
+    </column>
+    <column id="194" parent="42" name="created_at">
+      <state-number>5708</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="195" parent="42" name="updated_at">
+      <state-number>5708</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="196" parent="42" name="rules_pkey">
+      <object-id>19900</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="197" parent="42" name="index_rules_on_policy_id">
+      <object-id>19922</object-id>
+      <columns>policy_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="198" parent="42" name="rules_pkey">
+      <object-id>19901</object-id>
+      <columns>id</columns>
+      <underlying-index>rules_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="199" parent="42" name="fk_rails_830b105bbc">
+      <object-id>19971</object-id>
+      <columns>policy_id</columns>
+      <ref-key>~.policies.policies_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="200" parent="43" name="version">
+      <state-number>5713</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+    </column>
+    <index id="201" parent="43" name="unique_schema_migrations">
+      <object-id>19928</object-id>
+      <columns>version</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <column id="202" parent="44" name="user_id">
+      <state-number>5715</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="203" parent="44" name="user_group_id">
+      <state-number>5715</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="204" parent="44" name="created_at">
+      <state-number>5715</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="205" parent="44" name="updated_at">
+      <state-number>5715</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="206" parent="44" name="user_id_user_group_id_index">
+      <object-id>19930</object-id>
+      <columns>user_id
+user_group_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="207" parent="44" name="user_group_id_user_id_index">
+      <object-id>19929</object-id>
+      <columns>user_group_id
+user_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <foreign-key id="208" parent="44" name="fk_rails_3b51547778">
+      <object-id>19951</object-id>
+      <columns>user_id</columns>
+      <ref-key>~.users.users_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="209" parent="44" name="fk_rails_907311c958">
+      <object-id>19981</object-id>
+      <columns>user_group_id</columns>
+      <ref-key>~.user_groups.user_groups_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="210" parent="45" name="id">
+      <state-number>5738</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;user_groups_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="211" parent="45" name="name">
+      <state-number>5717</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="212" parent="45" name="description">
+      <state-number>5717</state-number>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="213" parent="45" name="status">
+      <state-number>5717</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>1</default-expression>
+    </column>
+    <column id="214" parent="45" name="created_at">
+      <state-number>5717</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="215" parent="45" name="updated_at">
+      <state-number>5717</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="216" parent="45" name="user_groups_pkey">
+      <object-id>19902</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="217" parent="45" name="index_user_groups_on_name">
+      <object-id>19923</object-id>
+      <columns>name</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="218" parent="45" name="user_groups_pkey">
+      <object-id>19903</object-id>
+      <columns>id</columns>
+      <underlying-index>user_groups_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="219" parent="46" name="id">
+      <state-number>5739</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;users_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="220" parent="46" name="username">
+      <state-number>5722</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar|0</data-type>
+      <default-expression>&apos;&apos;::character varying</default-expression>
+    </column>
+    <column id="221" parent="46" name="authentication_token">
+      <state-number>5722</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="222" parent="46" name="first_name">
+      <state-number>5722</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="223" parent="46" name="last_name">
+      <state-number>5722</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="224" parent="46" name="email">
+      <state-number>5722</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="225" parent="46" name="position">
+      <state-number>5722</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="226" parent="46" name="company_area">
+      <state-number>5722</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <column id="227" parent="46" name="sign_in_count">
+      <state-number>5722</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>0</default-expression>
+    </column>
+    <column id="228" parent="46" name="current_sign_in_at">
+      <state-number>5722</state-number>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="229" parent="46" name="last_sign_in_at">
+      <state-number>5722</state-number>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="230" parent="46" name="current_sign_in_ip">
+      <state-number>5722</state-number>
+      <data-type>inet|0</data-type>
+    </column>
+    <column id="231" parent="46" name="last_sign_in_ip">
+      <state-number>5722</state-number>
+      <data-type>inet|0</data-type>
+    </column>
+    <column id="232" parent="46" name="last_ad_sync_at">
+      <state-number>5722</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="233" parent="46" name="status">
+      <state-number>5722</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="234" parent="46" name="created_at">
+      <state-number>5722</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="235" parent="46" name="updated_at">
+      <state-number>5722</state-number>
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="236" parent="46" name="users_pkey">
+      <object-id>19904</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="237" parent="46" name="index_users_on_username">
+      <object-id>19925</object-id>
+      <columns>username</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="238" parent="46" name="index_users_on_authentication_token">
+      <object-id>19924</object-id>
+      <columns>authentication_token</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="239" parent="46" name="users_pkey">
+      <object-id>19905</object-id>
+      <columns>id</columns>
+      <underlying-index>users_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
   </database-model>
 </dataSource>

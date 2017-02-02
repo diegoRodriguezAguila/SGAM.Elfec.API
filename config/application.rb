@@ -1,12 +1,15 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
+require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
+require "active_job/railtie"
 require "active_record/railtie"
 require "action_controller/railtie"
-require "action_mailer/railtie"
+# require "action_mailer/railtie"
 require "action_view/railtie"
-require "sprockets/railtie"
+# require "action_cable/engine"
+# require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -28,6 +31,13 @@ module SGAMElfecWeb
     # config.i18n.default_locale = :de
     # don't generate RSpec tests for views and helpers
     # ActiveModel::Serializer.config.adapter = :json_api
+    config.api_only = true
+    config.autoload_paths << Rails.root.join('lib')
+    config.eager_load_paths << Rails.root.join('lib')
+    config.autoload_paths << Rails.root.join('app/messengers')
+    config.eager_load_paths << Rails.root.join('app/messengers')
+    config.autoload_paths << Rails.root.join('app/messengers/fcm')
+    config.eager_load_paths << Rails.root.join('app/messengers/fcm')
     I18n.available_locales = [:en, :es]
     config.encoding = "utf-8"
     config.time_zone = 'La Paz' # set default time zone to "La Paz" (UTC -4)
@@ -44,10 +54,6 @@ module SGAMElfecWeb
     end
 
     config.hashids = ActiveSupport::OrderedOptions.new
-
-    config.autoload_paths += %W(#{config.root}/lib)
-    config.autoload_paths += %W(#{config.root}/app/messengers)
-    config.autoload_paths += %W(#{config.root}/app/messengers/fcm)
     config.middleware.use Rack::ContentLength
   end
 end
