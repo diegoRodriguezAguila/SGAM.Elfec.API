@@ -21,7 +21,7 @@ module ActiveDirectoryUserHelper
   # @param [String] username
   # @param [String] password
   # @return [Boolean]
-  def authenticate(username, password)
+  def authenticate_user(username, password)
     conn = Net::LDAP.new(:host => SERVER, :port => PORT, :base => BASE,
                   :auth => {username: "#{username}@#{DOMAIN}", password: password, method: :simple})
     return false if username.empty? or password.empty?

@@ -1,6 +1,6 @@
 require 'spec_helper'
 #encoding: UTF-8
-describe Api::V1::SessionsController do
+describe Api::V1::AuthenticationController do
   describe 'POST #create' do
 
     before(:each) do

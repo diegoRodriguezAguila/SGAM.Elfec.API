@@ -1,7 +1,12 @@
 #encoding: UTF-8
-class Api::V1::SessionsController < ApplicationController
+class Api::V1::AuthenticationController < ApplicationController
+  skip_before_action :authenticate_request
 
-  def create
+  def authenticate
+    command = AuthenticateUser.call(params[:username], params[:password])
+    return render_error(command.errors, :unauthorized) unless command.success?
+    render json: AuthorizationToken.new(command.result)
+=begin
     user_username = params[:session][:username]
     user_password = params[:session][:password]
     user = user_username.present? && User.find_by(username: user_username)
@@ -12,7 +17,7 @@ class Api::V1::SessionsController < ApplicationController
     #simple_token_generator calls automatically to ensure_authentication_token
     user.save
     render json: user, show_token: true, include: %w(roles permissions), host: request.host_with_port, status: :ok
-
+=end
   end
 
   def destroy

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         get '/resources/:file_name', to: 'users#show_res_file', constraints: { :file_name => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ }
         get '/policy_rules', to: 'users#generate_policy_rules'
       end
+      post 'auth', to: 'authentication#authenticate'
       resources :sessions, :only => [:create, :destroy]
       resources :devices, :only => [:show, :index, :create, :update] do
         post '/gcm_token', to: 'gcm_tokens#create'

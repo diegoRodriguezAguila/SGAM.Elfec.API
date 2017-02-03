@@ -36,8 +36,8 @@ class User < ApplicationRecord
   # a nivel de postgres
   # @param [String] password
   # @return [Boolean]
-  def valid_password?(password)
-    authenticate(username, password)
+  def authenticate(password)
+    authenticate_user(username, password)
   end
 
   # Verifica si un usuario es creable por cierto usuario
