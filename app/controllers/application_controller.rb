@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Rack::Utils
   # Prevent CSRF attacks by raising an exception.
   before_action :authenticate_request, :check_header
   attr_reader :current_user
@@ -16,7 +17,8 @@ class ApplicationController < ActionController::Base
   end
 
   def render_error(errors, status)
-    render json: {errors: parse_errors(errors), status: status}, status: status
+    render json: {errors: parse_errors(errors),
+                  status: SYMBOL_TO_STATUS_CODE[status]}, status: status
   end
   #rescue_from ::Exception, with: :exception_handler, unless: Exceptions::ApiException
   rescue_from Exceptions::ApiException, with: :api_exception_handler
